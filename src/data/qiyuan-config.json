@@ -1,0 +1,13 @@
+{
+  "title": "栖苑的歌单",
+  "subtitle": "点击卡片复制点歌口令,回到直播间粘贴即可点歌",
+  "avatar": "https://i0.hdslb.com/bfs/face/71c6847721a32fbddb97eebcfe873f54ec2a38bd.jpg",
+  "bg": {
+    "mobile": "/bg/qiyuan/mobile_v1.png",
+    "desktop": "/bg/qiyuan/desktop_v1.jpg"
+  },
+  "orderTemplate": "点歌 {title} {singer}",
+  "streamerUrl": "https://space.bilibili.com/303246676",
+  "songsUpdatedAt": "2026-10-24",
+  "theme": "#AA99FF"
+}

@@ -1,0 +1,159 @@
+/**
+ * 设计 token —— 色彩系统遵循 antdv-next design.md(默认亮色主题):
+ * primary #1677FF,深色文字 #0958D9,选中底 #E6F4FF,中性色 rgba(0,0,0,α) 系。
+ * rgb 三元组写法便于 UnoCSS 以 rgb(var(--x) / alpha) 派生透明度。
+ * 布局与组件风格(大圆角卡片/唱片机/编号水印)为本站自有,不随 antd。
+ *
+ * --brand-strong:小字可读色(亮色 #0958D9 白底 ~4.7:1;暗色 #4096FF 暗底 ~5.1:1)
+ * --on-brand:品牌色填充上的文字色(对比 ~5:1)
+ */
+:root {
+  --brand: 23 119 255; /* #1677FF */
+  --brand-strong: 9 88 217; /* #0958D9,白底对比 ~4.7:1 */
+  --on-brand: 10 42 89; /* #0A2A59,品牌底上对比 ~5.5:1 */
+
+  --bg-base: 232 241 255; /* #E8F1FF 淡蓝页面底 */
+  --bg-card: 255 255 255;
+
+  /* 背景图过渡层:叠在背景图与内容之间,颜色与 bg-base 同源,
+     暗色模式取更深的底色且透明度更高(压得更暗) */
+  --bg-scrim: 235 242 255;
+  --bg-scrim-a: 0.5;
+  --text-primary: 31 31 31; /* #1F1F1F,antd on-surface */
+  --text-secondary: 89 89 89; /* #595959,antd on-surface-variant */
+  --border: 217 217 217; /* #D9D9D9 */
+
+  --error: 255 77 79;
+
+  --font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif;
+
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.dark {
+  --brand-strong: 64 150 255; /* #4096FF,暗底上对比 ~5.1:1 */
+
+  --bg-base: 13 20 33; /* #0D1421 蓝调深底 */
+  --bg-card: 22 27 40; /* #161B28 */
+
+  --bg-scrim: 9 14 26; /* 略深于 bg-base,压暗背景图 */
+  --bg-scrim-a: 0.6;
+  --text-primary: 226 230 235;
+  --text-secondary: 166 173 180;
+  --border: 66 66 66; /* #424242 */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 22px;
+  color: rgb(var(--text-primary));
+  background: rgb(var(--bg-base));
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.3s var(--ease-in-out);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* 浏览器默认给 <button>/<input> 画 outset/inset 边框,UnoCSS preflight 不重置它们,必须显式清掉 */
+button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+input {
+  border: 0;
+}
+
+/* 同理,UnoCSS preflight 不重置标题/段落的默认外边距(1em),全部清零,间距由工具类控制 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* 移动端紧凑筛选条进出场:下滑淡出收起,上滑滑入淡显 */
+.bar-enter-active,
+.bar-leave-active {
+  transition:
+    transform var(--motion-mid) var(--ease-out),
+    opacity var(--motion-mid) var(--ease-out);
+}
+.bar-enter-from,
+.bar-leave-to {
+  opacity: 0;
+  transform: translateY(-110%);
+}
+
+/* 隐藏横向滚动条(紧凑筛选条用) */
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 打乱顺序:卡片错峰抖动入场,表现随机感(--i 为错峰序号) */
+.grid-shuffling .song-card {
+  animation: card-shuffle 0.5s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+@keyframes card-shuffle {
+  0% {
+    opacity: 0.3;
+    transform: translateY(-12px) rotate(-2deg) scale(0.95);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(3px) rotate(1deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grid-shuffling .song-card {
+    animation: none;
+  }
+}
+
+/* Toast 进出场 */
+.toast-enter-active,
+.toast-leave-active {
+  transition:
+    opacity 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.toast-move {
+  transition: transform 0.2s var(--ease-out);
+}
