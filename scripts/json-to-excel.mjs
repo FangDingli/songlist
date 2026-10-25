@@ -4,10 +4,10 @@
  * 默认输出:public/streamers/<id>/songlist.xlsx
  *
  * 与 excel-to-json.mjs 互逆:
- * - 「歌曲列表」:歌名 | 歌手 | 语种 | 类型 | 付费
+ * - 「歌曲列表」:歌名 | 歌手 | 语种 | 类型 | 付费 | 歌切 | 备注
  *   - 类型 = genre(多值用中文分号分隔,页面端按分隔符拆成 tag)
  *   - 付费 = paid;无 paid 但有 sc 时合成「<sc>SC」
- *   - remark / video 两字段不在模板中,转换时丢弃(输出日志提示)
+ *   - 歌切 = video(BV 号)、备注 = remark,原样写回
  * - 「站点配置」:字段 | 填写内容 | 说明 | 备注,与模板同序;
  *   liveUrl / favicon 为模板外字段,追加在末尾仅供备份,重新导入时不会被读取
  */
@@ -59,19 +59,20 @@ const configPath = resolve(dataDir, 'config.json')
 const config = existsSync(configPath) ? read(configPath) : {}
 
 /* ---------- 歌曲列表 ---------- */
-const dropped = songs.filter((s) => s.remark || s.video).length
 const songRows = [
-  ['歌名', '歌手', '语种', '类型', '付费'],
+  ['歌名', '歌手', '语种', '类型', '付费', '歌切', '备注'],
   ...songs.map((s) => [
     s.title ?? '',
     s.singer ?? '',
     s.lang ?? '',
     s.genre ?? '',
     s.paid || (s.sc ? `${s.sc}SC` : ''),
+    s.video ?? '',
+    s.remark ?? '',
   ]),
 ]
 const songsWs = XLSX.utils.aoa_to_sheet(songRows)
-songsWs['!cols'] = [{ wch: 30 }, { wch: 22 }, { wch: 10 }, { wch: 20 }, { wch: 10 }]
+songsWs['!cols'] = [{ wch: 30 }, { wch: 22 }, { wch: 10 }, { wch: 20 }, { wch: 10 }, { wch: 18 }, { wch: 20 }]
 
 /* ---------- 站点配置 ---------- */
 const getPath = (obj, path) => path.split('.').reduce((o, k) => o?.[k], obj)
@@ -97,4 +98,3 @@ mkdirSync(dirname(outPath), { recursive: true })
 XLSX.writeFile(wb, outPath)
 
 console.log(`✓ 已写出 ${outPath}:歌曲 ${songs.length} 首,站点配置 ${configRows.length - 1} 行`)
-if (dropped) console.log(`  注意:${dropped} 首歌曲的 remark/video 字段不在 excel 模板中,已丢弃。`)

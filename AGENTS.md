@@ -98,10 +98,10 @@
 - 观众在国内:部署走 Cloudflare + 自定义域名(见 docs/deploy.md),不要引入会被墙的运行时依赖
 - 主播 excel 模板在 `public/songlist.xlsx`(首页提供下载,含「歌曲列表」「站点配置」
   两个工作表),表头与字段名不可改
-- 转换脚本:`scripts/excel-to-json.mjs <excel> <id>`(类型列原样存 genre,
-  歌手分隔符统一为顿号,「付费」列原样存 paid);
+- 转换脚本:`scripts/excel-to-json.mjs <excel> <id>`(类型列原样存 genre,「付费」列
+  原样存 paid,「歌切」「备注」列原样存 video/remark,歌手分隔符统一为顿号);
   `scripts/json-to-excel.mjs <id> [输出路径]`(反向转换,与 excel-to-json 互逆:
-  genre 原样写回「类型」列、sc 合成为「<n>SC」、remark/video 丢弃);
+  genre 原样写回「类型」列、sc 合成为「<n>SC」、video/remark 写回「歌切」「备注」);
   `scripts/songlistcc-to-json.mjs <json> <id>`(songlist.cc 导出格式,
   含 backColor 梯度派生主题色、pay/guard/gift 组合付费标记、#FFEBCD 视为默认色)
 - 页脚制作人员为固定文案(写在 App.vue footer),不走配置

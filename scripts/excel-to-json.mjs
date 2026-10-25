@@ -4,10 +4,11 @@
  * 输出:data-local/streamers/<id>/songs.json + config.json(发布用 publish 脚本)
  *
  * 模板含两个工作表(表头/字段名不可修改):
- * - 「歌曲列表」:歌名 | 歌手 | 语种 | 类型 | 备注(可选)
+ * - 「歌曲列表」:歌名 | 歌手 | 语种 | 类型 | 付费 | 歌切 | 备注
  *   - 类型:多值用中英文分号分隔,整串存入 genre,页面按分隔符拆成 tag
  *   - 歌手:顿号、中英文分号、& 均可识别,输出统一为顿号
  *   - 付费:有值表示点歌需要付费/SC(如「30SC」「舰长」),原样存入 paid
+ *   - 歌切:B 站视频 BV 号,原样存入 video;备注:原样存入 remark
  * - 「站点配置」:字段 | 填写内容 两列,生成 config.json(meta)
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -65,10 +66,12 @@ for (const row of XLSX.utils.sheet_to_json(songsSheet, { defval: '' })) {
     lang: str(row['语种']) || '未知',
     genre: str(row['类型']),
     paid: remark || undefined,
+    video: str(row['歌切']) || undefined,
+    remark: str(row['备注']) || undefined,
   })
 }
 if (!songs.length) {
-  console.error('没有解析到有效歌曲(检查「歌曲列表」表头是否为:歌名/歌手/语种/类型/付费)')
+  console.error('没有解析到有效歌曲(检查「歌曲列表」表头是否为:歌名/歌手/语种/类型/付费/歌切/备注)')
   process.exit(1)
 }
 
