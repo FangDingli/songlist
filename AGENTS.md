@@ -15,12 +15,13 @@
 
 ## 主播与数据模型
 
-- 主播 id = URL 路径段(`example.com/<id>`),由 `src/utils/streamer.ts` 解析;
+- 主播 id = URL 路径段(`example.com/<id>`,支持中文,解码后匹配),由
+  `src/utils/streamer.ts` 解析;
   根路径 `/` 返回 null 渲染介绍页,数据不存在的 id 显示「没有找到主播」空态;
   默认主播 `config.ts` 的 `DEFAULT_STREAMER_ID`(`qiyuan`)有打包内置数据首屏零等待
 - 每主播两个文件:`public/streamers/<id>/config.json`(meta:标题/副标题/头像/
   背景图/口令模板/主题色/主播主页/页脚 credits)+ `public/streamers/<id>/songs.json`
-  (远端原生结构数组:title/singer/lang/genre/style/sc/remark)
+  (远端原生结构数组:title/singer/lang/genre/style/sc/paid/remark/video)
 - `id`(歌曲)由 `src/utils/songs.ts` 的 `withIds` 运行时按行序生成,与外部编号解耦
 - 展示 tag 由 `songTags()` 从 genre+style 实时合并拆分,无需改组件
 - 加新主播 = 加 `public/data/<id>.json` + 背景图 → Worker `UPSTREAMS` 加一行
@@ -77,4 +78,6 @@ UnoCSS 用 `rgb(var(--x))` 引用,组件里不需要写 `dark:` 变体。
 - 主播 excel 模板在 `public/songlist.xlsx`(首页提供下载),表头不可改;
   转换脚本 `scripts/excel-to-json.mjs`:类型列原样存 genre(songTags 拆分展示),
   歌手分隔符统一为顿号,备注匹配「30SC」提取为 sc 数值、原文存 remark
+- 转换脚本:excel 模板用 `scripts/excel-to-json.mjs`;songlist.cc 导出的 json
+  用 `scripts/songlistcc-to-json.mjs`(含 backColor 梯度派生、pay/guard/gift 组合付费标记)
 - 提交信息与代码注释用中文

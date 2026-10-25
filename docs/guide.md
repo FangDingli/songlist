@@ -16,13 +16,19 @@
   "bg": { "mobile": "/bg/<id>/mobile.png", "desktop": "/bg/<id>/desktop.jpg" },
   "orderTemplate": "点歌 {title} {singer}",
   "streamerUrl": "https://space.bilibili.com/主播uid",
+  "liveUrl": "https://live.bilibili.com/直播间id",
+  "favicon": "https://favicon地址.ico",
   "theme": "#1677FF",
   "songsUpdatedAt": "2026-10-24",
   "credits": [{ "label": "名字", "href": "链接", "note": "备注" }]
 }
 ```
 
-   所有字段均可省略,省略时用默认值;背景图放 `public/bg/<id>/`。
+   所有字段均可省略,省略时用默认值;背景图放 `public/bg/<id>/`;
+  favicon 缺省时使用头像;`songsUpdatedAt` 由转换脚本自动写入,驱动页脚日期。
+
+  侧栏「生成二维码」按钮可为当前主播页生成二维码(中间嵌头像),支持下载 PNG,
+  供直播时展示给观众扫码进入。
 3. **访问**:提交推送后 `example.com/<id>` 即可访问。子域方案另行加 DNS 与域名绑定。
 
 > 根路径 `example.com/` 是系统介绍页(源码 `src/components/LandingPage.vue`,

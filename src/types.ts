@@ -30,6 +30,10 @@ export interface StreamerMeta {
   orderTemplate?: string
   /** 唱片机点击跳转的主播主页 */
   streamerUrl?: string
+  /** 直播间链接(来自 roomId) */
+  liveUrl?: string
+  /** 站点 favicon,缺省使用头像 */
+  favicon?: string
   /** 主题种子色(hex),派生配色自动计算;缺省用默认 #1677FF */
   theme?: string
   /** 歌曲数据更新日期,显示在页脚 */

@@ -87,6 +87,13 @@ function deriveSeed(backColor) {
 
 const GUARD_NAMES = { 1: '舰长', 2: '提督', 3: '总督' }
 
+/** 礼物字典的值可能是字符串或 {name, icon} 对象,统一取礼物名 */
+function giftName(dict, id) {
+  const g = dict[String(id)]
+  if (!g) return `礼物#${id}`
+  return typeof g === 'string' ? g : str(g.name) || `礼物#${id}`
+}
+
 const root = JSON.parse(readFileSync(jsonPath, 'utf8'))
 const data = root.data ?? root
 
@@ -104,6 +111,17 @@ const themeSeed = deriveSeed(data.backColor)
 if (themeSeed) config.theme = themeSeed
 if (str(data.command)) config.orderTemplate = `${str(data.command)} {title} {singer}`
 if (data.uid) config.streamerUrl = `https://space.bilibili.com/${data.uid}`
+if (data.roomId) config.liveUrl = `https://live.bilibili.com/${data.roomId}`
+// 站点配置中的静态资源是相对文件名时无法还原完整地址,仅接受完整 URL
+for (const [key, path] of [['icon', 'favicon'], ['backImage', 'bg.desktop'], ['mobileBackImage', 'bg.mobile']]) {
+  const v = str(data[key])
+  if (/^https?:\/\//.test(v)) {
+    const keys = path.split('.')
+    let obj = config
+    keys.slice(0, -1).forEach((k) => (obj = obj[k] ??= {}))
+    obj[keys.at(-1)] = v
+  }
+}
 config.songsUpdatedAt = today
 
 /* ---------- songs ---------- */
@@ -118,7 +136,7 @@ for (const item of data.songs ?? []) {
   if (Number.isFinite(pay) && pay > 0) paidParts.push(`${pay % 1 === 0 ? Math.round(pay) : pay}SC`)
   const guard = num(item.guard)
   if (Number.isFinite(guard) && guard > 0) paidParts.push(GUARD_NAMES[guard] ?? `大航海${guard}`)
-  if (item.gift) paidParts.push(str(giftDict[String(item.gift)]) || `礼物#${item.gift}`)
+  if (item.gift) paidParts.push(giftName(giftDict, item.gift))
 
   songs.push({
     title,

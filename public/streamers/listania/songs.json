@@ -1,0 +1,7933 @@
+[
+  {
+    "title": "11",
+    "singer": "队长&黄礼格",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "123木头人",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "123我爱你",
+    "singer": "新乐尘府",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "1022比尔的歌",
+    "singer": "bomb比尔",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "3611",
+    "singer": "陈子晴",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "52",
+    "singer": "阿yueyue",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "alone",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "A.I.N.Y.",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Attention",
+    "singer": "Charlie Puth",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "埃及方块",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "暧昧",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱",
+    "singer": "莫文蔚",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱殇",
+    "singer": "小时姑娘",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "爱人啊",
+    "singer": "张杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱，存在",
+    "singer": "夏花-魏奇奇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱的供养",
+    "singer": "杨幂",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱的魔法",
+    "singer": "金莎",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱人错过",
+    "singer": "告五人",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱丫爱丫",
+    "singer": "by2",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "爱情公寓"
+  },
+  {
+    "title": "爱情讯息",
+    "singer": "郭静",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱如潮水",
+    "singer": "张信哲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱不会绝迹",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱的回归线",
+    "singer": "陈韵若",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱什么稀罕",
+    "singer": "张惠妹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱情专属权",
+    "singer": "龙梅子/老猫",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱过你这件事",
+    "singer": "西柚",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱了很久的朋友",
+    "singer": "田馥甄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱与谎言的赞歌",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "艾蜜莉",
+    "singer": "回春丹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "安河桥",
+    "singer": "宋东野",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "暗香",
+    "singer": "沙宝亮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "啊！美丽卡洛",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "阿司匹林",
+    "singer": "王以太",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "RAP"
+  },
+  {
+    "title": "阿楚姑娘",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "阿拉斯加海湾",
+    "singer": "菲道尔",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "bleed my heart dry",
+    "singer": "",
+    "lang": "英语",
+    "genre": "ACG"
+  },
+  {
+    "title": "Breathe in... breathe out",
+    "singer": "林忆莲",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "拜无忧",
+    "singer": "萧忆情",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "白鸽",
+    "singer": "你的上好佳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "白羊",
+    "singer": "徐秉龙/沈以诚",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "白白的",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "白石溪",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "白衣少年",
+    "singer": "sing女团",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "白忆之丘",
+    "singer": "祈Inory",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "白鸟过河滩",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "白月光与朱砂痣",
+    "singer": "大籽",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "百鬼夜行",
+    "singer": "音频怪物",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "百年孤寂",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "百万个吻",
+    "singer": "陈明真",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球",
+    "video": "BV1g84y1G7LY"
+  },
+  {
+    "title": "百战成诗",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "帮主夫人",
+    "singer": "少年霜",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "伴我",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "半故",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "半梦",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "半醒",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "半壶纱",
+    "singer": "刘珂矣",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "半面妆",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "半句再见",
+    "singer": "孙燕姿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "半道英雄",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "宝瓶星云",
+    "singer": "流浪声乐生",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "八重回归",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "巴赫旧约",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "把你还给人海",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "芭蕉夜雨",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "霸王别姬",
+    "singer": "薛之谦/张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "北国之春",
+    "singer": "千昌夫",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "北京巷弄",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "悲伤的李白",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "悲伤的五个步骤",
+    "singer": "艾薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "背对背拥抱",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "贝加尔湖畔",
+    "singer": "李健",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "本色",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "变成回忆",
+    "singer": "单色凌/本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "编号89757",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "表演时间",
+    "singer": "本兮/谭炜星",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "别赋",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "别问很可怕",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "别找我麻烦",
+    "singer": "蔡健雅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "别再问我什么是迪斯科",
+    "singer": "张蔷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "冰柜",
+    "singer": "许嵩/黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "病名は愛だった",
+    "singer": "Neru&z'5",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "病变BINGBIAN",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "壁上观",
+    "singer": "张曦匀",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "彼岸",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "比天高",
+    "singer": "兰音Reine",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "伯虎说",
+    "singer": "伯爵Johnny/唐伯虎Annie",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "泊舟借梦",
+    "singer": "镜予歌/喧笑/陈亦洺",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "不该",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不堪",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不良",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧",
+    "remark": "病名为爱"
+  },
+  {
+    "title": "不论",
+    "singer": "阿YueYue",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不染",
+    "singer": "毛不易",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "不散",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "不舍",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不枉",
+    "singer": "汪小敏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不好听",
+    "singer": "徐良/Britneylee小暖",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "不可说",
+    "singer": "苏运莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不老梦",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "不谓侠",
+    "singer": "萧忆情Alex",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "上舰可选"
+  },
+  {
+    "title": "不问天",
+    "singer": "说说Crystal",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "不系舟",
+    "singer": "sing女团",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "不值得",
+    "singer": "梦飞船",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不同凡想",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不写情歌",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "不得不爱",
+    "singer": "潘玮柏/弦子",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不负时光",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "不亏不欠",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不染长安",
+    "singer": "叶里",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "不朽之罪",
+    "singer": "双笙/玄觞",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "不醉不会",
+    "singer": "田馥甄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不分手的恋爱",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不仅仅是喜欢",
+    "singer": "孙语赛/萧全",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不正常恋爱物语",
+    "singer": "冥月/Mario",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "不安灵魂收容所",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "布娃娃cryptolalia",
+    "singer": "双笙",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "cynic",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "Cinderella",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "call me maybe",
+    "singer": "Carly Rae Jepsen",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "Cast Me a Spell",
+    "singer": "Mili/魔法使いの約束",
+    "lang": "英语",
+    "genre": "ACG"
+  },
+  {
+    "title": "彩虹",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "长发公主"
+  },
+  {
+    "title": "彩虹节拍",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "彩色的黑",
+    "singer": "吉克隽逸",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "彩色复活券",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "彩虹糖的梦",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球",
+    "video": "BV1Xx42127pV",
+    "remark": "斗破苍穹"
+  },
+  {
+    "title": "才二十三",
+    "singer": "方大同",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "采茶纪",
+    "singer": "双笙",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "沧海飞尘",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "苍蝇",
+    "singer": "赤羽",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "参商",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "曹操",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "侧脸",
+    "singer": "于果",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "拆穿",
+    "singer": "小霞",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "朝露吟",
+    "singer": "玉璇玑/诗二酒",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "潮汐",
+    "singer": "安苏羽/傅梦彤",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "成双",
+    "singer": "谭晶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "尘埃",
+    "singer": "家家",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "敕勒歌",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "痴梦李贺",
+    "singer": "杨子",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "赤伶",
+    "singer": "HITA",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "魑魅魍魉",
+    "singer": "茶理理理子",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "崇拜",
+    "singer": "梁静茹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "丑八怪",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "抽离",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "传奇",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "穿林响",
+    "singer": "陈抒妮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "吹梦到西洲",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "吹灭小山河",
+    "singer": "司南",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "春不渡",
+    "singer": "妖扬",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "春天的芭蕾",
+    "singer": "常思思",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "纯妹妹",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蠢货-喻言",
+    "singer": "喻言",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蠢货-小霞",
+    "singer": "小霞",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "初见",
+    "singer": "叶里",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "此去半生",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "从别后",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "匆匆那年",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "寸心笑傲",
+    "singer": "绯村柯北",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "错季",
+    "singer": "秋原依",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "错位节拍",
+    "singer": "单色凌",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "错位时空",
+    "singer": "艾辰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Devotion",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "DRAMA KiNGs",
+    "singer": "戏骨",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "diamond city light",
+    "singer": "LazuLight",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "despacito x shape of you",
+    "singer": "Pentatonix",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "带我离开",
+    "singer": "BY2",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "当你",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "当风过境",
+    "singer": "泛音堂/人衣大人",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "挡我者是我",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "丹青客",
+    "singer": "HITA",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "倒流时间",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "悼念爱",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "稻香",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大火",
+    "singer": "李佳薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大眠",
+    "singer": "王心凌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大雾",
+    "singer": "张一乔",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大喜",
+    "singer": "泠鸢yousa",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大雪",
+    "singer": "王梓钰/音阙诗听",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "大鱼",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大氿歌",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "大雨将至",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大浪淘沙",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "大小姐与大少爷的反派生涯",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "打开",
+    "singer": "黄霄云",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "打上花火",
+    "singer": "米津玄师/DAOKO",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "达尔文",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "达拉崩吧",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "等",
+    "singer": "呆呆破",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "等雨",
+    "singer": "糯米Nomi",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "典狱司",
+    "singer": "音频怪物",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "点一盏无聊的小夜灯",
+    "singer": "杨丞琳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "电话里的秘密",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "踮起脚尖爱",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蝶变",
+    "singer": "单色凌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "低潮期",
+    "singer": "丁世光",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "地久",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "底牌",
+    "singer": "段弋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "第二颗子弹",
+    "singer": "戴羽彤",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "东流",
+    "singer": "绯村柯北",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "东风志",
+    "singer": "Aki阿杰",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "东风第一枝",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "东京不太热",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "冬眠",
+    "singer": "司南",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "冻结",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "懂事",
+    "singer": "黄霄云",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "对玄机",
+    "singer": "任然/王梓钰",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "堕",
+    "singer": "Zyboy忠宇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "堕虚",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "多幸运",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "多情岸",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "多情种",
+    "singer": "胡杨林",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "独我",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "读秒",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "echo",
+    "singer": "GUMI",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "EXCITE",
+    "singer": "三浦大知",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "Euterpe",
+    "singer": "EGOIST",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "欧忒耳佩"
+  },
+  {
+    "title": "Eutopia",
+    "singer": "鐘嵐珠",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "乌托邦"
+  },
+  {
+    "title": "everytime you kissed me",
+    "singer": "Emily Bindiger/梶浦由記",
+    "lang": "英语",
+    "genre": "流行",
+    "remark": "潘多拉之心插曲"
+  },
+  {
+    "title": "二十二",
+    "singer": "陶喆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "二重变革",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "恶人是我",
+    "singer": "茶理理理子",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Faded",
+    "singer": "Alan Walker",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "fly away",
+    "singer": "梁静茹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "First Love",
+    "singer": "宇多田光",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "放鹤亭",
+    "singer": "小坠",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "放任荒凉",
+    "singer": "任然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "凡人",
+    "singer": "段奥娟",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "犯贱",
+    "singer": "徐良/阿悄",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "繁华梦",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "繁华唱遍",
+    "singer": "乐正绫",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "发如雪",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "扉をあけて",
+    "singer": "ANZA",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "百变小樱"
+  },
+  {
+    "title": "飞鸟说",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "飞机场",
+    "singer": "徐良/小凌",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "飞萤燃夜",
+    "singer": "星尘",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "飞鸟与鱼",
+    "singer": "齐豫",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "飞鸟和蝉",
+    "singer": "任然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "飞鸟和她",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "飞云之下",
+    "singer": "林俊杰/韩红",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "飞机场的10：30",
+    "singer": "陶喆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "凤凰于飞",
+    "singer": "刘欢",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "枫叶城",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "讽刺的情书",
+    "singer": "田馥甄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "逢场作戏",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "逢雪怜牡丹",
+    "singer": "洛少爷",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "风月",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "风华诀",
+    "singer": "樱九",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "风情师",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "风起天阑",
+    "singer": "河图",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "风与飞鸟",
+    "singer": "喵☆酱",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "风华燃尽指间砂",
+    "singer": "少司命",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "分身",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "焚秋色",
+    "singer": "封茗囧菌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "粉红色的回忆",
+    "singer": "韩宝仪",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "佛系少女",
+    "singer": "冯提莫",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "副温度",
+    "singer": "关诗敏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "扶桑安魂曲",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "隐形守护者"
+  },
+  {
+    "title": "浮生未歇",
+    "singer": "音频怪物",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "腐草为萤",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "赴火",
+    "singer": "唐九夏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "赴鸿门",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "god is a girl",
+    "singer": "Groove Coverage",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "干物女",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "感官失灵",
+    "singer": "Bo Peep",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "感官先生",
+    "singer": "刘凤瑶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "敢归云间宿",
+    "singer": "三无Marblue",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "告白气球",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "搁浅",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "歌者",
+    "singer": "谭维维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "隔烟水",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "公主殿下",
+    "singer": "崔洋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "怪咖",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "光",
+    "singer": "茶理理理子",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "光",
+    "singer": "陈粒",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "光的方向",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "光年之外",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "广寒宫",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "关键词",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "关机又关机",
+    "singer": "YangYang",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "冠世一战",
+    "singer": "言和",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "归零",
+    "singer": "林忆莲",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "归一",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "归去来",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "皈依",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "剑网三"
+  },
+  {
+    "title": "诡计",
+    "singer": "金渔",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "国境四方",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "过期少女致幻录",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "孤雏",
+    "singer": "AGA",
+    "lang": "粤语",
+    "genre": "流行"
+  },
+  {
+    "title": "孤岛",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "孤帆",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "孤月",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "孤勇者",
+    "singer": "陈奕迅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "孤独娱乐",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "孤竹遗梦",
+    "singer": "双笙",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "故梦",
+    "singer": "橙翼",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "故人叹",
+    "singer": "吴琼",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "蛊梦",
+    "singer": "橙翼",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "海藏",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "海底",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "海棠",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "海沙画",
+    "singer": "单色凌",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "海座头",
+    "singer": "泠鸢yousa/西瓜kune",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "海星人鱼",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "海市蜃楼",
+    "singer": "一颗狼星",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "海之礼赞",
+    "singer": "洛维娜",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "还你茉莉",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "还可以爱吗",
+    "singer": "黄霄云",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "还有什么更好的",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "好汉歌",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "好想你",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "好想好想",
+    "singer": "古巨基",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "好想爱这个世界啊",
+    "singer": "华晨宇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "黑暗审判",
+    "singer": "赛科尔·路普",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "何以歌",
+    "singer": "Aki阿杰",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "和你",
+    "singer": "余佳运",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "和平分手",
+    "singer": "徐良/小暖",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "河",
+    "singer": "魏晗",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "褐瞳",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "紅蓮華",
+    "singer": "Lisa",
+    "lang": "日语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "红豆",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红颜",
+    "singer": "胡彦斌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红装",
+    "singer": "徐良/阿悄",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "红颜",
+    "singer": "丁当",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红玫瑰",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红颜旧",
+    "singer": "刘涛",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红叶寺",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红昭愿",
+    "singer": "王梓钰/音阙诗听",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "红颜若雪",
+    "singer": "少司命",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "红-肥皂菌",
+    "singer": "肥皂菌/珉珉的猫咪",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红-江映蓉",
+    "singer": "江映蓉",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "《隐形守护者》"
+  },
+  {
+    "title": "红色高跟鞋",
+    "singer": "蔡健雅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "红-赖仔Morris",
+    "singer": "赖仔Morris",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "虹之间",
+    "singer": "金贵晟",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "后继者",
+    "singer": "任然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "后会无期",
+    "singer": "徐良/汪苏泷",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "坏女孩",
+    "singer": "徐良/小凌",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "坏事能拖一天算一天",
+    "singer": "郁一凡",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "恍然大悟",
+    "singer": "糯米Nomi",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "荒漠",
+    "singer": "云汐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "谎颜",
+    "singer": "苏诗丁",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1K34y1K74X",
+    "remark": "氪星杯现场"
+  },
+  {
+    "title": "黄昏的挽歌",
+    "singer": "尤诺•阿斯克尔",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "欢颜",
+    "singer": "齐豫",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "缓释胶囊",
+    "singer": "莫非定律乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "化鹤归",
+    "singer": "司夏",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "化身孤岛的鲸",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "华胥引",
+    "singer": "河图",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "画皮",
+    "singer": "纸砚",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "画情",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "画沙",
+    "singer": "袁咏琳/周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "画心",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "画千娇",
+    "singer": "江源东",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "画中仙",
+    "singer": "金莎",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "画中来",
+    "singer": "黄霄雲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "画骨成沙",
+    "singer": "樱九",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "花旦",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "花虹",
+    "singer": "瑞亚•特纳（云之泣）",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "花头台",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "花亦山",
+    "singer": "音阙诗听/赵方婧",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "花烛夜",
+    "singer": "杨默依Moi",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "花儿纳吉",
+    "singer": "洛天依/言和",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "会呼吸的痛",
+    "singer": "梁静茹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "挥着翅膀的女孩",
+    "singer": "容祖儿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "灰色",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "混沌",
+    "singer": "流月",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "混入人类计划",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "火烧的寂寞",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "呼吸决定",
+    "singer": "Fine乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "忽而今夏",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "忽远忽近",
+    "singer": "王唯一",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "胡桃嗷",
+    "singer": "哦呼w",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "胡桃夹子",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "I know you",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "insulation",
+    "singer": "ClessS",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "iron crown",
+    "singer": "洛萱",
+    "lang": "国语",
+    "genre": "ACG",
+    "paid": "星愿水晶球",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "into the unknown",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行",
+    "remark": "冰雪奇缘2"
+  },
+  {
+    "title": "I know you were trouble",
+    "singer": "Taylor Swift",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "Judge me",
+    "singer": "孙盛希",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Just One Last Dance",
+    "singer": "Sarah Connor",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "匠心",
+    "singer": "奇然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "江南",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "江山雪",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "剑网三"
+  },
+  {
+    "title": "江河尽头",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时空中的绘旅人"
+  },
+  {
+    "title": "讲真的",
+    "singer": "摩登兄弟",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "剑魂",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "剑伤",
+    "singer": "李易峰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "剑心",
+    "singer": "张杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "剑与雪",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "煎熬",
+    "singer": "李佳薇",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "见南山",
+    "singer": "Winky诗",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "皎然记",
+    "singer": "司夏",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "鲛人之歌",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "假装",
+    "singer": "蔡依林",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "假如爱有天意",
+    "singer": "李健",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "加油最卖力的女同学",
+    "singer": "桑拿猫黑糖/洛天依",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "嘉宾",
+    "singer": "张远",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "戒你",
+    "singer": "陶心瑶",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1kP411t7wp",
+    "remark": "氪星杯现场"
+  },
+  {
+    "title": "界",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "睫毛弯弯",
+    "singer": "王心凌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "解释",
+    "singer": "陈柯宇/魏晗",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "解梦人",
+    "singer": "李上安",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "惊鹊",
+    "singer": "忘川风华录",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "惊蛰",
+    "singer": "王梓钰/音阙诗听",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "惊鸿舞",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "惊鸿一面",
+    "singer": "许嵩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "镜中渊",
+    "singer": "周林枫",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "鲸语",
+    "singer": "刘至佳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "今后我与自己流浪",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "今天雷雨北风4-5级",
+    "singer": "不靠谱组合/丁芙妮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "禁区",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "金鳞甲",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "金缕衣",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "金玉良缘",
+    "singer": "李琦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "锦鲤抄",
+    "singer": "云の泣/银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "九儿",
+    "singer": "谭晶",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "九万字",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "九张机",
+    "singer": "叶炫清",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "九天狂龙",
+    "singer": "ONER",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "九重现实",
+    "singer": "乐正绫/洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "九九八十一",
+    "singer": "乐正绫/洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "就让这大雨全都落下",
+    "singer": "容祖儿/汪苏泷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "酒家",
+    "singer": "小阿七",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "即使说抱歉",
+    "singer": "徐良/Meiodia",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "寂夜",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "寂寞先生",
+    "singer": "曹格",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "寂寞烟火",
+    "singer": "朱婧汐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "寂寞寂寞就好",
+    "singer": "田馥甄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "寄明月",
+    "singer": "SING女团",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "机械之心",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "极夜永昼",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "極楽浄土",
+    "singer": "GARNiDELiA",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "疾风剑豪",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "纪念",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "给电影人的情书",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "给我一个理由忘记",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "霁夜茶",
+    "singer": "小曲儿",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "绝美",
+    "singer": "艾薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "绝世舞姬",
+    "singer": "张曦匀/戚琦",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "诀爱",
+    "singer": "詹雯婷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "句号",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "kiss me more",
+    "singer": "Doja Cat",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "开往春天的地铁",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "看得最远的地方",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "看你交的什么朋友",
+    "singer": "万玲琳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "考试什么的都去死吧",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "靠近",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "卡路里",
+    "singer": "火箭少女101",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "刻在我心底的名字",
+    "singer": "卢广仲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "可期",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "可念不可说",
+    "singer": "崔子格",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "客官不可以",
+    "singer": "徐良/小凌",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "空心",
+    "singer": "光泽",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "空白格",
+    "singer": "蔡健雅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "快乐星猫",
+    "singer": "",
+    "lang": "国语",
+    "genre": "儿歌"
+  },
+  {
+    "title": "快快说爱我",
+    "singer": "李佳薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "旷世之交",
+    "singer": "小霞",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "傀",
+    "singer": "任然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "lovelove",
+    "singer": "蔡依林",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "letting go",
+    "singer": "蔡健雅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "love story",
+    "singer": "Taylor swift",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "love can fly",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "love you 3000",
+    "singer": "Stephanie Poetri",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "Life will change",
+    "singer": "目黑將司",
+    "lang": "英语",
+    "genre": "流行",
+    "remark": "P5主题曲之一"
+  },
+  {
+    "title": "love me like you do",
+    "singer": "Ellie Goulding",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "来自天堂的魔鬼",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "啷个哩个啷",
+    "singer": "鵬泊",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "浪费",
+    "singer": "林宥嘉",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "浪人琵琶",
+    "singer": "单色凌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "狼狈",
+    "singer": "公兔",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "老人与海",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "淚の理由",
+    "singer": "栗林みな実",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "眼泪的理由 School Days ED"
+  },
+  {
+    "title": "两相欢",
+    "singer": "音阙诗听/昆玉",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "凉凉",
+    "singer": "张碧晨/杨宗纬",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "良辰夜",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "怜悯",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "怜城辞",
+    "singer": "鹿晗",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "恋爱吧魔法少女",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "连名带姓",
+    "singer": "张惠妹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "劣根",
+    "singer": "魏如萱",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "另一个我",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "泠重祈愿",
+    "singer": "乐正绫",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "临水照花",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "淋雨一直走",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "六重不忠",
+    "singer": "洛天依/言和",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "流年",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "流沙",
+    "singer": "陶喆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "流光记",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "流光乐夜",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "流光乐夜",
+    "singer": "Hoshino/三无Marblue/冥月/岚AYA",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "琉璃月",
+    "singer": "杨幂",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "历劫成衣",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "历历万乡",
+    "singer": "陈粒",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "李白",
+    "singer": "李荣浩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "璃云月海",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "原神"
+  },
+  {
+    "title": "离歌",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "离心力",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "离人赋",
+    "singer": "云汐",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "离弦曲",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "笼",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "漏拍情话",
+    "singer": "邹沛沛",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "绿茶",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "绿罗裙",
+    "singer": "Angelababy",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "沦陷",
+    "singer": "王靖雯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "轮回之境",
+    "singer": "Critty",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "斗罗大陆动画"
+  },
+  {
+    "title": "洛维娜",
+    "singer": "洛维娜",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌project"
+  },
+  {
+    "title": "落花",
+    "singer": "林心如",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "落笔",
+    "singer": "张曦匀",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "落尘寰",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "落花情",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "泸沽寻梦",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "路过人间",
+    "singer": "郁可唯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "鹿港小镇",
+    "singer": "彭佳慧",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Moon halo",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行",
+    "remark": "崩坏3"
+  },
+  {
+    "title": "My Desyiny",
+    "singer": "",
+    "lang": "韩语",
+    "genre": "流行"
+  },
+  {
+    "title": "my heart will go on",
+    "singer": "Celine Dion",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "埋葬冬天",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "盲选",
+    "singer": "黄霄云",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "芒种",
+    "singer": "音阙诗听/赵方婧",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "慢慢喜欢你",
+    "singer": "莫文蔚",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "满月",
+    "singer": "陈思思",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "满江红",
+    "singer": "刘可",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "大宋提刑官"
+  },
+  {
+    "title": "满上十碗雪",
+    "singer": "蔡翊昇",
+    "lang": "国语",
+    "genre": "国风",
+    "video": "BV1v93izGE4V",
+    "remark": "《梦人间》游戏呼尔塔官方主题曲"
+  },
+  {
+    "title": "满天星辰不及你",
+    "singer": "Ycccc",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蚂蚁",
+    "singer": "Mario",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "梅香如故",
+    "singer": "周深/毛不易",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "没离开过",
+    "singer": "林志炫",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "没语季节",
+    "singer": "黄霄雲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "没那么简单",
+    "singer": "黄小琥",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "没握住的星",
+    "singer": "任然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "没了我你依然拥有太阳",
+    "singer": "黄霄云",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "玫瑰少年",
+    "singer": "周深/GAI",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1Bt421K7XY"
+  },
+  {
+    "title": "玫瑰与泪",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "玫瑰花的葬礼",
+    "singer": "许嵩",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "眉间雪",
+    "singer": "HITA",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "眉南边",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "美瞳",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "美人鱼",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "梦游",
+    "singer": "Fine乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "梦返",
+    "singer": "黄霄云",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "梦鱼",
+    "singer": "池鱼",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "梦黄粱",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "梦回还",
+    "singer": "呦猫UNEKO",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "梦里花",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "梦太晚",
+    "singer": "董贞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "梦的光点",
+    "singer": "王心凌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "梦在燃烧",
+    "singer": "汤子星",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "梦境与魔女",
+    "singer": "喵☆酱",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "蒙纱",
+    "singer": "新乐尘符/谣君",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蒙娜丽莎的眼泪",
+    "singer": "林志炫",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "免我蹉跎苦",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "面具",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "喵呜不帕",
+    "singer": "佑可猫",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "庙堂之外",
+    "singer": "陈楚生",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "命理难说",
+    "singer": "小曲儿",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "明知故问",
+    "singer": "单依纯/张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "明天你好",
+    "singer": "牛奶咖啡",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "明月天涯",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "明月星河",
+    "singer": "Franky",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "米兰的小铁匠",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蜜月アン・ドゥ・トロワ",
+    "singer": "鏡音リン",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "迷宫",
+    "singer": "单依纯/陶喆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "迷局",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "迷迭香",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "摩登爱情",
+    "singer": "刘至佳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "摩天动物园",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "末日派热舞",
+    "singer": "时之歌Project",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "模特",
+    "singer": "李荣浩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "漠河舞厅",
+    "singer": "柳爽",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蘑菇蘑菇",
+    "singer": "宝宝巴士",
+    "lang": "国语",
+    "genre": "儿歌"
+  },
+  {
+    "title": "暮色回响",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "木语",
+    "singer": "霍尊",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "木兰星",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "木偶戏",
+    "singer": "玥夏",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "木头的心",
+    "singer": "左颜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "nuit",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "Nightglow",
+    "singer": "蔡健雅",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "南墙",
+    "singer": "阿YueYue/熙月月",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "南门路上",
+    "singer": "薛诒丹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "男二号",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "难舍",
+    "singer": "张申骋",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "难渡",
+    "singer": "等什么君",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "难堪",
+    "singer": "fine乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "难却",
+    "singer": "平生不晚",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "难过233秒",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "哪里来的好人",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "拿走了什么",
+    "singer": "A-Lin",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "那些年",
+    "singer": "胡夏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "那又如何",
+    "singer": "应嘉俐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "那女孩对我说",
+    "singer": "黄义达",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "那女孩secret",
+    "singer": "初音未来",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "那些我无法原谅的事",
+    "singer": "洛天依/言和",
+    "lang": "国语",
+    "genre": "ACG",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "年轮",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "年轮说",
+    "singer": "杨丞琳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "年少有为",
+    "singer": "李荣浩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "念归去",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "鳥の詩",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "鸟之诗"
+  },
+  {
+    "title": "孽海记",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "凝眸",
+    "singer": "王心凌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "你听得到",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "你要的爱",
+    "singer": "戴佩妮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "你是我的风景",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "你跟我比夹夹",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "你还要我怎样",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "你吻了我这件小事",
+    "singer": "孟慧圆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "你在看孤独的风景",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "你是我年少求剑时刻的舟",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "虐心",
+    "singer": "徐良/孙羽幽",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "女骑士",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "女孩你为何踮脚尖",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "暖春",
+    "singer": "牛奶咖啡",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "暖冬",
+    "singer": "魏晗",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "One Last You",
+    "singer": "光田康典",
+    "lang": "英语",
+    "genre": "ACG",
+    "video": "BV1Dj411d7QJ",
+    "remark": "《异度神剑2》插曲"
+  },
+  {
+    "title": "Out Of Breath",
+    "singer": "Jared Lee",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "One Last Kiss",
+    "singer": "宇多田光",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "卢浮宫"
+  },
+  {
+    "title": "one night in shanghai",
+    "singer": "胡彦斌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "欧若拉",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "problem",
+    "singer": "Pentatonix",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "Por Una Cabeza",
+    "singer": "仝卓",
+    "lang": "西班牙语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "泡沫",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "偏爱",
+    "singer": "张芸京",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV19s4y1o7uB"
+  },
+  {
+    "title": "偏食",
+    "singer": "初音未来",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "骗我",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "漂白",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "平庸",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "平平仄仄",
+    "singer": "张曦匀",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "平安奇妙物语",
+    "singer": "泠鸢yousa",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "匹诺曹",
+    "singer": "谭维维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "破茧",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "斗罗大陆动画"
+  },
+  {
+    "title": "破裂",
+    "singer": "王梓钰/音阙诗听",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "破晓将至",
+    "singer": "瑞亚·特纳",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌Project"
+  },
+  {
+    "title": "普通朋友",
+    "singer": "陶喆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "菩萨蛮",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "枪魂",
+    "singer": "白止",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "枪恋",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧",
+    "remark": "游戏《MAT》主题曲"
+  },
+  {
+    "title": "前尘如梦",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "千古",
+    "singer": "许嵩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "千梦",
+    "singer": "Aki阿杰/HITA",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "千年缘",
+    "singer": "心然",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "千灯愿",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "千年泪",
+    "singer": "Tank",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "千樽雪",
+    "singer": "许多葵/蔡翊昇",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "千年之恋",
+    "singer": "丁当",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "千年之恋",
+    "singer": "F.I.R.飞儿乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "潜伏期",
+    "singer": "孙盛希",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "牵丝戏",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "芊芊",
+    "singer": "回音哥",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "恰好",
+    "singer": "霍尊",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "窃窃",
+    "singer": "兰音Reine",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "倾尽天下",
+    "singer": "河图",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "情结",
+    "singer": "呆呆破",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "情歌",
+    "singer": "梁静茹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "情花",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "情话",
+    "singer": "徐良/孙羽幽",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "情人劫",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "情深深雨濛濛",
+    "singer": "赵薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "清音",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "清风未老",
+    "singer": "Winky诗",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "请笃信一个梦",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "轻舞",
+    "singer": "陈抒妮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "轻涟",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1Qu4y1t76W",
+    "remark": "原神 - 芙宁娜PV"
+  },
+  {
+    "title": "轻轻",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "青白",
+    "singer": "银临/黄诗扶",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "青柠",
+    "singer": "徐秉龙/桃十五",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "青蛇",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "青花瓷",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "青藏高原",
+    "singer": "李娜",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "青鸟衔风",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "琴师",
+    "singer": "音频怪物",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "秦淮河边的陈年往事",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "秋绪",
+    "singer": "田井中彩智",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "秋意浓",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "秋殇别恋",
+    "singer": "格子兮",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "七重痼病",
+    "singer": "洛天依/言和",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "七秒钟的记忆",
+    "singer": "徐良/孙羽幽",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "凄美地",
+    "singer": "郭顶",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1oM4y197jL",
+    "remark": "初投稿"
+  },
+  {
+    "title": "奇妙能力歌",
+    "singer": "陈粒",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "栖凰",
+    "singer": "星尘/忘川风华录",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "祈りのメロディ",
+    "singer": "家入レオ",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "祈祷的旋律"
+  },
+  {
+    "title": "起风了",
+    "singer": "买辣椒也用券",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "全都是戏",
+    "singer": "张曦匀",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "权御天下",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "去明天",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "去人间",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "去追一只鹿",
+    "singer": "小时姑娘",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "去有风的地方",
+    "singer": "郁可唯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "娶",
+    "singer": "蔡鹤峰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Rubia",
+    "singer": "周深",
+    "lang": "英语",
+    "genre": "流行",
+    "remark": "崩坏3"
+  },
+  {
+    "title": "Run away",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "让她降落",
+    "singer": "何璐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "让风告诉你",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "让寂寞别走",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "染",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "人质",
+    "singer": "张惠妹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "人是_",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1qZ421g7cR"
+  },
+  {
+    "title": "人魚姫",
+    "singer": "Flower",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "人间不值得",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "人间惊鸿客",
+    "singer": "叶里",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "人间一两风",
+    "singer": "刘珂矣",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "人世终白首",
+    "singer": "月狸",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "魔道祖师"
+  },
+  {
+    "title": "热爱至上",
+    "singer": "河图/音频怪物/慕寒/HITA/小爱的妈/Aki阿杰/贰婶/橙翼",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "日御羲和",
+    "singer": "音阙诗听",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "揉碎夜的光",
+    "singer": "王靖雯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "若梦",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "若当来世",
+    "singer": "马里奥/冥月",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "狐妖小红娘OP2"
+  },
+  {
+    "title": "若我英年早逝",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "入阵曲",
+    "singer": "张曦匀",
+    "lang": "国语",
+    "genre": "国风",
+    "video": "BV1FhpFzkE3g"
+  },
+  {
+    "title": "入夜雪",
+    "singer": "小包Zerinn",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "入梦也",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "如此",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "如故",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "如愿",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "如若归来",
+    "singer": "萨顶顶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "如果爱忘了",
+    "singer": "戚薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "sonder",
+    "singer": "司南",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "sophia",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "starfall",
+    "singer": "袁娅维",
+    "lang": "英语",
+    "genre": "流行",
+    "video": "BV1pH4y1B7WB",
+    "remark": "崩坏3"
+  },
+  {
+    "title": "Stay Gold",
+    "singer": "宇多田光",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "STYX HILIX",
+    "singer": "MYTH&ROID",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "冥河螺旋 Re:0 ED"
+  },
+  {
+    "title": "Scarborough Fair",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行",
+    "remark": "斯卡布罗集市"
+  },
+  {
+    "title": "三人游",
+    "singer": "方大同",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "三月雨",
+    "singer": "泠鸢yousa",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "三国杀",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "三寸天堂",
+    "singer": "严艺丹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "三重恋爱",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "三拜红尘凉",
+    "singer": "尹昔眠",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "撒野",
+    "singer": "凯瑟喵",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "上城名媛",
+    "singer": "乐正绫",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "上善若水",
+    "singer": "braska",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "姗姗",
+    "singer": "金玟岐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "山鬼",
+    "singer": "Winky诗",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "山青",
+    "singer": "昆玉",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "山灵",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "山有木兮",
+    "singer": "伦桑",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "山止川行",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "扇子舞",
+    "singer": "蓝沁",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "少管我",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "少年狂想录",
+    "singer": "剑网3/JX3暗箱组合",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "剑网3"
+  },
+  {
+    "title": "杀破狼",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "沙文",
+    "singer": "林忆莲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "谁与歌",
+    "singer": "小时姑娘",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "谁主沉浮·千秋诉",
+    "singer": "梦璟SAYA",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "圣诞结",
+    "singer": "陈奕迅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "生",
+    "singer": "雨狸",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "生灯",
+    "singer": "辛雯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "生生",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "生命的河",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "生死一舞的爱语",
+    "singer": "星尘",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "盛夏光年",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "什么都浪漫",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "审判者",
+    "singer": "泽典",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "沈园外",
+    "singer": "阿YueYue/戾格/小田音乐社",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "深蓝",
+    "singer": "陈婧霏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "深い森",
+    "singer": "Do As Infinity",
+    "lang": "日语",
+    "genre": "流行",
+    "video": "BV1Pg4y1E7Hs",
+    "remark": "犬夜叉杀生丸"
+  },
+  {
+    "title": "深海游戏",
+    "singer": "雷雨心",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "深夜诗人",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "神鬼莫测",
+    "singer": "乐正绫",
+    "lang": "国语",
+    "genre": "ACG",
+    "video": "BV1U54y1c7w2"
+  },
+  {
+    "title": "神魂颠倒",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "神女劈观",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "神武雨霖铃",
+    "singer": "阿悄",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "神様の神様",
+    "singer": "ハナエ",
+    "lang": "日语",
+    "genre": "ACG",
+    "remark": "《元气少女缘结神》"
+  },
+  {
+    "title": "神的随波逐流",
+    "singer": "泠鸢yousa",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "神仙说他也不懂",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "身后",
+    "singer": "张惠妹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "身骑白马",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "舍得",
+    "singer": "王唯旖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "舍离断",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "蛇舞",
+    "singer": "周杰伦/梁心颐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "世末歌者",
+    "singer": "乐正绫",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "世界上的另一个我",
+    "singer": "郭采洁/阿肆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "使一颗心免于哀伤",
+    "singer": "",
+    "lang": "英语",
+    "genre": "ACG"
+  },
+  {
+    "title": "十年",
+    "singer": "陈奕迅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "十三月",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "十三月凉",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "十二镇魂歌",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "失去",
+    "singer": "同恩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "失眠",
+    "singer": "Suki刘舒妤",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "失眠飞行",
+    "singer": "接个吻，开一枪/沈以诚/薛明媛",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "失恋无罪",
+    "singer": "A-Lin",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "时候",
+    "singer": "苏运莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "时钟",
+    "singer": "丁芙妮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "时光笔墨",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "时光洪流",
+    "singer": "程响",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "时间煮雨",
+    "singer": "郁可唯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "是风动",
+    "singer": "银临/河图",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "是他不配",
+    "singer": "孙盛希",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "是什么让我遇见这样的你",
+    "singer": "白安",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "诗",
+    "singer": "Winky诗",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "守",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "手掌心",
+    "singer": "丁当",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "双生",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "霜雪千年",
+    "singer": "洛天依/乐正绫",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "水上灯",
+    "singer": "Braska",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "水星记",
+    "singer": "郭顶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "水袖芭蕾",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "说客",
+    "singer": "音阙诗听/新乐尘符",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "说书人",
+    "singer": "暗杠",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "说好不哭",
+    "singer": "周杰伦/阿信",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "说散就散",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "书中有",
+    "singer": "叶里",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "属于你",
+    "singer": "张黎",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "数风流",
+    "singer": "忘川风华录",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "四季予你",
+    "singer": "程响",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "四重罪孽",
+    "singer": "洛天依/言和/乐正绫",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "松窗棋罢",
+    "singer": "HITA",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "岁月成碑",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "岁月神偷",
+    "singer": "金玟岐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "随风",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "锁",
+    "singer": "祖娅纳惜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "宿",
+    "singer": "廖静媛",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "斗破苍穹动画"
+  },
+  {
+    "title": "素颜",
+    "singer": "许嵩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "苏公堤",
+    "singer": "杨一歌",
+    "lang": "国语",
+    "genre": "国风",
+    "video": "BV1J24y137TE"
+  },
+  {
+    "title": "苏幕遮",
+    "singer": "张晓棠",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "苏三起解",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "苏绣姑娘",
+    "singer": "新乐尘符/李思雨",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "try",
+    "singer": "Colbie Caillat",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "Trust·Last",
+    "singer": "倖田來未/湘南乃風",
+    "lang": "日语",
+    "genre": "流行",
+    "video": "BV1eQ4y187wL",
+    "remark": "假面骑士极狐OP"
+  },
+  {
+    "title": "太聪明",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "太难唱了",
+    "singer": "彭佳慧",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1tP411D7D6"
+  },
+  {
+    "title": "太陽と向日葵",
+    "singer": "Flower",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "太阳与向日葵"
+  },
+  {
+    "title": "唐门诀",
+    "singer": "夏初凝",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "棠梨煎雪",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "叹",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "叹云兮",
+    "singer": "鞠婧祎",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "昙花一现雨及时",
+    "singer": "周深/郑云龙",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "贪无忧",
+    "singer": "Gogo/银鲛",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "桃花诺",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "桃花蕊",
+    "singer": "茶玖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "桃花缘记",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "桃花旗袍",
+    "singer": "BY2",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "讨厌",
+    "singer": "Fine乐团",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1Kh4y1S7F4",
+    "remark": "氪星杯现场"
+  },
+  {
+    "title": "逃",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "他的猫",
+    "singer": "徐良/杨曦",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "他不爱我",
+    "singer": "莫文蔚",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "她",
+    "singer": "朱婧汐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "她征",
+    "singer": "玥夏",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "她说",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "她本身",
+    "singer": "肥皂菌/云之泣/王梓钰",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "她是造物主难辞其咎的败笔",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "踏千霜",
+    "singer": "以冬",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "踏天行歌",
+    "singer": "王艺格",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "天后",
+    "singer": "陈势安",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天灰",
+    "singer": "S.H.E",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天路",
+    "singer": "韩红",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "天下",
+    "singer": "张杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天谕",
+    "singer": "胡彦斌",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天黑黑",
+    "singer": "孙燕姿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天魔策",
+    "singer": "西瓜JUN",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "天下局",
+    "singer": "忘川风华录/赤羽",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "天鹅丝绒",
+    "singer": "杨紫怡",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天若有情",
+    "singer": "A-Lin",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天外来物",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天地缓缓",
+    "singer": "伦桑",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "天行九歌",
+    "singer": "霍尊",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "天命风流",
+    "singer": "绯村柯北",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "天下无双",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "天赐良缘",
+    "singer": "闻人听書_",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "天空-王菲",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天使的指纹",
+    "singer": "孙燕姿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天真-弦子",
+    "singer": "弦子",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天字十三杀",
+    "singer": "小曲儿",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "天真-徐良",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天空-蔡依林",
+    "singer": "蔡依林",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天上掉下个林妹妹",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天空中划过一道星光",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "甜蜜贩子",
+    "singer": "艾里克/Lil Maker",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "跳楼机",
+    "singer": "LBI利比",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "迢迢",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "停枫之吻",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "听海",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "听说你",
+    "singer": "于冬然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "听见下雨的声音",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "听起来像借口吗",
+    "singer": "孙盛希",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "庭園にて",
+    "singer": "acane_madder",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "在庭院中"
+  },
+  {
+    "title": "体面",
+    "singer": "于文文",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "提灯照河山",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "同花顺",
+    "singer": "林倛玉",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "瞳 (出类拔萃)",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "童话镇",
+    "singer": "陈一发",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "妥协",
+    "singer": "蔡依林",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "兔子先生",
+    "singer": "萧忆情Alex",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "荼蘼未了",
+    "singer": "樱九",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "wake",
+    "singer": "hillsong young&free",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "Wonderful U",
+    "singer": "AGA",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "we don’t talk anymore",
+    "singer": "Charlie Puth",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "妄心",
+    "singer": "小时姑娘",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "妄想诗",
+    "singer": "世界之外",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "妄想感傷代償連盟",
+    "singer": "初音未来",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "忘不掉的你",
+    "singer": "H3R3",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "望",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "万疆",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "万神纪",
+    "singer": "星尘",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "万物生",
+    "singer": "萨顶顶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "万古生香",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "万色万空",
+    "singer": "-Braska-",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "万象霜天",
+    "singer": "赤羽/忘川风华录",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "万一对了呢",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "晚枫歌",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "晚来客",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "晚安情话",
+    "singer": "ZIV",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "晚期拖延症患者",
+    "singer": "Mr. Miss",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "为龙",
+    "singer": "河图",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "为你留灯",
+    "singer": "杨吉露",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "为你我受冷风吹",
+    "singer": "林忆莲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "伪善者",
+    "singer": "金渔",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "危情夜色",
+    "singer": "蔡翊昇/小爱的妈",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "危险派对",
+    "singer": "王以太/刘至佳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "唯一",
+    "singer": "告五人",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1BL411C7wx"
+  },
+  {
+    "title": "喂",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "围棋少年",
+    "singer": "姜必群",
+    "lang": "国语",
+    "genre": "儿歌"
+  },
+  {
+    "title": "尾戒",
+    "singer": "Nova",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "未成年",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "未定的注定",
+    "singer": "胡夏",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "未定事件簿"
+  },
+  {
+    "title": "未成年(贺岁版)",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "温酒盗华年",
+    "singer": "江苹果",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "问",
+    "singer": "梁静茹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "问灵",
+    "singer": "萨顶顶",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "问明月",
+    "singer": "郁可唯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "闻到",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我",
+    "singer": "苏运莹",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV12K411e7ub"
+  },
+  {
+    "title": "我想",
+    "singer": "余佳运",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我要你",
+    "singer": "任素汐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我知道",
+    "singer": "BY2",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我不需要",
+    "singer": "Fine乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我们的爱",
+    "singer": "飞儿乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我的世界",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我的天空",
+    "singer": "南征北战",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我的月光",
+    "singer": "阿兰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我好想你",
+    "singer": "苏打绿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我怀念的",
+    "singer": "孙燕姿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我们的歌",
+    "singer": "王力宏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我的秘密",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我不曾忘记",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "我们的明天",
+    "singer": "鹿晗",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我表示理解",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我可以忘记你",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我管不住我自己",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我不存在的世界",
+    "singer": "潘韵淇",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "完美世界"
+  },
+  {
+    "title": "我曾遇到一束光",
+    "singer": "叶斯淳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我还有点小糊涂",
+    "singer": "",
+    "lang": "国语",
+    "genre": "儿歌"
+  },
+  {
+    "title": "我的一个道姑朋友",
+    "singer": "双笙",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "我等你到三十五岁",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我用什么把你留住",
+    "singer": "福禄寿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我趟过一条名叫你的河",
+    "singer": "野小马",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "乌兰巴托的夜",
+    "singer": "谭维维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "五重空洞",
+    "singer": "洛天依/乐正绫",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "午夜恰恰",
+    "singer": "邓典/刘至佳",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1buWBzPE2P"
+  },
+  {
+    "title": "无别",
+    "singer": "张信哲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "无数",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "无语",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "无字碑",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "无际涯",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "无情画",
+    "singer": "王唯旖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "无色海",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "无限速",
+    "singer": "本兮/阿悄",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "无颜女",
+    "singer": "徐良/小凌",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "无人之岛",
+    "singer": "任然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "无人知晓",
+    "singer": "田馥甄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "无限少女",
+    "singer": "暖暖Nikki",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "无与伦比的美丽",
+    "singer": "苏打绿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "舞娘",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "雾里",
+    "singer": "姚六一",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Xion‘s Theme",
+    "singer": "",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "像天堂的悬崖",
+    "singer": "李佳薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "向日葵朝着夜",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "想自由",
+    "singer": "林宥嘉",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "想起了你",
+    "singer": "程响",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "想把哥哥追",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球",
+    "video": "BV1AW421N7yo"
+  },
+  {
+    "title": "想你时风起",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "想念拟人化",
+    "singer": "孟慧圆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "想谈恋爱这件事",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "想你的三百六十五天",
+    "singer": "李玟 coco",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "想和你迎着台风去看海",
+    "singer": "洛天依",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "相思",
+    "singer": "毛阿敏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "相思引",
+    "singer": "董贞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "相思少有",
+    "singer": "胡彦斌",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "项羽虞姬",
+    "singer": "毛不易",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "仙凡恋",
+    "singer": "小旭音乐",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "仙剑问情",
+    "singer": "萧人凤",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "献天缘",
+    "singer": "HITA",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "闲云志",
+    "singer": "Aki阿杰",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "宵夜恋人",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "小小",
+    "singer": "容祖儿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "小雨",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "小棋童",
+    "singer": "不纯君",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "小幸运",
+    "singer": "田馥甄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "小野猫",
+    "singer": "岑雨桥",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "小雨天气",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "小城夏天",
+    "singer": "LBI利比",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "小丑的品格",
+    "singer": "泠鸢yousa",
+    "lang": "国语",
+    "genre": "ACG",
+    "video": "BV1eh411P7we",
+    "remark": "氪星杯海选投稿"
+  },
+  {
+    "title": "暁の車",
+    "singer": "南里侑香",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "消愁",
+    "singer": "毛不易",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "笑忘书",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "笑看风云",
+    "singer": "汪小敏",
+    "lang": "粤语",
+    "genre": "流行"
+  },
+  {
+    "title": "逍遥",
+    "singer": "霍建华",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "逍遥仙",
+    "singer": "三无Marblue",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "下山",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "下潜",
+    "singer": "Morerare/川青",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "下雨了",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "下雨天",
+    "singer": "南拳妈妈",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "下等马",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "下一个天亮",
+    "singer": "郭静",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "下个，路口，见",
+    "singer": "李宇春",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "夏天的风",
+    "singer": "温岚",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "霞光",
+    "singer": "曲锦楠",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "邂逅",
+    "singer": "徐良",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "星河叹",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "星月落",
+    "singer": "浮生梦",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "星空剪影",
+    "singer": "蓝心羽",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "星耀恋曲",
+    "singer": "玄觞",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV11w4m1m71z"
+  },
+  {
+    "title": "星光下的梦想",
+    "singer": "郭易",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "星sailing",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "星と君が消えた日",
+    "singer": "泠鸢yousa",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "星与你消失之日"
+  },
+  {
+    "title": "星愿starwish",
+    "singer": "星尘",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "行走的鱼",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心火",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心墙",
+    "singer": "郭静",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心冻",
+    "singer": "Seawave/李小雪",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心上诗",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "心之火",
+    "singer": "彭佳慧/F.I.R飞儿乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心之焰",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心有独钟",
+    "singer": "李佩玲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心许百年",
+    "singer": "王天戈",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心愿便利贴",
+    "singer": "元若蓝/吴忠明",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "心慌慌雾茫茫",
+    "singer": "格雷西西西",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1rLTQzUEaR"
+  },
+  {
+    "title": "心中想的还是他",
+    "singer": "禹丁洁",
+    "lang": "国语",
+    "genre": "儿歌"
+  },
+  {
+    "title": "心拍数#0822",
+    "singer": "初音未来",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "心生七面 善恶难辨",
+    "singer": "三无Marblue",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "新愿",
+    "singer": "暖暖Nikki",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "新地球",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "新九九八十一",
+    "singer": "泠鸢yousa",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "兄妹",
+    "singer": "陈奕迅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "修炼爱情",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "袖手旁观",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "喜欢你",
+    "singer": "陈洁仪",
+    "lang": "粤语",
+    "genre": "流行"
+  },
+  {
+    "title": "囍",
+    "singer": "葛东琪",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "夕山谣",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "戏中人",
+    "singer": "西瓜JUN",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "昔言",
+    "singer": "HITA",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "西风",
+    "singer": "阿鲁阿卓",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "西京雁",
+    "singer": "张曦匀",
+    "lang": "国语",
+    "genre": "国风",
+    "video": "BV1FwanzsEsM"
+  },
+  {
+    "title": "悬空",
+    "singer": "尤诺·阿斯克尔&瑞亚·特纳",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌project"
+  },
+  {
+    "title": "悬溺",
+    "singer": "葛东琪",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "悬日",
+    "singer": "田馥甄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "玄鸟",
+    "singer": "萨吉",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "学不会",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "学猫叫",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "血腥爱情故事",
+    "singer": "张惠妹",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "雪月",
+    "singer": "万玲琳",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "雪落下的声音",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "寻常歌",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "虚构",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "虚拟",
+    "singer": "陈粒",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "虚拟神明",
+    "singer": "ClessS/洛萱",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌project"
+  },
+  {
+    "title": "须臾",
+    "singer": "梁铭琛",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "YELLOW",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "Your Reality",
+    "singer": "Dan Salvato",
+    "lang": "英语",
+    "genre": "流行",
+    "remark": "心跳文学部"
+  },
+  {
+    "title": "you belong with me",
+    "singer": "Taylor Swift",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "扬州姑娘",
+    "singer": "双笙",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "杨花落尽子规啼",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "氧气",
+    "singer": "范晓萱",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "痒",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "阳光下的星星",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "演员",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "烟火星辰",
+    "singer": "刘宇宁",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "焰火",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "燕归巢",
+    "singer": "许嵩",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "燕无歇",
+    "singer": "蒋雪儿",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "眼瞳之火",
+    "singer": "Mario",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "言不由衷",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "揺れる想い",
+    "singer": "ZARD",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "摇曳的思念"
+  },
+  {
+    "title": "要抱抱",
+    "singer": "王蓉",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "要不然我们就这样一万年",
+    "singer": "黄霄云",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "遥远的重逢",
+    "singer": "阿兰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "哑巴",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "崖间的花",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "业火苍云歌",
+    "singer": "音频怪物",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "也罢",
+    "singer": "鲁向卉",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1Mu4y1u78Q"
+  },
+  {
+    "title": "夜车",
+    "singer": "曾轶可",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "夜蝶",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "夜昙",
+    "singer": "洛维娜·奥莱西亚",
+    "lang": "国语",
+    "genre": "ACG",
+    "remark": "时之歌project"
+  },
+  {
+    "title": "夜之花",
+    "singer": "阿朵",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "《一人之下4》陈朵角色歌"
+  },
+  {
+    "title": "夜航星",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "夜开荼靡",
+    "singer": "洛天依/言和",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "夜宴风波",
+    "singer": "音阙诗听/王梓钰",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "夜风无意作情歌",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "夜是克莱因蓝的忧伤",
+    "singer": "蓝心羽",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "野心",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "野心家",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "樱花草",
+    "singer": "Sweety",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "樱流し",
+    "singer": "宇田多光",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "因为爱情",
+    "singer": "王菲/陈奕迅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "姻缘签",
+    "singer": "浣语",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "引路的风筝",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1Eu4y1U7Hb",
+    "remark": "氪星杯现场"
+  },
+  {
+    "title": "隐形的翅膀",
+    "singer": "张韶涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一叶",
+    "singer": "阿屈",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一格格",
+    "singer": "卫兰",
+    "lang": "粤语",
+    "genre": "流行"
+  },
+  {
+    "title": "一个人",
+    "singer": "韩红",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一命矣",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一心一爱",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一爱难求",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一拜天地",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "一步之遥",
+    "singer": "任然",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一等情事",
+    "singer": "许一鸣",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一等轶闻",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "一分一寸",
+    "singer": "阿YueYue",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一花一剑",
+    "singer": "李鑫一",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "一剑轻安",
+    "singer": "少司命",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "一剑天涯",
+    "singer": "萧忆情",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "一念众生",
+    "singer": "冬子",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "一生等你",
+    "singer": "袁娅维",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一笑倾城",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一重加害",
+    "singer": "洛天依/言和",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "一个人跳舞",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1CM8qzqEJb"
+  },
+  {
+    "title": "一厘米之外",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "一样的月光",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一直很安静",
+    "singer": "周杰伦",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1824y1n7oH"
+  },
+  {
+    "title": "一首简单的歌",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "一呼...一吸",
+    "singer": "林忆莲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一身诗意千寻瀑",
+    "singer": "阿YueYue",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "一颗方糖悬滞的时间",
+    "singer": "阿兰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "以剑之名-血薇",
+    "singer": "少司命",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "伊卡洛斯的翅膀",
+    "singer": "吴映香",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "依然爱你",
+    "singer": "王力宏",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "依然睡公主",
+    "singer": "G.E.M. 邓紫棋",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "异人也",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行",
+    "remark": "《一人之下3》王也角色歌"
+  },
+  {
+    "title": "弈",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "易燃易爆炸",
+    "singer": "陈粒",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "遗失的心跳",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "勇敢",
+    "singer": "张惠妹",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1Gm4y1j77R"
+  },
+  {
+    "title": "咏春",
+    "singer": "七朵",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "咏心",
+    "singer": "东篱/Assen捷",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "永远的诗",
+    "singer": "小霞",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "永不失联的爱",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1zY4y1y7nN"
+  },
+  {
+    "title": "永生亦永罪 (《世界之外》「此间即无间」版本主题歌)",
+    "singer": "世界之外",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "踊",
+    "singer": "Ado",
+    "lang": "日语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "忧伤怪物",
+    "singer": "王靖雯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "有翡",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "有趣",
+    "singer": "王梓钰",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "有种",
+    "singer": "孟美岐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "有趣",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "有点甜",
+    "singer": "汪苏泷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "有线耳机",
+    "singer": "ChiliChill",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "有一种悲伤",
+    "singer": "A-Lin",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "原谅",
+    "singer": "张玉华",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "愿与愁",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "缘",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "缘尽世间",
+    "singer": "鞠婧祎",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "缘分一道桥",
+    "singer": "王力宏",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "願い〜あの頃のキミへ〜",
+    "singer": "當山みれい",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "祈愿~致那时候的你"
+  },
+  {
+    "title": "悦神",
+    "singer": "KBShinya",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "月",
+    "singer": "郁可唯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "月出",
+    "singer": "双笙",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "月光",
+    "singer": "胡彦斌",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV11o4y1v7rz",
+    "remark": "秦时明月 主题曲"
+  },
+  {
+    "title": "月光",
+    "singer": "刘珉轩",
+    "lang": "国语",
+    "genre": "国风",
+    "remark": "《完美世界》"
+  },
+  {
+    "title": "月光",
+    "singer": "徐良/阿悄",
+    "lang": "国语",
+    "genre": "怀旧"
+  },
+  {
+    "title": "月西江",
+    "singer": "初音未来",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "月儿谣",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "月光爱人",
+    "singer": "coco李玟",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "月华沉梦",
+    "singer": "慕寒",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "月亮王子",
+    "singer": "螺丝钉乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "月下-不才",
+    "singer": "不才",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "月下-苏运莹",
+    "singer": "苏运莹",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "云诀",
+    "singer": "张曦匀",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "云与海",
+    "singer": "阿yueyue",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "云裳羽衣曲",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "余声",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "余味",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "余情",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "余生缘",
+    "singer": "世界之外",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "御守",
+    "singer": "心华",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "御龙吟",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "玉生烟",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "玉簪记",
+    "singer": "Winky诗/黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "玉木星辰",
+    "singer": "佑可猫",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "羽化",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "遇见",
+    "singer": "孙燕姿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "遇萤",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "雨爱",
+    "singer": "杨丞琳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "雨天",
+    "singer": "孙燕姿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "雨后日记",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "鱼",
+    "singer": "姚贝娜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "再回眸",
+    "singer": "指尖笑",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "再不疯狂我们就老了",
+    "singer": "李宇春",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "在夜里跳舞",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV19o4y1H7Uo"
+  },
+  {
+    "title": "在加纳共和国离婚",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "葬歌",
+    "singer": "洛天依/言和",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "早上好",
+    "singer": "牛奶咖啡",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "怎叹",
+    "singer": "郑鱼",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "怎么会",
+    "singer": "吕蔷",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "怎么说我不爱你",
+    "singer": "萧敬腾",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "长安忆",
+    "singer": "音频怪物",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "长生诀",
+    "singer": "西瓜JUN",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "长夜杯空",
+    "singer": "说说Crystal",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "战放",
+    "singer": "本兮",
+    "lang": "国语",
+    "genre": "怀旧",
+    "remark": "(游戏主题曲)"
+  },
+  {
+    "title": "战狐",
+    "singer": "乐正绫",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "招摇",
+    "singer": "陈楚生/胡莎莎",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "枕上书",
+    "singer": "董贞",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "枕边童话",
+    "singer": "小田音乐社/傲七爷(江偌绮)",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "真相是假",
+    "singer": "阿鸣",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "折枝花满衣",
+    "singer": "泽典",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "着眼",
+    "singer": "双笙",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "谪仙",
+    "singer": "叶里",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "这就是爱",
+    "singer": "张杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "这世界那么多人",
+    "singer": "莫文蔚",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "这条小鱼在乎 (I'm a little fish)",
+    "singer": "王OK/洪佩瑜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "只为情故",
+    "singer": "应嘉俐",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "只要平凡",
+    "singer": "张杰/张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "挚友",
+    "singer": "A-Lin",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "枝江",
+    "singer": "",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "知否知否",
+    "singer": "胡夏/郁可唯",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "纸伞",
+    "singer": "黄诗扶",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "致你",
+    "singer": "王赫野",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "致青春",
+    "singer": "王菲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "致命情人",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "中毒",
+    "singer": "光泽",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "中华铄金娘",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "众象通感",
+    "singer": "西瓜Kune",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "重塑",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "重逢",
+    "singer": "应嘉俐",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "重感冒",
+    "singer": "流浪声乐生",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "重写宇宙",
+    "singer": "世界之外",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "专属意外",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "追光者",
+    "singer": "岑宁儿",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "追上流",
+    "singer": "林亦双",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "追想轮回",
+    "singer": "MYTH&ROID",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "准明星",
+    "singer": "徐佳莹",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "灼",
+    "singer": "银临",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "主角",
+    "singer": "Mario",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "珠玉",
+    "singer": "单依纯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "竹语",
+    "singer": "应嘉俐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "字字句句",
+    "singer": "卢卢快闭嘴",
+    "lang": "国语",
+    "genre": "流行",
+    "video": "BV1xg4y1N7e3"
+  },
+  {
+    "title": "紫",
+    "singer": "蔡健雅",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "自娱自乐",
+    "singer": "金志文",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "自挂东南枝",
+    "singer": "",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "自由行走的花",
+    "singer": "萨顶顶",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "纵火者",
+    "singer": "李佳薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "走马",
+    "singer": "陈粒",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "走在冷风中",
+    "singer": "刘思涵",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "最后最后",
+    "singer": "",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "最初的梦想",
+    "singer": "范玮琪",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "最后的旅行",
+    "singer": "Rainton桐",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "最后一封情书",
+    "singer": "许哲佩",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "醉",
+    "singer": "黄龄",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "醉月",
+    "singer": "柏鹿",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "醉赤壁",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "醉清风",
+    "singer": "弦子",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "醉花阴",
+    "singer": "谣君",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "醉后喜欢我",
+    "singer": "冰球乐团",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "作妖少女日记",
+    "singer": "纳豆",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "左手右手",
+    "singer": "杨沛宜",
+    "lang": "国语",
+    "genre": "ACG"
+  },
+  {
+    "title": "左手指月",
+    "singer": "萨顶顶",
+    "lang": "国语",
+    "genre": "流行",
+    "paid": "星愿水晶球"
+  },
+  {
+    "title": "昨夜风今宵月",
+    "singer": "陈卓璇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "租购",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "いけないボーダーライン",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "禁忌的边界线 / giligili爱"
+  },
+  {
+    "title": "さくら ~あなたに出会えてよかった~",
+    "singer": "RSP",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "樱花樱花想见你"
+  },
+  {
+    "title": "ダイアモンドクレバス",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "钻石裂痕"
+  },
+  {
+    "title": "ツギハギスタッカート",
+    "singer": "初音未来",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "拼凑的断音"
+  },
+  {
+    "title": "ツキアカリのミチシルベ",
+    "singer": "Stereopony",
+    "lang": "日语",
+    "genre": "流行",
+    "remark": "月光的指引"
+  },
+  {
+    "title": "ペガサス幻想",
+    "singer": "MAKE-UP",
+    "lang": "日语",
+    "genre": "ACG"
+  },
+  {
+    "title": "ラプンツェル",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "笹舟",
+    "singer": "",
+    "lang": "日语",
+    "genre": "流行"
+  },
+  {
+    "title": "碧苍",
+    "singer": "李佳薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "春三月",
+    "singer": "司南",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "月",
+    "singer": "薛凯琪",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "第三个吻痕",
+    "singer": "李思甜",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我以渺小爱你",
+    "singer": "周深",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "带我走",
+    "singer": "杨丞琳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "左边",
+    "singer": "杨丞琳",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "如初",
+    "singer": "张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "炽心",
+    "singer": "希林娜依高",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "约定",
+    "singer": "周蕙",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "白色星体",
+    "singer": "Yusee西",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "说慌动物",
+    "singer": "黄霄雲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "小云",
+    "singer": "黄霄雲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "惯性反应",
+    "singer": "丁芙妮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "命运",
+    "singer": "汪苏泷/张碧晨",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "不死之身",
+    "singer": "林俊杰",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "野史（你有几段野史）",
+    "singer": "江一川",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "孟婆嫌我烦",
+    "singer": "威猛先生",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "纵",
+    "singer": "辛雯",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "诱",
+    "singer": "王馨怡",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "我恨明月不照我",
+    "singer": "阿YueYue",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "爱情没有神话",
+    "singer": "张靓颖",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "天另一侧",
+    "singer": "一颗狼星",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "数到十",
+    "singer": "曾沛慈",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "说谎动物",
+    "singer": "黄霄雲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "Breaking Free",
+    "singer": "The High School Musical Cast",
+    "lang": "英语",
+    "genre": "流行"
+  },
+  {
+    "title": "破阵子",
+    "singer": "陈抒妮",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "定玄",
+    "singer": "鸣潮先约电台/黄霄雲/杨秉音",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "烟火里的尘埃",
+    "singer": "黄霄雲",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "甲乙丙丁 (你我怎么两清)",
+    "singer": "李佳薇",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "烈酒和下雨天最配",
+    "singer": "孙天宇/李想Evelyn",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "乱世书",
+    "singer": "风华音纪/平生不晚",
+    "lang": "国语",
+    "genre": "国风"
+  },
+  {
+    "title": "一念",
+    "singer": "张紫宁/李鑫一",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "醉",
+    "singer": "徐梦圆/嫣汐",
+    "lang": "国语",
+    "genre": "流行"
+  },
+  {
+    "title": "动物世界",
+    "singer": "薛之谦",
+    "lang": "国语",
+    "genre": "流行"
+  }
+]

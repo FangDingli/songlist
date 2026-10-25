@@ -12,6 +12,7 @@ import SongCard from '@/components/SongCard.vue'
 import LandingPage from '@/components/LandingPage.vue'
 import FilterPanel from '@/components/FilterPanel.vue'
 import MobileFilterBar from '@/components/MobileFilterBar.vue'
+import QrModal from '@/components/QrModal.vue'
 import RotatingDisc from '@/components/RotatingDisc.vue'
 import { useClipboard } from '@/composables/useClipboard'
 import { useToast } from '@/composables/useToast'
@@ -230,6 +231,23 @@ async function randomPick() {
 
 const showBackTop = computed(() => scrollY.value > winH.value * 0.6)
 
+// 二维码:内容为当前主播页的完整地址
+const showQr = ref(false)
+const qrUrl = computed(() => `${location.origin}/${streamerId}`)
+
+// 站点 favicon:优先主播配置,缺省用头像;都没有则保留默认音符图标
+watchEffect(() => {
+  const href = meta.value.favicon || meta.value.avatar
+  if (!href) return
+  let link = document.querySelector('link[rel="icon"]') as HTMLLinkElement | null
+  if (!link) {
+    link = document.createElement('link')
+    link.rel = 'icon'
+    document.head.appendChild(link)
+  }
+  link.href = href
+})
+
 /* ---------- 移动端紧凑筛选条:滚过原面板且向上滑动时出现 ---------- */
 const mobilePanelRef = ref<HTMLElement | null>(null)
 const lastScrollY = ref(0)
@@ -290,6 +308,10 @@ const dataMeta = computed(
       <aside v-if="dataStatus === 'ready'" class="hidden lg:block w-300px shrink-0">
         <div class="sticky top-24px flex flex-col gap-24px">
           <div class="surface-card p-24px relative flex flex-col items-center">
+            <button type="button" class="theme-toggle absolute top-16px right-56px" title="生成二维码"
+              @click="showQr = true">
+              <div class="i-carbon-qr-code"></div>
+            </button>
             <button type="button" class="theme-toggle absolute top-16px right-16px" :title="themeTitle"
               @click="cycleMode">
               <div :class="themeIcon"></div>
@@ -388,6 +410,9 @@ const dataMeta = computed(
         <div class="i-carbon-arrow-up"></div>
       </button>
     </Transition>
+
+    <!-- 二维码弹窗:主播展示给观众扫码进入 -->
+    <QrModal :open="showQr" :url="qrUrl" :logo="meta.avatar" :title="meta.title" @close="showQr = false" />
 
     <!-- Toast -->
     <div

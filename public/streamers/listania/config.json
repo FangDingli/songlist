@@ -1,0 +1,12 @@
+{
+  "title": "微星命Listania的歌单",
+  "avatar": "https://i2.hdslb.com/bfs/face/e43ed0d4b48e940516170304dc30babb22fa9642.jpg",
+  "bg": {
+    "mobile": "3493125360192104-1757252596028.jpg",
+    "desktop": "3493125360192104-1757252595277.jpg"
+  },
+  "orderTemplate": "点歌 {title} {singer}",
+  "streamerUrl": "https://space.bilibili.com/3493125360192104",
+  "liveUrl": "https://live.bilibili.com/27252426",
+  "songsUpdatedAt": "2026-10-25"
+}
