@@ -63,7 +63,7 @@ for (const row of XLSX.utils.sheet_to_json(songsSheet, { defval: '' })) {
     singer: str(row['歌手']).split(/[;；&]/).map((s) => s.trim()).filter(Boolean).join('、') || '未知',
     lang: str(row['语种']) || '未知',
     genre: str(row['类型']),
-    remark: remark || undefined,
+    paid: remark || undefined,
   })
 }
 if (!songs.length) {

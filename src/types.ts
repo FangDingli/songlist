@@ -7,8 +7,8 @@ export interface Song {
   style?: string
   /** 点歌需要的 SuperChat 金额,空串/0/缺省表示无 SC */
   sc?: number | string
-  /** 备注原文(模板「备注」列),页面暂不展示 */
-  remark?: string
+  /** 付费/SC 备注(模板「付费」列),如「30SC」「舰长」;空表示无需 */
+  paid?: string
   /** 运行时按行序生成(1 起),仅用作 key 与随机排序,与外部编号无关 */
   id: number
 }
@@ -32,9 +32,9 @@ export interface StreamerMeta {
   songsUpdatedAt?: string
 }
 
-/** 筛选 tag:kind 区分语种/类型两个维度 */
+/** 筛选 tag:kind 区分语种/类型/付费维度 */
 export interface FilterTag {
   name: string
   count: number
-  kind: 'language' | 'genre'
+  kind: 'language' | 'genre' | 'paid'
 }

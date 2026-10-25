@@ -3,7 +3,7 @@ import { computed, onMounted, ref, shallowRef, watch, watchEffect } from 'vue'
 import { useElementSize, useWindowSize, useWindowScroll } from '@vueuse/core'
 import configRaw from '@/data/qiyuan-config.json?raw'
 import songsRaw from '@/data/qiyuan-songs.json?raw'
-import type { Song, StreamerMeta } from '@/types'
+import type { FilterTag, Song, StreamerMeta } from '@/types'
 import { DEFAULT_STREAMER_ID, FALLBACK_META, formatOrder } from '@/config'
 import { getStreamerId } from '@/utils/streamer'
 import { applyStreamerTheme } from '@/utils/theme'
@@ -90,7 +90,7 @@ const themeTitle = computed(() =>
 
 const keyword = ref('')
 // 单选筛选:全局最多选中一个 tag,再点同款取消,点其他替换
-const selectedTag = ref<{ kind: 'language' | 'genre'; name: string } | null>(null)
+const selectedTag = ref<{ kind: FilterTag['kind']; name: string } | null>(null)
 
 // 打乱:每次点击重新生成一次全量随机序,之后随筛选增删顺序保持稳定
 const shuffled = ref(false)
@@ -116,9 +116,13 @@ function countBy(get: (s: Song) => string | string[]): Array<[string, number]> {
 const languages = computed(() => countBy((s) => s.lang))
 const genres = computed(() => countBy((s) => songTags(s)))
 
+const paidCount = computed(() => songs.value.filter((s) => !!s.paid || (!!s.sc && Number(s.sc) > 0)).length)
+
 const tags = computed(() => [
   ...languages.value.map(([name, count]) => ({ name, count, kind: 'language' as const })),
   ...genres.value.map(([name, count]) => ({ name, count, kind: 'genre' as const })),
+  // 有歌曲需要付费/SC 时才展示该筛选项
+  ...(paidCount.value ? [{ name: '付费', count: paidCount.value, kind: 'paid' as const }] : []),
 ])
 
 const filtered = computed(() => {
@@ -127,7 +131,9 @@ const filtered = computed(() => {
   const list = songs.value.filter((song) => {
     if (kw && !song.title.toLowerCase().includes(kw) && !song.singer.toLowerCase().includes(kw)) return false
     if (sel) {
-      if (sel.kind === 'language' ? song.lang !== sel.name : !songTags(song).includes(sel.name)) return false
+      if (sel.kind === 'language' ? song.lang !== sel.name : false) return false
+      if (sel.kind === 'genre' ? !songTags(song).includes(sel.name) : false) return false
+      if (sel.kind === 'paid' ? !(!!song.paid || (!!song.sc && Number(song.sc) > 0)) : false) return false
     }
     return true
   })
@@ -137,7 +143,7 @@ const filtered = computed(() => {
 
 const hasActiveFilters = computed(() => keyword.value.trim() !== '' || selectedTag.value !== null)
 
-function toggleTag(kind: 'language' | 'genre', name: string) {
+function toggleTag(kind: FilterTag['kind'], name: string) {
   const cur = selectedTag.value
   selectedTag.value = cur && cur.kind === kind && cur.name === name ? null : { kind, name }
 }

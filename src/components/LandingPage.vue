@@ -27,6 +27,9 @@ const features = [
   { icon: 'i-carbon-moon', title: '自动暗黑模式', desc: '跟随系统自动切换,也可以手动控制' },
   { icon: 'i-carbon-shuffle', title: '打乱顺序', desc: '一键重排歌单,每次进入都是新鲜感' },
   { icon: 'i-carbon-gift', title: '盲盒点歌', desc: '编号随机展示防止背板,随缘点歌更有趣' },
+  { icon: 'i-carbon-wallet', title: '完全免费', desc: '不收费、不限量,所有功能开箱即用' },
+  { icon: 'i-carbon-table', title: '维护方便', desc: '单个 Excel 即可完成歌单更新,零技术门槛' },
+  { icon: 'i-carbon-color-palette', title: '个性化配置', desc: '主题色、背景图、口令格式,处处贴合主播风格' },
 ]
 </script>
 
