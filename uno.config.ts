@@ -14,6 +14,7 @@ export default defineConfig({
         light: 'rgb(var(--brand) / 0.35)',
       },
       'on-brand': 'rgb(var(--on-brand))',
+      'on-brand-bg': 'rgb(var(--on-brand-bg))',
       bg: {
         base: 'rgb(var(--bg-base))',
         card: 'rgb(var(--bg-card))',
@@ -39,13 +40,18 @@ export default defineConfig({
     // 回到顶部按钮
     'back-to-top':
       'fixed right-16px bottom-24px z-50 flex-center w-40px h-40px rounded-full bg-[rgb(var(--bg-card)/0.9)] backdrop-blur-xl border border-border text-brand-strong text-18px cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.15)] transition-colors duration-200 hover:(text-brand border-brand)',
-    // 筛选标签:无边框,灰底未选中 / 品牌紫实底选中
+    // 筛选标签:无边框,灰底未选中 / 品牌实底选中
+    // hover 变色拆到 tag-pill-hover:选中态若沿用会与选中底色几乎同色,看不清
     'tag-pill':
-      'inline-flex items-center h-30px px-12px rounded-lg text-13px font-medium cursor-pointer select-none whitespace-nowrap transition-colors duration-200 bg-[rgb(var(--text-primary)/0.06)] text-text-secondary hover:text-brand-strong',
-    'tag-pill-selected': 'bg-brand text-on-brand font-bold',
+      'inline-flex items-center h-30px px-12px rounded-lg text-13px font-medium cursor-pointer select-none whitespace-nowrap transition-colors duration-200 bg-[rgb(var(--text-primary)/0.06)] text-text-secondary',
+    'tag-pill-hover': 'hover:text-brand-strong',
+    'tag-pill-selected': 'bg-on-brand-bg text-on-brand font-bold',
     // 歌曲卡片:紧凑双行、固定高度(虚拟滚动按此行距计算),无边框,hover 用品牌紫光晕代替描边
+    // border-solid 必须显式声明:tokens.css 的 button{border:0} 重置会把 border-style 归为 none,
+    // 只改 border-width/color(如付费描边)不会渲染
+    // 不加 overflow-hidden:remark 面板要从卡片底边向下延伸,圆角裁剪由遮罩自带 rounded-2xl
     'song-card':
-      'relative overflow-hidden w-full h-90px text-left bg-bg-card p-18px rounded-2xl border border-transparent cursor-pointer transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.3)] active:scale-95',
+      'relative w-full h-90px text-left bg-bg-card p-18px rounded-2xl border border-solid border-transparent cursor-pointer transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.3)] active:scale-95',
     'song-tag': 'inline-flex items-center h-20px px-8px rounded-full text-12px lh-20px whitespace-nowrap font-medium',
     toast:
       'pointer-events-auto max-w-80vw px-14px py-9px rounded-xl text-13px text-white shadow-[0_6px_16px_rgba(0,0,0,0.2)]',

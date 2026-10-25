@@ -71,10 +71,11 @@ export function applyStreamerTheme(theme: string | undefined, dark: boolean): vo
   const strong = dark ? lightenUntil(brand, DARK_CARD) : darkenUntil(brand, WHITE)
   root.style.setProperty('--brand-strong', triplet(strong))
 
-  // 品牌紫填充上的文字:在「深墨」与「白」之间取对比更高者
-  const darkInk = darkenUntil(brand, brand)
-  const onBrand = contrast(darkInk, brand) >= contrast(WHITE, brand) ? darkInk : WHITE
-  root.style.setProperty('--on-brand', triplet(onBrand))
+  // 品牌色填充上的文字:一律白字;白字对比不足 4.5 时把该填充底压深到达标
+  // (--on-brand-bg 仅用于品牌实底场景,如选中的筛选标签,不影响 --brand 本身)
+  root.style.setProperty('--on-brand', triplet(WHITE))
+  const onBrandBg = contrast(WHITE, brand) >= 4.5 ? brand : darkenUntil(brand, WHITE, 4.5)
+  root.style.setProperty('--on-brand-bg', triplet(onBrandBg))
 
   // 页面底与过渡层:向品牌色同源调浅/调暗,让整个页面染上主播色调
   const bgBase = dark ? mix(brand, BLACK, 0.9) : mix(brand, WHITE, 0.9)

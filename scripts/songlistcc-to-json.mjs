@@ -1,7 +1,7 @@
 /**
  * 把 songlist.cc(xxx.songlist.cc)导出的 json 转换为本站数据文件。
  * 用法:node scripts/songlistcc-to-json.mjs <json路径> <主播id>
- * 输出:public/streamers/<id>/songs.json + config.json
+ * 输出:data-local/streamers/<id>/songs.json + config.json(发布用 publish 脚本)
  *
  * 字段映射(config 均在 data 字段内):
  * - title → title;face → avatar;subTitle → subtitle(非空时)
@@ -9,7 +9,8 @@
  *   因此做一轮「提升饱和度、限制亮度」的梯度计算;值为 #FFEBCD 时视为对方
  *   默认色,省略 theme,使用本站默认 #1677FF
  * - command → orderTemplate 前缀(如「点歌」→「点歌 {title} {singer}」)
- * - uid → streamerUrl(B 站主页);backImage/mobileBackImage → bg(非空时)
+ * - uid → uid + userProfileUrl(B 站主页);roomId → liveroomId + liveUrl(直播间)
+ * - backImage/mobileBackImage → bg(非空时)
  *
  * 歌曲映射(data.songs):
  * - name → title;singer → singer;style → genre
@@ -110,8 +111,14 @@ if (Object.keys(bg).length) config.bg = bg
 const themeSeed = deriveSeed(data.backColor)
 if (themeSeed) config.theme = themeSeed
 if (str(data.command)) config.orderTemplate = `${str(data.command)} {title} {singer}`
-if (data.uid) config.streamerUrl = `https://space.bilibili.com/${data.uid}`
-if (data.roomId) config.liveUrl = `https://live.bilibili.com/${data.roomId}`
+if (data.uid) {
+  config.uid = str(data.uid)
+  config.userProfileUrl = `https://space.bilibili.com/${str(data.uid)}`
+}
+if (data.roomId) {
+  config.liveroomId = str(data.roomId)
+  config.liveUrl = `https://live.bilibili.com/${str(data.roomId)}`
+}
 // 站点配置中的静态资源是相对文件名时无法还原完整地址,仅接受完整 URL
 for (const [key, path] of [['icon', 'favicon'], ['backImage', 'bg.desktop'], ['mobileBackImage', 'bg.mobile']]) {
   const v = str(data[key])
@@ -154,7 +161,8 @@ if (!songs.length) {
 }
 
 /* ---------- 输出(合并已有 config 的手工字段,如背景图) ---------- */
-const outDir = new URL(`../public/streamers/${streamerId}/`, import.meta.url)
+// 数据写入本地暂存区(gitignored),由 publish 脚本发布到数据源,不进代码仓库
+const outDir = new URL(`../data-local/streamers/${streamerId}/`, import.meta.url)
 mkdirSync(outDir, { recursive: true })
 writeFileSync(new URL('songs.json', outDir), JSON.stringify(songs, null, 2) + '\n', 'utf8')
 
@@ -166,5 +174,5 @@ writeFileSync(
   'utf8',
 )
 
-console.log(`✓ 已写入 public/streamers/${streamerId}/:songs.json 共 ${songs.length} 首,config.json(主题色 ${config.theme ?? `(默认 ${DEFAULT_THEME})`},数据日期 ${today})`)
-console.log('  记得提交并推送。')
+console.log(`✓ 已写入 data-local/streamers/${streamerId}/:songs.json 共 ${songs.length} 首,config.json(主题色 ${config.theme ?? `(默认 ${DEFAULT_THEME})`},数据日期 ${today})`)
+console.log('  记得运行 node scripts/publish.mjs 发布到数据源。')

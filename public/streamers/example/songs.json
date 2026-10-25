@@ -1,0 +1,48 @@
+[
+  {
+    "genre": "流行；苦情",
+    "lang": "中文",
+    "singer": "李佳薇",
+    "title": "甲乙丙丁",
+    "paid": "付费"
+  },
+  {
+    "title": "第三十八年夏至",
+    "singer": "河图",
+    "lang": "中文",
+    "genre": "国风",
+    "paid": "30SC"
+  },
+  {
+    "title": "同簪",
+    "singer": "小时姑娘、HITA",
+    "lang": "中文",
+    "genre": "国风；甜歌",
+    "paid": "舰长"
+  },
+  {
+    "title": "星空剪影",
+    "singer": "蓝心羽",
+    "lang": "中文",
+    "genre": "流行；甜歌",
+    "paid": "50SC"
+  },
+  {
+    "title": "太陽と向日葵",
+    "singer": "Flower",
+    "lang": "日文",
+    "genre": "流行"
+  },
+  {
+    "title": "The Show",
+    "singer": "Lenka",
+    "lang": "英文",
+    "genre": "流行"
+  },
+  {
+    "title": "眉间雪",
+    "singer": "HITA",
+    "lang": "中文",
+    "genre": "国风；苦情"
+  }
+]

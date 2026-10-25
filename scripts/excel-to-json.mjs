@@ -1,7 +1,7 @@
 /**
  * 把主播填写的模板 excel 转换为数据与配置文件。
  * 用法:node scripts/excel-to-json.mjs <excel路径> <主播id>
- * 输出:public/streamers/<id>/songs.json + config.json
+ * 输出:data-local/streamers/<id>/songs.json + config.json(发布用 publish 脚本)
  *
  * 模板含两个工作表(表头/字段名不可修改):
  * - 「歌曲列表」:歌名 | 歌手 | 语种 | 类型 | 备注(可选)
@@ -25,7 +25,8 @@ const CONFIG_FIELDS = {
   '背景图-宽屏': 'bg.desktop',
   主题色: 'theme',
   点歌口令模板: 'orderTemplate',
-  主播B站主页: 'streamerUrl',
+  主播UID: 'uid',
+  直播间ID: 'liveroomId',
 }
 
 const [excelPath, streamerId] = process.argv.slice(2)
@@ -87,7 +88,13 @@ if (configSheet) {
 }
 
 const today = new Date().toISOString().slice(0, 10)
-const outDir = new URL(`../public/streamers/${streamerId}/`, import.meta.url)
+
+// 由 uid / liveroomId 派生主页与直播间地址(与 config.json 的字段规则一致)
+if (config.uid) config.userProfileUrl = `https://space.bilibili.com/${config.uid}`
+if (config.liveroomId) config.liveUrl = `https://live.bilibili.com/${config.liveroomId}`
+
+// 数据写入本地暂存区(gitignored),由 publish 脚本发布到数据源,不进代码仓库
+const outDir = new URL(`../data-local/streamers/${streamerId}/`, import.meta.url)
 mkdirSync(outDir, { recursive: true })
 writeFileSync(new URL('songs.json', outDir), JSON.stringify(songs, null, 2) + '\n', 'utf8')
 
@@ -99,5 +106,5 @@ writeFileSync(
   'utf8',
 )
 
-console.log(`✓ 已写入 public/streamers/${streamerId}/:songs.json 共 ${songs.length} 首,config.json(数据日期 ${today})`)
-console.log('  记得提交并推送。')
+console.log(`✓ 已写入 data-local/streamers/${streamerId}/:songs.json 共 ${songs.length} 首,config.json(数据日期 ${today})`)
+console.log('  记得运行 node scripts/publish.mjs 发布到数据源。')

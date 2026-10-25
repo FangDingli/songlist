@@ -1,8 +1,26 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import { dataUrl } from '@/config'
 import { useTheme } from '@/composables/useTheme'
+import { avatarThumb } from '@/utils/avatar'
+import type { StreamerMeta } from '@/types'
 
 const { mode, cycleMode } = useTheme()
+
+// 入驻清单来自数据源(streamers.json,发布脚本自动生成;未配置数据源时为同源文件);
+// 拉取失败时隐藏板块
+const listedStreamers = ref<Array<{ id: string; config: StreamerMeta }>>([])
+onMounted(async () => {
+  try {
+    const res = await fetch(dataUrl('/streamers.json'), { cache: 'no-cache' })
+    if (res.ok) listedStreamers.value = await res.json()
+  } catch {
+    /* 数据源不可达时隐藏入驻主播板块 */
+  }
+})
+
+// 有标题的主播才算有效入驻(空目录/残缺配置不展示)
+const validStreamers = computed(() => listedStreamers.value.filter((s) => s.config.title))
 
 const themeIcon = computed(() =>
   mode.value === 'auto' ? 'i-carbon-contrast' : mode.value === 'light' ? 'i-carbon-sun' : 'i-carbon-moon',
@@ -21,15 +39,15 @@ const painPoints = [
 ]
 
 const features = [
-  { icon: 'i-carbon-mobile', title: '移动端优先', desc: '响应式卡片网格与大触控目标,手机单手即用' },
-  { icon: 'i-carbon-search', title: '搜索 + 标签筛选', desc: '即点即得,告别下拉菜单与手动翻页' },
-  { icon: 'i-carbon-flash', title: '虚拟滚动', desc: '千首歌曲渲染压力恒定,滚动依旧流畅' },
-  { icon: 'i-carbon-moon', title: '自动暗黑模式', desc: '跟随系统自动切换,也可以手动控制' },
-  { icon: 'i-carbon-shuffle', title: '打乱顺序', desc: '一键重排歌单,每次进入都是新鲜感' },
-  { icon: 'i-carbon-gift', title: '盲盒点歌', desc: '编号随机展示防止背板,随缘点歌更有趣' },
   { icon: 'i-carbon-wallet', title: '完全免费', desc: '不收费、不限量,所有功能开箱即用' },
   { icon: 'i-carbon-table', title: '维护方便', desc: '单个 Excel 即可完成歌单更新,零技术门槛' },
   { icon: 'i-carbon-color-palette', title: '个性化配置', desc: '主题色、背景图、口令格式,处处贴合主播风格' },
+  { icon: 'i-carbon-gift', title: '盲盒点歌', desc: '编号随机展示防止背板,随缘点歌更有趣' },
+  { icon: 'i-carbon-search', title: '搜索 + 标签筛选', desc: '即点即得,告别下拉菜单与手动翻页' },
+  { icon: 'i-carbon-shuffle', title: '打乱顺序', desc: '一键重排歌单,每次进入都是新鲜感' },
+  { icon: 'i-carbon-mobile', title: '移动端优先', desc: '响应式卡片网格与大触控目标,手机单手即用' },
+  { icon: 'i-carbon-flash', title: '虚拟滚动', desc: '千首歌曲渲染压力恒定,滚动依旧流畅' },
+  { icon: 'i-carbon-moon', title: '自动暗黑模式', desc: '跟随系统自动切换,也可以手动控制' },
 ]
 </script>
 
@@ -52,7 +70,7 @@ const features = [
         <p class="mt-16px text-16px lh-24px text-text-secondary">不做别的，只做歌单展示</p>
         <div class="mt-32px flex justify-center gap-12px flex-wrap">
           <a
-            href="/qiyuan"
+            href="/example"
             class="inline-flex items-center h-40px px-20px rounded-xl bg-brand text-white text-14px font-bold shadow-[0_4px_14px_rgb(var(--brand)/0.35)] hover:opacity-90 transition-opacity"
           >
             查看示例歌单 →
@@ -63,6 +81,34 @@ const features = [
             rel="noopener noreferrer"
             class="btn-soft"
           >B 站私信联系</a>
+        </div>
+      </section>
+
+      <!-- 入驻主播 -->
+      <section v-if="validStreamers.length" class="pb-56px">
+        <h2 class="text-20px lh-28px font-600 text-center text-text-primary">入驻主播</h2>
+        <p class="mt-8px text-center text-14px text-text-secondary">点击卡片进入对应歌单</p>
+        <div class="mt-24px grid sm:grid-cols-2 lg:grid-cols-3 gap-12px">
+          <a
+            v-for="s in validStreamers"
+            :key="s.id"
+            :href="`/${s.id}`"
+            class="surface-card p-20px flex items-center gap-16px transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.2)] hover:-translate-y-2px"
+          >
+            <img
+              v-if="s.config.avatar"
+              :src="avatarThumb(s.config.avatar)"
+              class="w-56px h-56px rounded-full object-cover shrink-0"
+              alt=""
+              referrerpolicy="no-referrer"
+            />
+            <div v-else class="w-56px h-56px rounded-full bg-brand-soft text-brand text-24px flex-center shrink-0">
+              <div class="i-carbon-music"></div>
+            </div>
+            <h3 class="min-w-0 text-15px font-bold text-text-primary truncate">
+              {{ s.config.title || s.id }}
+            </h3>
+          </a>
         </div>
       </section>
 

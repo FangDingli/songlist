@@ -117,10 +117,11 @@ function showGenerateError() {
     class="fixed inset-0 z-90 bg-black/45 flex-center p-16px"
     @click.self="emit('close')"
   >
-    <div class="surface-card p-24px flex flex-col items-center gap-12px w-full max-w-340px">
+    <div class="surface-card p-24px flex flex-col items-center gap-12px w-full max-w-480px">
       <h3 class="text-16px font-bold text-text-primary">{{ title }}</h3>
-      <div class="relative">
-        <canvas ref="canvasRef" class="w-256px h-256px rounded-xl block"></canvas>
+      <div class="relative w-full flex justify-center">
+        <!-- max-w-full + aspect-square:窄屏时画布随容器收缩,高度按 1:1 联动,不会横向溢出 -->
+        <canvas ref="canvasRef" class="block w-416px max-w-full aspect-square rounded-xl"></canvas>
         <div v-if="ready && logo" class="absolute inset-0 flex-center pointer-events-none">
           <div class="bg-bg-card rounded-xl p-6px border border-border">
             <img

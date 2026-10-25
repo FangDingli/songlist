@@ -3,8 +3,8 @@ export interface Song {
   title: string
   singer: string
   lang: string
+  /** 类型,多值用中英文分号分隔,页面端拆成 tag;所有转换脚本只写此字段 */
   genre?: string
-  style?: string
   /** 点歌需要的 SuperChat 金额,空串/0/缺省表示无 SC */
   sc?: number | string
   /** 付费/SC 备注(模板「付费」列),如「30SC」「舰长」;空表示无需 */
@@ -28,9 +28,13 @@ export interface StreamerMeta {
   bg?: { mobile?: string; desktop?: string }
   /** 点歌口令模板,占位符 {title} {singer} {lang} {tags} */
   orderTemplate?: string
-  /** 唱片机点击跳转的主播主页 */
-  streamerUrl?: string
-  /** 直播间链接(来自 roomId) */
+  /** 主播 B 站 UID,与 userProfileUrl 同源 */
+  uid?: string
+  /** 直播间 ID,与 liveUrl 同源 */
+  liveroomId?: string
+  /** 主播主页,由 uid 派生:https://space.bilibili.com/<uid>(唱片机点击跳转) */
+  userProfileUrl?: string
+  /** 直播间链接,由 liveroomId 派生:https://live.bilibili.com/<liveroomId> */
   liveUrl?: string
   /** 站点 favicon,缺省使用头像 */
   favicon?: string
@@ -40,9 +44,9 @@ export interface StreamerMeta {
   songsUpdatedAt?: string
 }
 
-/** 筛选 tag:kind 区分语种/类型/付费维度 */
+/** 筛选 tag:kind 区分语种/类型/付费维度(付费与免费成对出现) */
 export interface FilterTag {
   name: string
   count: number
-  kind: 'language' | 'genre' | 'paid'
+  kind: 'language' | 'genre' | 'paid' | 'free'
 }

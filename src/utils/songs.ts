@@ -1,10 +1,9 @@
 import type { Song } from '@/types'
 
-/** 展示用 tag:genre 与 style 合并、拆分、去重;两者皆空时归为「未知」 */
+/** 展示用 tag:genre 按分隔符拆分、去重;为空时返回空数组(纯歌名数据集不产生噪音) */
 export function songTags(song: Song): string[] {
   const tags = [...new Set(
-    [song.genre, song.style]
-      .flatMap((v) => (typeof v === 'string' ? v.split(/[;；,，、]/) : []))
+    (typeof song.genre === 'string' ? song.genre.split(/[;；,，、]/) : [])
       .map((s) => s.trim())
       .filter(Boolean),
   )]

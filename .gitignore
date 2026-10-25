@@ -5,3 +5,6 @@ dist/
 *.xlsx
 /songs.json
 /remote-songs.json
+
+# 本地数据暂存区(发布到数据源的数据,不进仓库)
+data-local/

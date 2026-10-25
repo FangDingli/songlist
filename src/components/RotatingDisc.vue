@@ -17,7 +17,7 @@ const failed = ref(false)
     :href="props.href"
     :target="props.href ? '_blank' : undefined"
     :rel="props.href ? 'noopener noreferrer' : undefined"
-    :title="props.href ? '访问主播主页' : undefined"
+    :title="props.href ? '进入直播间' : undefined"
     class="block cursor-pointer transition-opacity duration-200 hover:opacity-80"
   >
     <div class="flex-center p-8px">

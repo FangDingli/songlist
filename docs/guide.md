@@ -4,8 +4,8 @@
 
 1. **歌曲数据**:主播填好模板 excel 后,
    运行 `node scripts/excel-to-json.mjs <excel路径> <主播id>`,
-   生成 `public/streamers/<id>/songs.json`(原样结构数组,零手工转换)。
-2. **配置**:手写 `public/streamers/<id>/config.json`(转换脚本会自动生成
+   生成 `data-local/streamers/<id>/songs.json`(原样结构数组,零手工转换)。
+2. **配置**:手写 `data-local/streamers/<id>/config.json`(转换脚本会自动生成
    含已填站点信息的初始文件),可编辑字段:
 
 ```json
@@ -15,7 +15,9 @@
   "avatar": "https://头像地址.jpg",
   "bg": { "mobile": "/bg/<id>/mobile.png", "desktop": "/bg/<id>/desktop.jpg" },
   "orderTemplate": "点歌 {title} {singer}",
-  "streamerUrl": "https://space.bilibili.com/主播uid",
+  "uid": "主播uid",
+  "userProfileUrl": "https://space.bilibili.com/主播uid",
+  "liveroomId": "直播间id",
   "liveUrl": "https://live.bilibili.com/直播间id",
   "favicon": "https://favicon地址.ico",
   "theme": "#1677FF",
@@ -26,22 +28,25 @@
 
    所有字段均可省略,省略时用默认值;背景图放 `public/bg/<id>/`;
   favicon 缺省时使用头像;`songsUpdatedAt` 由转换脚本自动写入,驱动页脚日期。
-
+  `userProfileUrl` / `liveUrl` 由 `uid` / `liveroomId` 派生(转换脚本自动生成),
+  一般只需填 `uid` 和 `liveroomId`。
   侧栏「生成二维码」按钮可为当前主播页生成二维码(中间嵌头像),支持下载 PNG,
   供直播时展示给观众扫码进入。
-3. **访问**:提交推送后 `example.com/<id>` 即可访问。子域方案另行加 DNS 与域名绑定。
+3. **发布**:`node scripts/publish.mjs` 把数据直传到数据源(秒级生效),
+   `example.com/<id>` 即可访问,无需提交代码仓库。
 
 > 根路径 `example.com/` 是系统介绍页(源码 `src/components/LandingPage.vue`,
 > 文案可直接改组件内常量);各主播页面在 `/<id>`。
 
 ## 数据更新(手动)
 
-数据与配置分离存放,更新互不影响:
+数据与配置分离存放,更新互不影响(均指 `data-local/streamers/<id>/` 下的文件,
+改完跑 `node scripts/publish.mjs` 发布):
 
-- `public/streamers/<id>/songs.json`:歌曲数组,用最新数据原样覆盖即可
+- `songs.json`:歌曲数组,用最新数据原样覆盖即可
   (或拿到主播的新 excel 后重跑 `node scripts/excel-to-json.mjs <excel> <id>`,
   脚本会同步刷新 config.json 里的 `songsUpdatedAt`)。
-- `public/streamers/<id>/config.json`:标题/头像/背景/主题色等,按需编辑。
+- `config.json`:标题/头像/背景/主题色等,按需编辑。
 
 ## 主题与暗黑模式
 

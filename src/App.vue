@@ -4,7 +4,7 @@ import { useElementSize, useWindowSize, useWindowScroll } from '@vueuse/core'
 import configRaw from '@/data/qiyuan-config.json?raw'
 import songsRaw from '@/data/qiyuan-songs.json?raw'
 import type { FilterTag, Song, StreamerMeta } from '@/types'
-import { DEFAULT_STREAMER_ID, FALLBACK_META, formatOrder } from '@/config'
+import { DATA_BASE_URL, DEFAULT_STREAMER_ID, FALLBACK_META, dataUrl, formatOrder } from '@/config'
 import { getStreamerId } from '@/utils/streamer'
 import { applyStreamerTheme } from '@/utils/theme'
 import { songTags, withIds } from '@/utils/songs'
@@ -33,6 +33,10 @@ const dataStatus = ref<'loading' | 'ready' | 'not-found'>('loading')
 // 数据更新日期来自主播配置(meta.songsUpdatedAt),由转换脚本写入
 const updatedAt = computed(() => meta.value.songsUpdatedAt ?? '')
 
+// 移动端顶栏头像加载失败时回落到音符图标,换主播(头像变更)时重试
+const avatarFailed = ref(false)
+watch(() => meta.value.avatar, () => (avatarFailed.value = false))
+
 // 默认主播使用打包内置数据,首屏零等待
 if (streamerId === DEFAULT_STREAMER_ID) {
   meta.value = { ...FALLBACK_META, ...(JSON.parse(configRaw) as StreamerMeta) }
@@ -40,24 +44,43 @@ if (streamerId === DEFAULT_STREAMER_ID) {
   dataStatus.value = 'ready'
 }
 
+/** 拉取 json:配置了数据源时优先,404/网络失败回落同源仓库文件(兜底) */
+async function fetchJson(path: string): Promise<unknown | null> {
+  if (DATA_BASE_URL) {
+    try {
+      const res = await fetch(dataUrl(path), { cache: 'no-cache' })
+      if (res.ok) return res.json()
+    } catch {
+      /* 数据源不可达,回落同源 */
+    }
+  }
+  try {
+    const res = await fetch(path, { cache: 'no-cache' })
+    if (res.ok) return res.json()
+  } catch {
+    /* 同源也失败 */
+  }
+  return null
+}
+
 async function loadStreamerData() {
   if (isLanding.value) return
-  try {
-    // 配置:仓库内静态文件;404 说明该主播不存在
-    const configRes = await fetch(`/streamers/${streamerId}/config.json`, { cache: 'no-cache' })
-    if (!configRes.ok) {
-      if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
-      return
-    }
-    meta.value = { ...FALLBACK_META, ...((await configRes.json()) as StreamerMeta) }
+  // 配置:数据源/仓库均 404 说明该主播不存在
+  const config = await fetchJson(`/streamers/${streamerId}/config.json`)
+  if (config) meta.value = { ...FALLBACK_META, ...(config as StreamerMeta) }
 
-    // 歌曲:仓库内静态 json(原样远端结构)
-    const songsRes = await fetch(`/streamers/${streamerId}/songs.json`, { cache: 'no-cache' })
-    if (!songsRes.ok) {
-      if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
-      return
-    }
-    songs.value = withIds(await songsRes.json())
+  // 歌曲:配置拿到了再拉,避免无效请求;两步任一失败按「没有找到主播」处理
+  if (!config) {
+    if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
+    return
+  }
+  const songsRaw = await fetchJson(`/streamers/${streamerId}/songs.json`)
+  if (!songsRaw) {
+    if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
+    return
+  }
+  try {
+    songs.value = withIds(songsRaw)
     dataStatus.value = 'ready'
   } catch {
     if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
@@ -117,13 +140,20 @@ function countBy(get: (s: Song) => string | string[]): Array<[string, number]> {
 const languages = computed(() => countBy((s) => s.lang).filter(([name]) => name))
 const genres = computed(() => countBy((s) => songTags(s)))
 
-const paidCount = computed(() => songs.value.filter((s) => !!s.paid || (!!s.sc && Number(s.sc) > 0)).length)
+/** 是否付费/SC 歌曲:「付费」「免费」筛选与计数共用 */
+const isPaid = (s: Song) => !!s.paid || (!!s.sc && Number(s.sc) > 0)
+const paidCount = computed(() => songs.value.filter(isPaid).length)
 
 const tags = computed(() => [
   ...languages.value.map(([name, count]) => ({ name, count, kind: 'language' as const })),
   ...genres.value.map(([name, count]) => ({ name, count, kind: 'genre' as const })),
-  // 有歌曲需要付费/SC 时才展示该筛选项
-  ...(paidCount.value ? [{ name: '付费', count: paidCount.value, kind: 'paid' as const }] : []),
+  // 有歌曲需要付费/SC 时,「付费」「免费」成对展示
+  ...(paidCount.value
+    ? [
+        { name: '付费', count: paidCount.value, kind: 'paid' as const },
+        { name: '免费', count: songs.value.length - paidCount.value, kind: 'free' as const },
+      ]
+    : []),
 ])
 
 const filtered = computed(() => {
@@ -134,7 +164,8 @@ const filtered = computed(() => {
     if (sel) {
       if (sel.kind === 'language' ? song.lang !== sel.name : false) return false
       if (sel.kind === 'genre' ? !songTags(song).includes(sel.name) : false) return false
-      if (sel.kind === 'paid' ? !(!!song.paid || (!!song.sc && Number(song.sc) > 0)) : false) return false
+      if (sel.kind === 'paid' ? !isPaid(song) : false) return false
+      if (sel.kind === 'free' ? isPaid(song) : false) return false
     }
     return true
   })
@@ -290,10 +321,13 @@ const dataMeta = computed(
   <div v-else class="min-h-screen">
     <!-- 移动端吸顶栏 -->
     <div class="lg:hidden sticky top-0 z-50 bg-[rgb(var(--bg-card)/0.9)] backdrop-blur-xl border-b border-border">
-      <div class="flex items-center justify-between gap-12px px-16px h-52px">
-        <div class="flex items-center gap-8px min-w-0">
-          <div class="i-carbon-music text-brand text-18px shrink-0"></div>
-          <h1 class="text-17px lh-24px font-bold text-text-primary truncate">{{ meta.title }}</h1>
+        <div class="flex items-center justify-between gap-12px px-16px h-52px">
+          <div class="flex items-center gap-8px min-w-0">
+            <!-- 头像优先(随唱片机节奏旋转),加载失败或未配置时回落到音符图标 -->
+            <img v-if="meta.avatar && !avatarFailed" :src="meta.avatar" alt="" referrerpolicy="no-referrer"
+              class="bar-avatar w-28px h-28px rounded-full object-cover shrink-0 bg-bg-base" @error="avatarFailed = true" />
+            <div v-else class="i-carbon-music text-brand text-18px shrink-0"></div>
+            <h1 class="text-17px lh-24px font-bold text-text-primary truncate">{{ meta.title }}</h1>
           <span v-if="dataStatus === 'ready'" class="shrink-0 text-12px text-text-secondary">共 {{ songs.length }}
             首</span>
         </div>
@@ -308,7 +342,7 @@ const dataMeta = computed(
       <aside v-if="dataStatus === 'ready'" class="hidden lg:block w-300px shrink-0">
         <div class="sticky top-24px flex flex-col gap-24px">
           <div class="surface-card p-24px relative flex flex-col items-center">
-            <button type="button" class="theme-toggle absolute top-16px right-56px" title="生成二维码"
+            <button type="button" class="theme-toggle absolute top-16px right-56px z-10" title="生成二维码"
               @click="showQr = true">
               <div class="i-carbon-qr-code"></div>
             </button>
@@ -316,7 +350,7 @@ const dataMeta = computed(
               @click="cycleMode">
               <div :class="themeIcon"></div>
             </button>
-            <RotatingDisc :avatar="meta.avatar" :href="meta.streamerUrl" />
+            <RotatingDisc :avatar="meta.avatar" :href="meta.liveUrl" />
             <h2 class="mt-12px text-18px lh-28px font-bold text-text-primary">{{ meta.title }}</h2>
             <p v-if="meta.subtitle" class="mt-8px text-13px text-text-secondary text-center px-8px">{{ meta.subtitle }}
             </p>
@@ -426,3 +460,23 @@ const dataMeta = computed(
     </div>
   </div>
 </template>
+
+<style scoped>
+/* 移动端顶栏头像:与唱片机(RotatingDisc)同节奏旋转 */
+.bar-avatar {
+  animation: bar-disc-spin 12s linear infinite;
+}
+@keyframes bar-disc-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bar-avatar {
+    animation: none;
+  }
+}
+</style>
