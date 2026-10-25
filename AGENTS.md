@@ -85,6 +85,9 @@
   未配置时使用 `config.ts` 的 `DEFAULT_THEME`
 - 品牌色填充上的文字一律白字(`--on-brand`);白字对比不足 4.5 时压深该处底色
   (`--on-brand-bg`,仅用于选中的筛选标签等品牌实底场景),不改动 `--brand` 本身
+- 主题色适合性判断:转换脚本(`scripts/lib/theme-seed.mjs` 共用)对过浅/过淡的
+  种子色做梯度计算(饱和度 ≥0.5、亮度 0.45~0.62,近中性色保持原样),
+  excel 与 songlistcc 两个导入入口都会执行;运行时 WCAG 由 theme.ts 派生保证
 - 主题派生同时驱动 `<meta name="theme-color">`(取页面底色)
 - var() 颜色不支持 `/opacity` 修饰符,透明度变体在 uno theme 里显式定义(如 `brand.soft/light`)
 

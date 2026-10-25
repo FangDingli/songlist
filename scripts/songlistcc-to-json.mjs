@@ -19,6 +19,7 @@
  * - video(BV号)与 remark 原样保留,页面暂不展示
  */
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs'
+import { deriveSeed as deriveThemeSeed } from './lib/theme-seed.mjs'
 
 /** 与 src/config.ts 的 DEFAULT_THEME 保持一致(Node 无法解析 @/ 别名,故此处内联) */
 const DEFAULT_THEME = '#1677FF'
@@ -40,50 +41,13 @@ if (!/^[^/\\]{1,32}$/.test(streamerId)) {
 const str = (v) => String(v ?? '').trim()
 const num = (v) => Number(v)
 
-function hexToRgb(hex) {
-  const h = hex.replace('#', '').trim()
-  const full = h.length === 3 ? h.split('').map((c) => c + c).join('') : h
-  const v = parseInt(full, 16)
-  return [(v >> 16) & 255, (v >> 8) & 255, v & 255]
-}
-
-function rgbToHsl([r, g, b]) {
-  r /= 255
-  g /= 255
-  b /= 255
-  const max = Math.max(r, g, b)
-  const min = Math.min(r, g, b)
-  const l = (max + min) / 2
-  if (max === min) return [0, 0, l]
-  const d = max - min
-  const s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
-  let h
-  if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6
-  else if (max === g) h = ((b - r) / d + 2) / 6
-  else h = ((r - g) / d + 4) / 6
-  return [h, s, l]
-}
-
-function hslToHex([h, s, l]) {
-  const hue = (v) => {
-    v = ((v % 1) + 1) % 1
-    if (v < 1 / 6) return v * 6
-    if (v < 1 / 2) return 1
-    if (v < 2 / 3) return (2 / 3 - v) * 6
-    return 0
-  }
-  const q = l < 0.5 ? l * (1 + s) : l + s - l * s
-  const p = 2 * l - q
-  const rgb = [hue(h + 1 / 3), hue(h), hue(h - 1 / 3)].map((v) => Math.round((p + (q - p) * v) * 255))
-  return '#' + rgb.map((c) => c.toString(16).padStart(2, '0')).join('')
-}
-
-/** 背景色 → 适合做主色的种子色:提升饱和度、把亮度限制在中间区间 */
+/**
+ * 背景色 → 适合做主色的种子色(梯度算法见 scripts/lib/theme-seed.mjs)。
+ * #FFEBCD 视为对方站点的默认色,返回 null 以省略 theme。
+ */
 function deriveSeed(backColor) {
   if (/^#FFEBCD$/i.test(backColor)) return null
-  const [h, s, l] = rgbToHsl(hexToRgb(backColor))
-  if (s < 0.15) return backColor // 近中性色保持原样
-  return hslToHex([h, Math.max(s, 0.5), Math.min(0.62, Math.max(0.45, l))])
+  return deriveThemeSeed(backColor)
 }
 
 const GUARD_NAMES = { 1: '舰长', 2: '提督', 3: '总督' }
@@ -99,7 +63,7 @@ const root = JSON.parse(readFileSync(jsonPath, 'utf8'))
 const data = root.data ?? root
 
 /* ---------- config ---------- */
-const today = new Date().toISOString().slice(0, 10)
+const today = new Date().toLocaleDateString('sv') // 本地日期(ISO 会取 UTC 日期,东八区晚间差一天)
 const config = {}
 if (str(data.title)) config.title = str(data.title)
 if (str(data.subTitle)) config.subtitle = str(data.subTitle)

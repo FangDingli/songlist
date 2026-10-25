@@ -13,6 +13,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import XLSX from 'xlsx'
+import { deriveSeed } from './lib/theme-seed.mjs'
 
 const SONGS_SHEET = '歌曲列表'
 const CONFIG_SHEET = '站点配置'
@@ -90,7 +91,16 @@ if (configSheet) {
   }
 }
 
-const today = new Date().toISOString().slice(0, 10)
+const today = new Date().toLocaleDateString('sv')
+
+// 主题色适合性判断:过浅/过淡的种子色做梯度计算(近中性色保持原样)
+if (config.theme) {
+  const seed = deriveSeed(config.theme)
+  if (seed !== config.theme) {
+    console.log(`  主题色 ${config.theme} 过浅/过淡,梯度调整为 ${seed}`)
+    config.theme = seed
+  }
+}
 
 // 由 uid / liveroomId 派生主页与直播间地址(与 config.json 的字段规则一致)
 if (config.uid) config.userProfileUrl = `https://space.bilibili.com/${config.uid}`
