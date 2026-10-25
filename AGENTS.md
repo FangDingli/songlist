@@ -17,6 +17,8 @@
 - 主播 id = URL 路径段(`example.com/<id>`,支持中文,解码后匹配),由
   `src/utils/streamer.ts` 解析;根路径 `/` 返回 null 渲染介绍页,
   数据不存在的 id 显示「没有找到主播」空态
+- 中文别名:config.json 的 `aliases` 数组(如 `["鸡蛋饼"]`),直查 config 404 时
+  按入驻清单 `streamers.json` 反查真实 id,URL 保持别名不变;改别名后需重新发布
 - 每主播两个文件(配置与数据分离,更新互不影响),存于**本地暂存区 `data-local/streamers/<id>/`**
   (gitignored,经 `scripts/publish.mjs` 发布到数据源,不进代码仓库):
   - `config.json`:meta(标题/副标题/头像/背景图/口令模板/

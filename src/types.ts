@@ -42,6 +42,8 @@ export interface StreamerMeta {
   theme?: string
   /** 歌曲数据更新日期,显示在页脚 */
   songsUpdatedAt?: string
+  /** 访问别名(如中文路径),命中后按真实 id 加载数据,URL 保持别名不变 */
+  aliases?: string[]
 }
 
 /** 筛选 tag:kind 区分语种/类型/付费维度(付费与免费成对出现) */

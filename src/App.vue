@@ -24,9 +24,9 @@ const { toasts, show } = useToast()
 const { mode, resolved, cycleMode } = useTheme()
 
 /* ---------- 主播识别与数据加载 ---------- */
-const streamerId = getStreamerId()
+const streamerId = ref<string | null>(getStreamerId())
 // 根路径渲染系统介绍页
-const isLanding = computed(() => streamerId === null)
+const isLanding = computed(() => streamerId.value === null)
 const meta = ref<StreamerMeta>({ ...FALLBACK_META })
 const songs = shallowRef<Song[]>([])
 // ready:数据就绪;loading:非默认主播拉取中;not-found:该主播没有数据
@@ -41,7 +41,7 @@ watch(() => `${meta.value.uid ?? ''}|${meta.value.avatar ?? ''}`, () => (barAvat
 const barAvatarSrc = computed(() => barAvatarCandidates.value[barAvatarFailed.value] ?? '')
 
 // 默认主播使用打包内置数据,首屏零等待
-if (streamerId === DEFAULT_STREAMER_ID) {
+if (streamerId.value === DEFAULT_STREAMER_ID) {
   meta.value = { ...FALLBACK_META, ...(JSON.parse(configRaw) as StreamerMeta) }
   songs.value = withIds(JSON.parse(songsRaw))
   dataStatus.value = 'ready'
@@ -52,14 +52,16 @@ async function fetchJson(path: string): Promise<unknown | null> {
   if (DATA_BASE_URL) {
     try {
       const res = await fetch(dataUrl(path), { cache: 'no-cache' })
-      if (res.ok) return res.json()
+      // await 让 json() 的解析失败(如 SPA 回退返回 HTML)也落入本函数的 catch,
+      // 裸 return res.json() 会把拒绝漏给调用方
+      if (res.ok) return await res.json()
     } catch {
       /* 数据源不可达,回落同源 */
     }
   }
   try {
     const res = await fetch(path, { cache: 'no-cache' })
-    if (res.ok) return res.json()
+    if (res.ok) return await res.json()
   } catch {
     /* 同源也失败 */
   }
@@ -68,16 +70,29 @@ async function fetchJson(path: string): Promise<unknown | null> {
 
 async function loadStreamerData() {
   if (isLanding.value) return
-  // 配置:数据源/仓库均 404 说明该主播不存在
-  const config = await fetchJson(`/streamers/${streamerId}/config.json`)
-  if (config) meta.value = { ...FALLBACK_META, ...(config as StreamerMeta) }
+  let id = streamerId.value as string
 
-  // 歌曲:配置拿到了再拉,避免无效请求;两步任一失败按「没有找到主播」处理
+  // 配置:数据源/仓库均 404 时,查入驻清单的别名(如中文路径)反查真实 id
+  let config = (await fetchJson(`/streamers/${id}/config.json`)) as StreamerMeta | null
+  if (!config) {
+    const manifest = (await fetchJson('/streamers.json')) as Array<{ id: string; config: StreamerMeta }> | null
+    const hit = manifest?.find((s) =>
+      s.config.aliases?.some((a) => a.trim().toLowerCase() === id.toLowerCase()),
+    )
+    if (hit) {
+      id = hit.id
+      streamerId.value = id // 展示与二维码使用真实 id,URL 保持别名不变
+      config = hit.config
+    }
+  }
   if (!config) {
     if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
     return
   }
-  const songsRaw = await fetchJson(`/streamers/${streamerId}/songs.json`)
+  meta.value = { ...FALLBACK_META, ...config }
+
+  // 歌曲:配置拿到了再拉,避免无效请求;两步任一失败按「没有找到主播」处理
+  const songsRaw = await fetchJson(`/streamers/${id}/songs.json`)
   if (!songsRaw) {
     if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
     return
@@ -279,7 +294,7 @@ const showBackTop = computed(() => scrollY.value > winH.value * 0.6)
 
 // 二维码:内容为当前主播页的完整地址
 const showQr = ref(false)
-const qrUrl = computed(() => `${location.origin}/${streamerId}`)
+const qrUrl = computed(() => `${location.origin}/${streamerId.value}`)
 
 // 站点 favicon:优先主播配置,缺省动态解析/头像,都没有则保留默认音符图标
 watchEffect(() => {
