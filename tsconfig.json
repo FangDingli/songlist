@@ -16,9 +16,8 @@
     "skipLibCheck": true,
     "noEmit": true,
     "types": ["vite/client", "node"],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "uno.config.ts", "vite.config.ts"]
