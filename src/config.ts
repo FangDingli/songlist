@@ -5,10 +5,14 @@ import { songTags } from '@/utils/songs'
 export const DEFAULT_STREAMER_ID = 'qiyuan'
 
 /**
- * 数据源基地址(构建时注入,如 https://data.vupsong.com),为空时同源拉取仓库文件。
- * 拉取顺序:数据源 → 同源仓库文件(兜底) → 默认主播内置数据 → 「没有找到主播」。
+ * 数据源基地址,拉取顺序:数据源 → 同源仓库文件(兜底) → 默认主播内置数据 → 「没有找到主播」。
+ * 默认值内置在代码里(生产构建,避免 CI/异机构建漏配 env 导致线上无数据);
+ * dev 模式走同源本地中间件,不依赖数据源;VITE_DATA_BASE_URL 可覆盖。
  */
-export const DATA_BASE_URL = (import.meta.env.VITE_DATA_BASE_URL as string | undefined)?.replace(/\/+$/, '') ?? ''
+export const DATA_BASE_URL = (
+  (import.meta.env.VITE_DATA_BASE_URL as string | undefined)?.trim() ||
+  (import.meta.env.DEV ? '' : 'https://data.vupsong.com')
+).replace(/\/+$/, '')
 
 /** 拼接数据文件地址:配置了数据源时指向数据源,否则同源 */
 export function dataUrl(path: string): string {
