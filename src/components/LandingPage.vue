@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { dataUrl } from '@/config'
 import { useTheme } from '@/composables/useTheme'
-import { avatarThumb } from '@/utils/avatar'
+import { avatarThumb, resolveAvatar } from '@/utils/avatar'
 import type { StreamerMeta } from '@/types'
 
 const { mode, cycleMode } = useTheme()
@@ -96,8 +96,8 @@ const features = [
             class="surface-card p-20px flex items-center gap-16px transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.2)] hover:-translate-y-2px"
           >
             <img
-              v-if="s.config.avatar"
-              :src="avatarThumb(s.config.avatar)"
+              v-if="resolveAvatar(s.config)"
+              :src="avatarThumb(resolveAvatar(s.config))"
               class="w-56px h-56px rounded-full object-cover shrink-0"
               alt=""
               referrerpolicy="no-referrer"

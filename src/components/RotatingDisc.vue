@@ -1,14 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { avatarCandidates } from '@/utils/avatar'
 
 const props = defineProps<{
-  /** 主播头像 URL,缺省或加载失败时显示音符图标 */
+  /** 静态头像地址,动态解析失败时的兜底 */
   avatar?: string
-  /** 点击跳转的主播主页,缺省则不可点击 */
+  /** 主播 uid,存在时通过解析服务动态获取(跟随 B 站头像更新) */
+  uid?: string
+  /** 点击跳转的直播间,缺省则不可点击 */
   href?: string
 }>()
 
-const failed = ref(false)
+// 头像候选:uid 动态解析优先,静态地址兜底;全部加载失败回落音符图标
+const candidates = computed(() => avatarCandidates(props))
+const failedCount = ref(0)
+watch(() => `${props.uid ?? ''}|${props.avatar ?? ''}`, () => (failedCount.value = 0))
+const src = computed(() => candidates.value[failedCount.value] ?? '')
 </script>
 
 <template>
@@ -26,12 +33,12 @@ const failed = ref(false)
       >
         <div class="w-110px h-110px rounded-full bg-brand-soft border-4 border-bg-card flex-center overflow-hidden">
           <img
-            v-if="props.avatar && !failed"
-            :src="props.avatar"
+            v-if="src"
+            :src="src"
             class="w-full h-full rounded-full object-cover"
             alt="主播头像"
             referrerpolicy="no-referrer"
-            @error="failed = true"
+            @error="failedCount++"
           />
           <div v-else class="i-carbon-music text-36px text-brand"></div>
         </div>

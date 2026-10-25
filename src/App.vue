@@ -17,6 +17,7 @@ import RotatingDisc from '@/components/RotatingDisc.vue'
 import { useClipboard } from '@/composables/useClipboard'
 import { useToast } from '@/composables/useToast'
 import { useTheme } from '@/composables/useTheme'
+import { avatarCandidates, resolveAvatar } from '@/utils/avatar'
 
 const { copy } = useClipboard()
 const { toasts, show } = useToast()
@@ -33,9 +34,11 @@ const dataStatus = ref<'loading' | 'ready' | 'not-found'>('loading')
 // 数据更新日期来自主播配置(meta.songsUpdatedAt),由转换脚本写入
 const updatedAt = computed(() => meta.value.songsUpdatedAt ?? '')
 
-// 移动端顶栏头像加载失败时回落到音符图标,换主播(头像变更)时重试
-const avatarFailed = ref(false)
-watch(() => meta.value.avatar, () => (avatarFailed.value = false))
+// 移动端顶栏头像:uid 动态解析优先,静态地址兜底,全部失败回落音符图标
+const barAvatarCandidates = computed(() => avatarCandidates(meta.value))
+const barAvatarFailed = ref(0)
+watch(() => `${meta.value.uid ?? ''}|${meta.value.avatar ?? ''}`, () => (barAvatarFailed.value = 0))
+const barAvatarSrc = computed(() => barAvatarCandidates.value[barAvatarFailed.value] ?? '')
 
 // 默认主播使用打包内置数据,首屏零等待
 if (streamerId === DEFAULT_STREAMER_ID) {
@@ -156,21 +159,33 @@ const tags = computed(() => [
     : []),
 ])
 
+/** 歌名/歌手包含匹配 */
+function matchKeyword(song: Song, kw: string): boolean {
+  return song.title.toLowerCase().includes(kw) || song.singer.toLowerCase().includes(kw)
+}
+
 const filtered = computed(() => {
-  const kw = keyword.value.trim().toLowerCase()
+  // 先按 tag 筛选并应用随机序,得到「当前编号」;编号搜索按此编号匹配
   const sel = selectedTag.value
-  const list = songs.value.filter((song) => {
-    if (kw && !song.title.toLowerCase().includes(kw) && !song.singer.toLowerCase().includes(kw)) return false
-    if (sel) {
-      if (sel.kind === 'language' ? song.lang !== sel.name : false) return false
-      if (sel.kind === 'genre' ? !songTags(song).includes(sel.name) : false) return false
-      if (sel.kind === 'paid' ? !isPaid(song) : false) return false
-      if (sel.kind === 'free' ? isPaid(song) : false) return false
-    }
-    return true
+  const byTag = songs.value.filter((song) => {
+    if (!sel) return true
+    if (sel.kind === 'language') return song.lang === sel.name
+    if (sel.kind === 'genre') return songTags(song).includes(sel.name)
+    if (sel.kind === 'paid') return isPaid(song)
+    return !isPaid(song)
   })
-  if (!shuffled.value) return list
-  return [...list].sort((a, b) => (randomRank.value.get(a.id) ?? 0) - (randomRank.value.get(b.id) ?? 0))
+  const ordered = shuffled.value
+    ? [...byTag].sort((a, b) => (randomRank.value.get(a.id) ?? 0) - (randomRank.value.get(b.id) ?? 0))
+    : byTag
+
+  const kw = keyword.value.trim().toLowerCase()
+  if (!kw) return ordered
+  // 纯数字(≤4 位):同时匹配「当前列表编号」与歌名/歌手,输入 18 即点 18 号
+  if (/^\d{1,4}$/.test(kw)) {
+    const no = Number(kw)
+    return ordered.filter((song, i) => i + 1 === no || matchKeyword(song, kw))
+  }
+  return ordered.filter((song) => matchKeyword(song, kw))
 })
 
 const hasActiveFilters = computed(() => keyword.value.trim() !== '' || selectedTag.value !== null)
@@ -266,9 +281,9 @@ const showBackTop = computed(() => scrollY.value > winH.value * 0.6)
 const showQr = ref(false)
 const qrUrl = computed(() => `${location.origin}/${streamerId}`)
 
-// 站点 favicon:优先主播配置,缺省用头像;都没有则保留默认音符图标
+// 站点 favicon:优先主播配置,缺省动态解析/头像,都没有则保留默认音符图标
 watchEffect(() => {
-  const href = meta.value.favicon || meta.value.avatar
+  const href = meta.value.favicon || resolveAvatar(meta.value)
   if (!href) return
   let link = document.querySelector('link[rel="icon"]') as HTMLLinkElement | null
   if (!link) {
@@ -324,8 +339,8 @@ const dataMeta = computed(
         <div class="flex items-center justify-between gap-12px px-16px h-52px">
           <div class="flex items-center gap-8px min-w-0">
             <!-- 头像优先(随唱片机节奏旋转),加载失败或未配置时回落到音符图标 -->
-            <img v-if="meta.avatar && !avatarFailed" :src="meta.avatar" alt="" referrerpolicy="no-referrer"
-              class="bar-avatar w-28px h-28px rounded-full object-cover shrink-0 bg-bg-base" @error="avatarFailed = true" />
+            <img v-if="barAvatarSrc" :src="barAvatarSrc" alt="" referrerpolicy="no-referrer"
+              class="bar-avatar w-28px h-28px rounded-full object-cover shrink-0 bg-bg-base" @error="barAvatarFailed++" />
             <div v-else class="i-carbon-music text-brand text-18px shrink-0"></div>
             <h1 class="text-17px lh-24px font-bold text-text-primary truncate">{{ meta.title }}</h1>
           <span v-if="dataStatus === 'ready'" class="shrink-0 text-12px text-text-secondary">共 {{ songs.length }}
@@ -350,7 +365,7 @@ const dataMeta = computed(
               @click="cycleMode">
               <div :class="themeIcon"></div>
             </button>
-            <RotatingDisc :avatar="meta.avatar" :href="meta.liveUrl" />
+            <RotatingDisc :avatar="meta.avatar" :uid="meta.uid" :href="meta.liveUrl" />
             <h2 class="mt-12px text-18px lh-28px font-bold text-text-primary">{{ meta.title }}</h2>
             <p v-if="meta.subtitle" class="mt-8px text-13px text-text-secondary text-center px-8px">{{ meta.subtitle }}
             </p>
@@ -446,7 +461,7 @@ const dataMeta = computed(
     </Transition>
 
     <!-- 二维码弹窗:主播展示给观众扫码进入 -->
-    <QrModal :open="showQr" :url="qrUrl" :logo="meta.avatar" :title="meta.title" @close="showQr = false" />
+    <QrModal :open="showQr" :url="qrUrl" :logo="resolveAvatar(meta)" :title="meta.title" @close="showQr = false" />
 
     <!-- Toast -->
     <div

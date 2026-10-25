@@ -90,6 +90,9 @@
 
 - 外链一律 `target="_blank" rel="noopener noreferrer"`;bilibili 图床加 `referrerpolicy="no-referrer"`
 - 站点 favicon 动态使用主播头像(`meta.avatar`,无 favicon 配置时),在 App.vue 设置
+- 头像展示统一走 `utils/avatar.ts` 的 `resolveAvatar`/`avatarCandidates`:
+  uid 存在时优先经第三方解析服务(`workers.vrp.moe`,307 到 B 站头像)动态获取,
+  跟随主播更换头像;静态 `avatar` 字段为加载失败时的兜底,调用方逐级降级
 - 观众在国内:部署走 Cloudflare + 自定义域名(见 docs/deploy.md),不要引入会被墙的运行时依赖
 - 主播 excel 模板在 `public/songlist.xlsx`(首页提供下载,含「歌曲列表」「站点配置」
   两个工作表),表头与字段名不可改
