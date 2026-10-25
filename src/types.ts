@@ -9,6 +9,10 @@ export interface Song {
   sc?: number | string
   /** 付费/SC 备注(模板「付费」列),如「30SC」「舰长」;空表示无需 */
   paid?: string
+  /** 备注原文,页面暂不展示 */
+  remark?: string
+  /** B 站视频 BV 号(歌曲演示),页面暂未使用 */
+  video?: string
   /** 运行时按行序生成(1 起),仅用作 key 与随机排序,与外部编号无关 */
   id: number
 }

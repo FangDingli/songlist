@@ -8,7 +8,7 @@ export function songTags(song: Song): string[] {
       .map((s) => s.trim())
       .filter(Boolean),
   )]
-  return tags.length ? tags : ['未知']
+  return tags
 }
 
 /**

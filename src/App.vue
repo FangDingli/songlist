@@ -113,7 +113,7 @@ function countBy(get: (s: Song) => string | string[]): Array<[string, number]> {
   return [...counter.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh'))
 }
 
-const languages = computed(() => countBy((s) => s.lang))
+const languages = computed(() => countBy((s) => s.lang).filter(([name]) => name))
 const genres = computed(() => countBy((s) => songTags(s)))
 
 const paidCount = computed(() => songs.value.filter((s) => !!s.paid || (!!s.sc && Number(s.sc) > 0)).length)

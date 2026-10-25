@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Song } from '@/types'
 import { songTags } from '@/utils/songs'
 
-defineProps<{
+const props = defineProps<{
   song: Song
   /** 展示编号:当前列表顺序中的序号(从 1 开始),与歌曲 id 解耦,防止观众记住编号映射 */
   no: number
@@ -12,6 +13,10 @@ defineProps<{
 defineEmits<{
   (e: 'order', song: Song): void
 }>()
+
+/** 付费标记文案:优先 paid(「30SC」「舰长」等),兼容 qylive 的 sc 数值 */
+const paidLabel = computed(() => props.song.paid ?? (props.song.sc ? `${props.song.sc} SC` : ''))
+const hasPaid = computed(() => !!paidLabel.value)
 
 /** 分类 tag 配色,从预设色板的浅色底 + 深色字组合中按 key 稳定取色 */
 const TAG_PALETTE = [
@@ -41,7 +46,9 @@ function colorStyle(key: string) {
   <button
     type="button"
     class="song-card"
+    :class="hasPaid ? 'border-[rgb(var(--error)/0.45)]' : ''"
     :data-song-id="song.id"
+    :title="hasPaid ? '付费歌曲' : undefined"
     @click="$emit('order', song)"
   >
     <!-- 大编号水印 -->
@@ -64,9 +71,9 @@ function colorStyle(key: string) {
           {{ song.title }}
         </h3>
       <div class="shrink-0 flex items-center gap-6px">
-        <span class="text-13px font-bold text-brand-strong tracking-wide">{{ song.lang }}</span>
-        <span v-if="song.sc" class="text-12px font-bold text-error" :title="`点歌需要 ${song.sc} SC`">
-          {{ song.sc }} SC
+        <span v-if="song.lang" class="text-13px font-bold text-brand-strong tracking-wide">{{ song.lang }}</span>
+        <span v-if="paidLabel" class="text-12px font-bold text-error" :title="`付费点歌:${paidLabel}`">
+          {{ paidLabel }}
         </span>
       </div>
       </div>

@@ -45,7 +45,7 @@ export default defineConfig({
     'tag-pill-selected': 'bg-brand text-on-brand font-bold',
     // 歌曲卡片:紧凑双行、固定高度(虚拟滚动按此行距计算),无边框,hover 用品牌紫光晕代替描边
     'song-card':
-      'relative overflow-hidden w-full h-90px text-left bg-bg-card p-18px rounded-2xl cursor-pointer transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.3)] active:scale-95',
+      'relative overflow-hidden w-full h-90px text-left bg-bg-card p-18px rounded-2xl border border-transparent cursor-pointer transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.3)] active:scale-95',
     'song-tag': 'inline-flex items-center h-20px px-8px rounded-full text-12px lh-20px whitespace-nowrap font-medium',
     toast:
       'pointer-events-auto max-w-80vw px-14px py-9px rounded-xl text-13px text-white shadow-[0_6px_16px_rgba(0,0,0,0.2)]',

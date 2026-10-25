@@ -7,7 +7,7 @@
  * - 「歌曲列表」:歌名 | 歌手 | 语种 | 类型 | 备注(可选)
  *   - 类型:多值用中英文分号分隔,整串存入 genre,页面按分隔符拆成 tag
  *   - 歌手:顿号、中英文分号、& 均可识别,输出统一为顿号
- *   - 备注:自由文本,原样保留在 remark
+ *   - 付费:有值表示点歌需要付费/SC(如「30SC」「舰长」),原样存入 paid
  * - 「站点配置」:字段 | 填写内容 两列,生成 config.json(meta)
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -56,7 +56,7 @@ for (const row of XLSX.utils.sheet_to_json(songsSheet, { defval: '' })) {
   const title = str(row['歌名'])
   if (!title) continue
 
-  const remark = str(row['备注'])
+  const remark = str(row['付费'])
 
   songs.push({
     title,
@@ -67,7 +67,7 @@ for (const row of XLSX.utils.sheet_to_json(songsSheet, { defval: '' })) {
   })
 }
 if (!songs.length) {
-  console.error('没有解析到有效歌曲(检查「歌曲列表」表头是否为:歌名/歌手/语种/类型/备注)')
+  console.error('没有解析到有效歌曲(检查「歌曲列表」表头是否为:歌名/歌手/语种/类型/付费)')
   process.exit(1)
 }
 
