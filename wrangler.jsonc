@@ -1,0 +1,12 @@
+{
+  // 站点 Worker(与 dashboard 上 Workers Builds 连接的是同一个,本地 deploy 与
+  // Git 自动构建互相兼容,deploy 只是追加一个版本并立即部署)
+  // 用法:npm run deploy(构建 + 直传,自动构建丢失时的兜底手段)
+  "name": "songlist",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    // 与现网行为一致:未命中的路径回退 index.html(客户端路由/深链接可直达)
+    "not_found_handling": "single-page-application"
+  }
+}
