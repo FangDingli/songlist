@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { dataUrl } from '@/config'
 import { useTheme } from '@/composables/useTheme'
-import { avatarThumb, resolveAvatar } from '@/utils/avatar'
+import { avatarFallbackBg, avatarThumb, resolveAvatar } from '@/utils/avatar'
 import type { StreamerMeta } from '@/types'
 
 const { mode, cycleMode } = useTheme()
@@ -95,12 +95,15 @@ const features = [
             :href="`/${s.id}`"
             class="no-underline surface-card p-20px flex items-center gap-16px transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.2)] hover:-translate-y-2px"
           >
+            <!-- 静态头像垫底:动态解析请求期间即有显示;动态加载失败时隐藏 img 露出垫底图 -->
             <img
               v-if="resolveAvatar(s.config)"
               :src="avatarThumb(resolveAvatar(s.config))"
-              class="w-56px h-56px rounded-full object-cover shrink-0"
+              class="w-56px h-56px rounded-full object-cover shrink-0 bg-cover bg-center"
+              :style="{ backgroundImage: avatarFallbackBg(s.config.avatar) }"
               alt=""
               referrerpolicy="no-referrer"
+              @error="($event.target as HTMLImageElement).style.visibility = 'hidden'"
             />
             <div v-else class="w-56px h-56px rounded-full bg-brand-soft text-brand text-24px flex-center shrink-0">
               <div class="i-carbon-music"></div>

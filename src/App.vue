@@ -17,7 +17,7 @@ import RotatingDisc from '@/components/RotatingDisc.vue'
 import { useClipboard } from '@/composables/useClipboard'
 import { useToast } from '@/composables/useToast'
 import { useTheme } from '@/composables/useTheme'
-import { avatarCandidates, resolveAvatar } from '@/utils/avatar'
+import { avatarCandidates, avatarFallbackBg, resolveAvatar } from '@/utils/avatar'
 
 const { copy } = useClipboard()
 const { toasts, show } = useToast()
@@ -353,9 +353,10 @@ const dataMeta = computed(
     <div class="lg:hidden sticky top-0 z-50 bg-[rgb(var(--bg-card)/0.9)] backdrop-blur-xl border-b border-border">
         <div class="flex items-center justify-between gap-12px px-16px h-52px">
           <div class="flex items-center gap-8px min-w-0">
-            <!-- 头像优先(随唱片机节奏旋转),加载失败或未配置时回落到音符图标 -->
+            <!-- 头像优先(随唱片机节奏旋转),静态头像垫底显示,动态加载失败逐级降级,全失败回落音符图标 -->
             <img v-if="barAvatarSrc" :src="barAvatarSrc" alt="" referrerpolicy="no-referrer"
-              class="bar-avatar w-28px h-28px rounded-full object-cover shrink-0 bg-bg-base" @error="barAvatarFailed++" />
+              class="bar-avatar w-28px h-28px rounded-full object-cover shrink-0 bg-cover bg-center"
+              :style="{ backgroundImage: avatarFallbackBg(meta.avatar) }" @error="barAvatarFailed++" />
             <div v-else class="i-carbon-music text-brand text-18px shrink-0"></div>
             <h1 class="text-17px lh-24px font-bold text-text-primary truncate">{{ meta.title }}</h1>
           <span v-if="dataStatus === 'ready'" class="shrink-0 text-12px text-text-secondary">共 {{ songs.length }}
@@ -476,7 +477,8 @@ const dataMeta = computed(
     </Transition>
 
     <!-- 二维码弹窗:主播展示给观众扫码进入 -->
-    <QrModal :open="showQr" :url="qrUrl" :logo="resolveAvatar(meta)" :title="meta.title" @close="showQr = false" />
+    <QrModal :open="showQr" :url="qrUrl" :logo="resolveAvatar(meta)" :logo-fallback="meta.avatar" :title="meta.title"
+      @close="showQr = false" />
 
     <!-- Toast -->
     <div

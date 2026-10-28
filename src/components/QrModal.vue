@@ -8,6 +8,8 @@ const props = defineProps<{
   url: string
   /** 居中嵌入的图片(主播头像),缺省则纯二维码 */
   logo?: string
+  /** 头像兜底背景(静态地址):动态 logo 请求期间/加载失败时显示 */
+  logoFallback?: string
   title: string
 }>()
 
@@ -131,7 +133,8 @@ function showGenerateError() {
           <div class="bg-bg-card rounded-xl p-6px border border-border">
             <img
               :src="logo"
-              class="w-56px h-56px rounded-lg object-cover"
+              class="w-56px h-56px rounded-lg object-cover bg-cover bg-center"
+              :style="logoFallback ? { backgroundImage: `url(&quot;${logoFallback}&quot;)` } : undefined"
               alt=""
               referrerpolicy="no-referrer"
             />

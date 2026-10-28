@@ -25,3 +25,12 @@ export function avatarThumb(url: string | undefined, size = '100w_100h'): string
   if (!/^https?:\/\/[^/]*hdslb\.com\//.test(url)) return url
   return url.includes('@') ? url : `${url}@${size}.webp`
 }
+
+/**
+ * 静态头像兜底背景(css background-image 值):动态解析请求期间垫底显示,
+ * 加载完成后被 img 内容覆盖;动态加载失败时降级链最终也是这张图,无缝衔接。
+ */
+export function avatarFallbackBg(avatar: string | undefined): string | undefined {
+  const url = avatarThumb(avatar?.trim())
+  return url ? `url("${url}")` : undefined
+}
