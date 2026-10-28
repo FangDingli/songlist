@@ -42,7 +42,10 @@ for (const entry of readdirSync(STAGING_DIR, { withFileTypes: true })) {
     console.warn(`  跳过 ${entry.name}(config.json 解析失败)`)
   }
 }
-streamers.sort((a, b) => a.id.localeCompare(b.id))
+// 首页展示顺序:config.order 小者在前,未配置的按 id 字典序兜底
+streamers.sort(
+  (a, b) => (a.config.order ?? Infinity) - (b.config.order ?? Infinity) || a.id.localeCompare(b.id),
+)
 
 /* ---------- 组装临时发布目录 ---------- */
 rmSync(TMP_DIR, { recursive: true, force: true })

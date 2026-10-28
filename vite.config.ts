@@ -24,7 +24,11 @@ function localData(): Plugin {
                 .filter((e) => e.isDirectory())
                 .filter((e) => existsSync(`${dir}/${e.name}/config.json`))
                 .map((e) => ({ id: e.name, config: JSON.parse(readFileSync(`${dir}/${e.name}/config.json`, 'utf8')) }))
-                .sort((a, b) => a.id.localeCompare(b.id))
+                // 首页展示顺序:config.order 小者在前,未配置的按 id 字典序兜底
+                .sort(
+                  (a, b) =>
+                    (a.config.order ?? Infinity) - (b.config.order ?? Infinity) || a.id.localeCompare(b.id),
+                )
             : []
           res.setHeader('Content-Type', jsonType)
           res.end(JSON.stringify(list))

@@ -44,6 +44,8 @@ export interface StreamerMeta {
   songsUpdatedAt?: string
   /** 访问别名(如中文路径),命中后按真实 id 加载数据,URL 保持别名不变 */
   aliases?: string[]
+  /** 首页「入驻主播」板块的展示顺序,数字越小越靠前;缺省按 id 字典序兜底 */
+  order?: number
 }
 
 /** 筛选 tag:kind 区分语种/类型/付费维度(付费与免费成对出现) */

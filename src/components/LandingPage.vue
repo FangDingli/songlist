@@ -71,7 +71,7 @@ const features = [
         <div class="mt-32px flex justify-center gap-12px flex-wrap">
           <a
             href="/example"
-            class="inline-flex items-center h-40px px-20px rounded-xl bg-brand text-white text-14px font-bold shadow-[0_4px_14px_rgb(var(--brand)/0.35)] hover:opacity-90 transition-opacity"
+            class="no-underline inline-flex items-center h-40px px-20px rounded-xl bg-brand text-white text-14px font-bold shadow-[0_4px_14px_rgb(var(--brand)/0.35)] hover:opacity-90 transition-opacity"
           >
             查看示例歌单 →
           </a>
@@ -79,7 +79,7 @@ const features = [
             href="https://space.bilibili.com/23598218"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-soft"
+            class="btn-soft no-underline"
           >B 站私信联系</a>
         </div>
       </section>
@@ -93,7 +93,7 @@ const features = [
             v-for="s in validStreamers"
             :key="s.id"
             :href="`/${s.id}`"
-            class="surface-card p-20px flex items-center gap-16px transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.2)] hover:-translate-y-2px"
+            class="no-underline surface-card p-20px flex items-center gap-16px transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.2)] hover:-translate-y-2px"
           >
             <img
               v-if="resolveAvatar(s.config)"

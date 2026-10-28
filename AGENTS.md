@@ -23,7 +23,8 @@
   (gitignored,经 `scripts/publish.mjs` 发布到数据源,不进代码仓库):
   - `config.json`:meta(标题/副标题/头像/背景图/口令模板/
     主题色 `theme`/`uid`+`userProfileUrl`(主页,由 uid 派生)/
-    `liveroomId`+`liveUrl`(直播间,由 liveroomId 派生)/favicon/`songsUpdatedAt`)
+    `liveroomId`+`liveUrl`(直播间,由 liveroomId 派生)/favicon/`songsUpdatedAt`/
+    `order`(首页入驻板块展示顺序,越小越靠前,缺省按 id 字典序))
   - `songs.json`:歌曲数组(远端原生结构:
     title/singer/lang/genre/sc/paid/remark/video)
 - `public/streamers/` 只留 `example`(首页「查看示例歌单」的兜底示例,同源可达);
@@ -106,6 +107,8 @@
   `scripts/json-to-excel.mjs <id> [输出路径]`(反向转换,与 excel-to-json 互逆:
   genre 原样写回「类型」列、sc 合成为「<n>SC」、video/remark 写回「歌切」「备注」);
   `scripts/songlistcc-to-json.mjs <json> <id>`(songlist.cc 导出格式,
-  含 backColor 梯度派生主题色、pay/guard/gift 组合付费标记、#FFEBCD 视为默认色)
+  含 backColor 梯度派生主题色、pay/guard/gift 组合付费标记、#FFEBCD 视为默认色);
+  `scripts/2some-to-json.mjs <slug> [id]`(在线抓取 2some.ren 歌单,
+  走 Next.js Server Action,action id 硬编码在脚本头,失效时按注释重新提取)
 - 页脚制作人员为固定文案(写在 App.vue footer),不走配置
 - 提交信息与代码注释用中文

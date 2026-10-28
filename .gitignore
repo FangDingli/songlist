@@ -3,6 +3,8 @@ dist/
 *.local
 .DS_Store
 *.xlsx
+# 模板随站点发布,不能被上面的 *.xlsx 误伤
+!public/songlist.xlsx
 /songs.json
 /remote-songs.json
 

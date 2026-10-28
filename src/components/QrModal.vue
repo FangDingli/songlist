@@ -23,8 +23,10 @@ async function render() {
   if (!canvas) return
   try {
     await QRCode.toCanvas(canvas, props.url, {
-      width: 512,
+      // 2x 渲染供高分屏下采样,显示仍 448px;H 级纠错容忍中心头像遮挡(约 16% 面积)
+      width: 896,
       margin: 2,
+      errorCorrectionLevel: 'H',
       color: { dark: '#1F1F1F', light: '#FFFFFF' },
     })
     ready.value = true
@@ -68,6 +70,7 @@ async function download() {
     await QRCode.toCanvas(off, props.url, {
       width: 1024,
       margin: 2,
+      errorCorrectionLevel: 'H',
       color: { dark: '#1F1F1F', light: '#FFFFFF' },
     })
     if (props.logo) {
@@ -117,11 +120,13 @@ function showGenerateError() {
     class="fixed inset-0 z-90 bg-black/45 flex-center p-16px"
     @click.self="emit('close')"
   >
-    <div class="surface-card p-24px flex flex-col items-center gap-12px w-full max-w-480px">
+    <div class="surface-card p-24px flex flex-col items-center gap-12px w-full max-w-520px">
       <h3 class="text-16px font-bold text-text-primary">{{ title }}</h3>
       <div class="relative w-full flex justify-center">
-        <!-- max-w-full + aspect-square:窄屏时画布随容器收缩,高度按 1:1 联动,不会横向溢出 -->
-        <canvas ref="canvasRef" class="block w-416px max-w-full aspect-square rounded-xl"></canvas>
+        <!-- qrcode 的 toCanvas 会写内联 style width/height(渲染尺寸),必须用 !important
+             覆盖,否则宽度永远等于渲染尺寸再被 max-width 压扁(横向压缩纵向拉长的根因);
+             h-auto 让 aspect-square 按 1:1 联动,窄屏随容器收缩保持正方形 -->
+        <canvas ref="canvasRef" class="block flex-none w-448px! h-auto! max-w-full aspect-square rounded-xl"></canvas>
         <div v-if="ready && logo" class="absolute inset-0 flex-center pointer-events-none">
           <div class="bg-bg-card rounded-xl p-6px border border-border">
             <img
@@ -137,6 +142,9 @@ function showGenerateError() {
         </div>
       </div>
       <p class="text-12px text-text-secondary">扫码打开歌单</p>
+      <p class="text-11px text-text-secondary opacity-80 -mt-4px">
+        下载的 PNG 不含中间头像,想要带头像的可以直接截图保存
+      </p>
       <div class="flex gap-8px">
         <button type="button" class="btn-soft" :disabled="!ready" @click="download">下载 PNG</button>
         <button type="button" class="btn-soft" @click="emit('close')">关闭</button>
