@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- 全站不发送 Referer:B 站图床对非白名单 Referer 返回 403(防盗链);
+         img 可用 referrerpolicy="no-referrer" 规避,但 CSS background-image 无法
+         按元素设置,只能全局声明(头像兜底背景/未来其他图床请求一并覆盖) -->
+    <meta name="referrer" content="no-referrer" />
     <meta name="theme-color" content="#EEEAFF" />
     <meta name="description" content="主播歌单 · 搜索筛选歌曲,一键复制口令点歌" />
     <link

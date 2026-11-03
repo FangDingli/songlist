@@ -23,14 +23,15 @@
   (gitignored,经 `scripts/publish.mjs` 发布到数据源,不进代码仓库):
   - `config.json`:meta(标题/副标题/头像/背景图/口令模板/
     主题色 `theme`/`uid`+`userProfileUrl`(主页,由 uid 派生)/
-    `liveroomId`+`liveUrl`(直播间,由 liveroomId 派生)/favicon/`songsUpdatedAt`/
-    `order`(首页入驻板块展示顺序,越小越靠前,缺省按 id 字典序))
+    `liveroomId`+`liveUrl`(直播间,由 liveroomId 派生)/favicon/`songsUpdatedAt`)
   - `songs.json`:歌曲数组(远端原生结构:
     title/singer/lang/genre/sc/paid/remark/video)
 - `public/streamers/` 只留 `example`(首页「查看示例歌单」的兜底示例,同源可达);
   `public/streamers/unavailable/` 是测试数据,两者都不进入入驻列表
 - 首页「入驻主播」板块运行时拉取数据源的 `streamers.json`(发布脚本自动生成;
   dev 由 vite 中间件从 data-local 动态生成),拉取失败时隐藏板块
+- 展示顺序由 `data-local/streamers/order.json` 集中管理(id 数组,数组序即展示序,
+  未列出的按 id 字典序垫底),改顺序只动这一个文件
 - 歌曲数据全部通过静态 json 文件获取,**不使用 API/Worker**(数据源为纯静态托管)
 - `id`(歌曲)由 `src/utils/songs.ts` 的 `withIds` 运行时按行序生成,与外部编号解耦
 - 展示 tag 由 `songTags()` 从 genre 按分隔符拆分,无需改组件;

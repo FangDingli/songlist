@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, type Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
+import { applyStreamerOrder, readStreamerOrder } from './scripts/lib/streamer-order.mjs'
 
 /**
  * dev 专用:把本地数据暂存区 data-local/streamers 以同源 /streamers/* 提供
@@ -20,15 +21,14 @@ function localData(): Plugin {
         const url = (req.url ?? '').split('?')[0]
         if (url === '/streamers.json') {
           const list = existsSync(dir)
-            ? readdirSync(dir, { withFileTypes: true })
-                .filter((e) => e.isDirectory())
-                .filter((e) => existsSync(`${dir}/${e.name}/config.json`))
-                .map((e) => ({ id: e.name, config: JSON.parse(readFileSync(`${dir}/${e.name}/config.json`, 'utf8')) }))
-                // 首页展示顺序:config.order 小者在前,未配置的按 id 字典序兜底
-                .sort(
-                  (a, b) =>
-                    (a.config.order ?? Infinity) - (b.config.order ?? Infinity) || a.id.localeCompare(b.id),
-                )
+            ? applyStreamerOrder(
+                readdirSync(dir, { withFileTypes: true })
+                  .filter((e) => e.isDirectory())
+                  .filter((e) => existsSync(`${dir}/${e.name}/config.json`))
+                  .map((e) => ({ id: e.name, config: JSON.parse(readFileSync(`${dir}/${e.name}/config.json`, 'utf8')) })),
+                // 首页展示顺序:order.json 数组序(集中管理),未列出的按 id 字典序垫底
+                readStreamerOrder(dir),
+              )
             : []
           res.setHeader('Content-Type', jsonType)
           res.end(JSON.stringify(list))

@@ -14,6 +14,7 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { resolve } from 'node:path'
+import { applyStreamerOrder, readStreamerOrder } from './lib/streamer-order.mjs'
 
 const asPages = process.argv.includes('--pages')
 const PROJECT = process.env.DATA_PROJECT ?? (asPages ? 'songlistdatacache' : 'vupsong-config-data')
@@ -42,10 +43,8 @@ for (const entry of readdirSync(STAGING_DIR, { withFileTypes: true })) {
     console.warn(`  跳过 ${entry.name}(config.json 解析失败)`)
   }
 }
-// 首页展示顺序:config.order 小者在前,未配置的按 id 字典序兜底
-streamers.sort(
-  (a, b) => (a.config.order ?? Infinity) - (b.config.order ?? Infinity) || a.id.localeCompare(b.id),
-)
+// 首页展示顺序:order.json 数组序(集中管理),未列出的按 id 字典序垫底
+applyStreamerOrder(streamers, readStreamerOrder(STAGING_DIR))
 
 /* ---------- 组装临时发布目录 ---------- */
 rmSync(TMP_DIR, { recursive: true, force: true })
