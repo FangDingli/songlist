@@ -448,14 +448,13 @@ const dataMeta = computed(
 
           <footer class="text-center px-16px pt-8px pb-32px text-12px text-text-secondary">
             <p>
-              UIUX:
-              <a href="https://space.bilibili.com/94843915" target="_blank" rel="noopener noreferrer"
-                class="text-brand-strong hover:underline underline-offset-2px">来只奶茶</a>
-              · 制作:
+              制作:
               <a href="https://space.bilibili.com/23598218" target="_blank" rel="noopener noreferrer"
                 class="text-brand-strong hover:underline underline-offset-2px">归墟丶</a>
-              · with GLM-5.3-Flash ·
-              <a href="/" class="text-brand-strong hover:underline underline-offset-2px">关于本站</a>
+              · with GLM-5.3-Flash · 
+              <a href="/" class="text-brand-strong hover:underline underline-offset-2px">关于本站</a> · 特别鸣谢:
+              <a href="https://space.bilibili.com/94843915" target="_blank" rel="noopener noreferrer"
+                class="text-brand-strong hover:underline underline-offset-2px">来只奶茶</a>
             </p>
             <p class="mt-4px">{{ dataMeta }}</p>
           </footer>
