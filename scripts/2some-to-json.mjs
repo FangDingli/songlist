@@ -14,8 +14,9 @@
  * 字段映射:
  * - songName → title;singers 数组顿号 join → singer(项目约定分隔符)
  * - language → lang;genre → genre
- * - 该站当前无付费标记(guardLevel 恒 none、giftPrice 恒空、sc 恒 0),
- *   memo 恒「无」,无歌曲切片,故 paid/remark/video/sc 均不写
+ * - sc(N>0)→「<n>SC」、guardLevel(captain→舰长,commander→提督,governor→总督,
+ *   其余原样)按 songlistcc 的惯例用「、」组合进 paid,均无值时不写该字段;
+ * - memo 恒「无」,无歌曲切片,故 remark/video 不写
  */
 import { mkdirSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
@@ -70,12 +71,23 @@ if (all.size === 0) {
   process.exit(1)
 }
 
-const songs = [...all.values()].map((s) => ({
-  title: s.songName,
-  singer: (s.singers?.length ? s.singers : [s.singer]).join('、'),
-  lang: s.language ?? '',
-  genre: s.genre ?? '',
-}))
+/** B 站大航海等级中文名(2some 的 guardLevel 字符串),未知值原样保留 */
+const GUARD_NAMES = { captain: '舰长', commander: '提督', governor: '总督' }
+
+const songs = [...all.values()].map((s) => {
+  const paidParts = []
+  if (Number.isFinite(s.sc) && s.sc > 0) paidParts.push(`${s.sc % 1 === 0 ? Math.round(s.sc) : s.sc}SC`)
+  if (s.guardLevel && s.guardLevel !== 'none') {
+    paidParts.push(GUARD_NAMES[s.guardLevel] ?? s.guardLevel)
+  }
+  return {
+    title: s.songName,
+    singer: (s.singers?.length ? s.singers : [s.singer]).join('、'),
+    lang: s.language ?? '',
+    genre: s.genre ?? '',
+    ...(paidParts.length ? { paid: paidParts.join('、') } : {}),
+  }
+})
 
 if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
 writeFileSync(resolve(outDir, 'songs.json'), JSON.stringify(songs, null, 2) + '\n')
