@@ -93,12 +93,19 @@ if (configSheet) {
 
 const today = new Date().toLocaleDateString('sv')
 
-// 主题色适合性判断:过浅/过淡的种子色做梯度计算(近中性色保持原样)
+// 主题色:值加「!」前缀表示强制使用原色(themeForced,运行时派生其他梯度色
+// 仍会做适合性调整,但主色本身按原色展示);未标记时梯度调整(默认行为)
 if (config.theme) {
-  const seed = deriveSeed(config.theme)
-  if (seed !== config.theme) {
-    console.log(`  主题色 ${config.theme} 过浅/过淡,梯度调整为 ${seed}`)
-    config.theme = seed
+  if (config.theme.startsWith('!')) {
+    config.theme = config.theme.slice(1).trim()
+    config.themeForced = true
+    console.log(`  主题色 ${config.theme} 已标记强制使用原色`)
+  } else {
+    const seed = deriveSeed(config.theme)
+    if (seed !== config.theme) {
+      console.log(`  主题色 ${config.theme} 过浅/过淡,梯度调整为 ${seed}`)
+      config.theme = seed
+    }
   }
 }
 

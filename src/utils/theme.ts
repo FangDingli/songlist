@@ -1,4 +1,5 @@
 import { DEFAULT_THEME } from '@/config'
+import { deriveSeed } from '../../scripts/lib/theme-seed.mjs'
 
 type Rgb = [number, number, number]
 
@@ -56,19 +57,25 @@ function lightenUntil(brand: Rgb, bg: Rgb, min = 4.5): Rgb {
  * 把主播主题色应用到 documentElement 行内样式(覆盖 tokens.css 的 :root/.dark)。
  * 只需一个种子色:品牌紫上的文字色、浅底可读文字色、页面底色/过渡层均自动派生,
  * 并保证 WCAG AA(≥4.5:1);未配置主题时清除行内样式,回落到 tokens.css 默认值。
+ *
+ * forced(强制指定主题色):主色与品牌实底按原色展示,其余梯度色
+ * (可读文字色/页面底色/过渡层)仍基于适合性调整后的色派生——
+ * 原色过浅时直接做底/文字会发虚,调整色保证这些衍生色有足够分量。
  */
-export function applyStreamerTheme(theme: string | undefined, dark: boolean): void {
+export function applyStreamerTheme(theme: string | undefined, dark: boolean, forced = false): void {
   const root = document.documentElement
 
   // 未配置时使用默认种子色,派生逻辑与自定义主题完全一致
   const seed = theme && /^#?[0-9a-f]{3,8}$/i.test(theme.trim()) ? theme.trim() : DEFAULT_THEME
-  const brand = hexToRgb(seed)
+  // 非强制:brand 即种子色(转换脚本已做过适合性调整);强制:主色用原色
+  const adjusted = hexToRgb(forced ? deriveSeed(seed) : seed)
+  const brand = forced ? hexToRgb(seed) : adjusted
 
   // 主色填充/装饰
   root.style.setProperty('--brand', triplet(brand))
 
   // 浅底上的可读文字色:亮色模式加深、暗色模式提亮,直至对比 ≥4.5:1
-  const strong = dark ? lightenUntil(brand, DARK_CARD) : darkenUntil(brand, WHITE)
+  const strong = dark ? lightenUntil(adjusted, DARK_CARD) : darkenUntil(adjusted, WHITE)
   root.style.setProperty('--brand-strong', triplet(strong))
 
   // 品牌色填充上的文字:一律白字;白字对比不足 4.5 时把该填充底压深到达标
@@ -78,9 +85,9 @@ export function applyStreamerTheme(theme: string | undefined, dark: boolean): vo
   root.style.setProperty('--on-brand-bg', triplet(onBrandBg))
 
   // 页面底与过渡层:向品牌色同源调浅/调暗,让整个页面染上主播色调
-  const bgBase = dark ? mix(brand, BLACK, 0.9) : mix(brand, WHITE, 0.9)
+  const bgBase = dark ? mix(adjusted, BLACK, 0.9) : mix(adjusted, WHITE, 0.9)
   root.style.setProperty('--bg-base', triplet(bgBase))
-  root.style.setProperty('--bg-scrim', triplet(dark ? mix(brand, BLACK, 0.94) : mix(brand, WHITE, 0.92)))
+  root.style.setProperty('--bg-scrim', triplet(dark ? mix(adjusted, BLACK, 0.94) : mix(adjusted, WHITE, 0.92)))
 
   setThemeColor(`rgb(${triplet(bgBase)})`)
 }

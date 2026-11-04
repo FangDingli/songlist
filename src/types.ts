@@ -40,6 +40,8 @@ export interface StreamerMeta {
   favicon?: string
   /** 主题种子色(hex),派生配色自动计算;缺省用默认 #1677FF */
   theme?: string
+  /** 强制使用原色做主色(excel 主题色加「!」前缀);其余梯度色仍按适合性调整色派生 */
+  themeForced?: boolean
   /** 歌曲数据更新日期,显示在页脚 */
   songsUpdatedAt?: string
   /** 访问别名(如中文路径),命中后按真实 id 加载数据,URL 保持别名不变 */

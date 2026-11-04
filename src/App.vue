@@ -112,7 +112,7 @@ watchEffect(() => {
 })
 
 // 主题色随主播配置与亮暗模式联动
-watchEffect(() => applyStreamerTheme(meta.value.theme, resolved.value === 'dark'))
+watchEffect(() => applyStreamerTheme(meta.value.theme, resolved.value === 'dark', meta.value.themeForced))
 
 
 /* ---------- 虚拟滚动常量(行高需与 song-card 的 h-90px + 间距一致) ---------- */
@@ -155,8 +155,9 @@ function countBy(get: (s: Song) => string | string[]): Array<[string, number]> {
   return [...counter.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh'))
 }
 
-const languages = computed(() => countBy((s) => s.lang).filter(([name]) => name))
-const genres = computed(() => countBy((s) => songTags(s)))
+// 「未知」是数据里的字面值(卡片上照常显示),但不作为可筛选的 tag
+const languages = computed(() => countBy((s) => s.lang).filter(([name]) => name && name !== '未知'))
+const genres = computed(() => countBy((s) => songTags(s)).filter(([name]) => name && name !== '未知'))
 
 /** 是否付费/SC 歌曲:「付费」「免费」筛选与计数共用 */
 const isPaid = (s: Song) => !!s.paid || (!!s.sc && Number(s.sc) > 0)

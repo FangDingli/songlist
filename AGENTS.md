@@ -85,6 +85,9 @@
 - 每主播可在 config.json 的 `meta.theme` 配置种子色(hex),
   `src/utils/theme.ts` 自动派生全套配色并保证 WCAG AA(≥4.5:1),亮暗模式联动;
   未配置时使用 `config.ts` 的 `DEFAULT_THEME`
+- 强制主题色:`meta.themeForced`(excel 主题色加「!」前缀产生)——主色与品牌
+  实底按原色展示,其余梯度色(可读文字色/页面底色/过渡层)仍基于适合性
+  调整后的色派生;不影响未标记时的自动梯度调整
 - 品牌色填充上的文字一律白字(`--on-brand`);白字对比不足 4.5 时压深该处底色
   (`--on-brand-bg`,仅用于选中的筛选标签等品牌实底场景),不改动 `--brand` 本身
 - 主题色适合性判断:转换脚本(`scripts/lib/theme-seed.mjs` 共用)对过浅/过淡的
@@ -104,7 +107,8 @@
 - 主播 excel 模板在 `public/songlist.xlsx`(首页提供下载,含「歌曲列表」「站点配置」
   两个工作表),表头与字段名不可改
 - 转换脚本:`scripts/excel-to-json.mjs <excel> <id>`(类型列原样存 genre,「付费」列
-  原样存 paid,「歌切」「备注」列原样存 video/remark,歌手分隔符统一为顿号);
+  原样存 paid,「歌切」「备注」列原样存 video/remark,歌手分隔符统一为顿号,
+  主题色加「!」前缀=强制原色 themeForced);
   `scripts/json-to-excel.mjs <id> [输出路径]`(反向转换,与 excel-to-json 互逆:
   genre 原样写回「类型」列、sc 合成为「<n>SC」、video/remark 写回「歌切」「备注」);
   `scripts/songlistcc-to-json.mjs <json> <id>`(songlist.cc 导出格式,

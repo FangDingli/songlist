@@ -76,11 +76,13 @@ songsWs['!cols'] = [{ wch: 30 }, { wch: 22 }, { wch: 10 }, { wch: 20 }, { wch: 1
 
 /* ---------- 站点配置 ---------- */
 const getPath = (obj, path) => path.split('.').reduce((o, k) => o?.[k], obj)
+// 主题色强制标记(themeForced)以「!」前缀体现,与 excel-to-json 互逆
+const themeCell = config.themeForced ? `!${config.theme ?? ''}` : String(config.theme ?? '')
 const configRows = [
   ['字段', '填写内容', '说明', '备注'],
   ...[...CONFIG_ROWS, ...EXTRA_CONFIG_ROWS].map(({ label, key, note }) => [
     label,
-    String(getPath(config, key) ?? ''),
+    key === 'theme' ? themeCell : String(getPath(config, key) ?? ''),
     note,
     EXTRA_CONFIG_ROWS.some((r) => r.key === key) ? '模板外字段,仅供备份' : '',
   ]),
