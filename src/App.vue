@@ -18,7 +18,7 @@ import { useClipboard } from '@/composables/useClipboard'
 import { useToast } from '@/composables/useToast'
 import { useTheme } from '@/composables/useTheme'
 import { avatarCandidates, avatarFallbackBg, resolveAvatar } from '@/utils/avatar'
-import SonglistImageCard from '@/components/SonglistImageCard.vue'
+import SonglistImageModal from '@/components/SonglistImageModal.vue'
 
 const { copy } = useClipboard()
 const { toasts, show } = useToast()
@@ -296,6 +296,7 @@ const showBackTop = computed(() => scrollY.value > winH.value * 0.6)
 
 // 二维码:内容为当前主播页的完整地址
 const showQr = ref(false)
+const showImageModal = ref(false)
 const qrUrl = computed(() => `${location.origin}/${streamerId.value}`)
 
 // 站点 favicon:优先主播配置,缺省动态解析/头像,都没有则保留默认音符图标
@@ -364,9 +365,14 @@ const dataMeta = computed(
           <span v-if="dataStatus === 'ready'" class="shrink-0 text-12px text-text-secondary">共 {{ songs.length }}
             首</span>
         </div>
-        <button type="button" class="theme-toggle shrink-0" :title="themeTitle" @click="cycleMode">
-          <div :class="themeIcon"></div>
-        </button>
+        <div class="flex items-center gap-8px shrink-0">
+          <button type="button" class="theme-toggle" title="生成图片歌单" @click="showImageModal = true">
+            <div class="i-carbon-image"></div>
+          </button>
+          <button type="button" class="theme-toggle" :title="themeTitle" @click="cycleMode">
+            <div :class="themeIcon"></div>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -375,6 +381,10 @@ const dataMeta = computed(
       <aside v-if="dataStatus === 'ready'" class="hidden lg:block w-300px shrink-0">
         <div class="sticky top-24px flex flex-col gap-24px">
           <div class="surface-card p-24px relative flex flex-col items-center">
+            <button type="button" class="theme-toggle absolute top-16px left-16px z-10" title="生成图片歌单"
+              @click="showImageModal = true">
+              <div class="i-carbon-image"></div>
+            </button>
             <button type="button" class="theme-toggle absolute top-16px right-56px z-10" title="生成二维码"
               @click="showQr = true">
               <div class="i-carbon-qr-code"></div>
@@ -394,9 +404,6 @@ const dataMeta = computed(
             <FilterPanel v-model:keyword="keyword" :tags="tags" :selected-tag="selectedTag" :total="songs.length"
               :filtered-count="filtered.length" @toggle-tag="toggleTag" @shuffle="shuffle" @random="randomPick" />
           </div>
-
-          <!-- 图片歌单:全量歌名排成竖版长图(自动分页),供主播直接发动态 -->
-          <SonglistImageCard :songs="songs" :meta="meta" />
         </div>
       </aside>
 
@@ -483,6 +490,9 @@ const dataMeta = computed(
     <!-- 二维码弹窗:主播展示给观众扫码进入 -->
     <QrModal :open="showQr" :url="qrUrl" :logo="resolveAvatar(meta)" :logo-fallback="meta.avatar" :title="meta.title"
       @close="showQr = false" />
+
+    <!-- 图片歌单生成:配置项收在 Modal 里,入口在侧栏头像卡/移动端顶栏 -->
+    <SonglistImageModal :open="showImageModal" :songs="songs" :meta="meta" @close="showImageModal = false" />
 
     <!-- Toast -->
     <div

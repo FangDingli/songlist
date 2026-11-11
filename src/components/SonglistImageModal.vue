@@ -5,19 +5,23 @@ import { downloadSonglistImages, songlistLayout } from '@/utils/songlist-image'
 import type { Song, StreamerMeta } from '@/types'
 
 const props = defineProps<{
+  open: boolean
   songs: Song[]
   meta: StreamerMeta
 }>()
 
+const emit = defineEmits<{ (e: 'close'): void }>()
+
 const { show } = useToast()
 
 // 自定义选项(空值 = 用内置默认);生成时传给 buildSonglistImages
-const open = ref(false)
 const imgGenerating = ref(false)
 const textColor = ref('')
 const bgColor = ref('')
 const bgImage = ref('') // dataURL;空 = 纯色背景
 const bgImageName = ref('')
+const showTitle = ref(true)
+const showNumber = ref(true)
 const width = ref(1600)
 const height = ref(2246)
 
@@ -35,9 +39,10 @@ watch(sizePreset, (v) => {
 
 // 自定义选项持久化(全局,不分主播——排版口味通常一致)
 const STORAGE_KEY = 'songlist-image-options'
-watch([textColor, bgColor, bgImage, width, height], () => {
+watch([textColor, bgColor, bgImage, showTitle, showNumber, width, height], () => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify({
     textColor: textColor.value, bgColor: bgColor.value, bgImage: bgImage.value,
+    showTitle: showTitle.value, showNumber: showNumber.value,
     width: width.value, height: height.value,
   }))
 }, { deep: true })
@@ -46,13 +51,15 @@ try {
   if (saved.textColor) textColor.value = saved.textColor
   if (saved.bgColor) bgColor.value = saved.bgColor
   if (saved.bgImage) { bgImage.value = saved.bgImage; bgImageName.value = '上次使用的背景图' }
+  if (saved.showTitle === false) showTitle.value = false
+  if (saved.showNumber === false) showNumber.value = false
   if (saved.width) width.value = saved.width
   if (saved.height) height.value = saved.height
 } catch { /* 忽略损坏的持久化数据 */ }
 
 // 预计页数(与 songlistLayout 同一套公式)
 const pageCount = computed(() => {
-  const L = songlistLayout(width.value, height.value)
+  const L = songlistLayout(width.value, height.value, showTitle.value)
   return Math.max(1, Math.ceil(props.songs.length / L.perPage))
 })
 
@@ -60,6 +67,8 @@ const options = computed(() => ({
   textColor: textColor.value || undefined,
   bgColor: bgColor.value || undefined,
   bgImage: bgImage.value || undefined,
+  showTitle: showTitle.value,
+  showNumber: showNumber.value,
   width: width.value,
   height: height.value,
 }))
@@ -71,6 +80,7 @@ async function generate() {
   try {
     const pages = await downloadSonglistImages(props.songs, props.meta, options.value)
     show(`已生成 ${pages} 张图片并开始下载`)
+    emit('close')
   } catch {
     show('图片歌单生成失败', 'error')
   } finally {
@@ -94,16 +104,17 @@ function clearBgImage() {
 </script>
 
 <template>
-  <div class="surface-card p-20px">
-    <button type="button" class="w-full flex items-center justify-between" @click="open = !open">
-      <span class="text-15px font-bold text-text-primary">图片歌单</span>
-      <div
-        class="i-carbon-chevron-down text-14px text-text-secondary transition-transform duration-200"
-        :class="open ? 'rotate-180' : ''"
-      ></div>
-    </button>
+  <div
+    v-if="open"
+    class="fixed inset-0 z-90 bg-black/45 flex-center p-16px"
+    @click.self="emit('close')"
+  >
+    <div class="surface-card p-24px w-full max-w-440px flex flex-col gap-12px max-h-85vh overflow-y-auto">
+      <h3 class="text-16px font-bold text-text-primary">生成图片歌单</h3>
+      <p class="text-12px text-text-secondary -mt-4px">
+        全量歌名排成长图,自动分页,可直接发动态
+      </p>
 
-    <div v-show="open" class="mt-12px flex flex-col gap-10px">
       <!-- 文字颜色 -->
       <div class="flex items-center gap-8px">
         <label class="w-64px shrink-0 text-12px text-text-secondary">文字颜色</label>
@@ -140,22 +151,40 @@ function clearBgImage() {
           <option v-for="p in SIZE_PRESETS" :key="p.label" :value="`${p.w}x${p.h}`">{{ p.label }}</option>
           <option value="custom">自定义…</option>
         </select>
-        <div class="flex items-center gap-4px" :class="sizePreset === 'custom' ? '' : 'hidden'">
-          <input v-model.number="width" type="number" min="800" max="4000" step="10"
-            class="h-28px w-70px rounded-lg border border-border bg-bg-card px-6px text-12px text-text-primary outline-none" />
-          <span class="text-12px text-text-secondary">×</span>
-          <input v-model.number="height" type="number" min="800" max="4000" step="10"
-            class="h-28px w-70px rounded-lg border border-border bg-bg-card px-6px text-12px text-text-primary outline-none" />
+      </div>
+      <div v-if="sizePreset === 'custom'" class="flex items-center gap-8px pl-72px">
+        <input v-model.number="width" type="number" min="800" max="4000" step="10"
+          class="h-28px w-80px rounded-lg border border-border bg-bg-card px-6px text-12px text-text-primary outline-none" />
+        <span class="text-12px text-text-secondary">×</span>
+        <input v-model.number="height" type="number" min="800" max="4000" step="10"
+          class="h-28px w-80px rounded-lg border border-border bg-bg-card px-6px text-12px text-text-primary outline-none" />
+        <span class="text-12px text-text-secondary">px(800~4000)</span>
+      </div>
+
+      <!-- 版式开关 -->
+      <div class="flex items-center gap-8px">
+        <label class="w-64px shrink-0 text-12px text-text-secondary">版式</label>
+        <div class="flex flex-col gap-6px">
+          <label class="flex items-center gap-8px text-13px text-text-primary cursor-pointer select-none">
+            <input v-model="showTitle" type="checkbox"
+              class="w-15px h-15px cursor-pointer accent-[rgb(var(--brand))]" />
+            显示标题与装饰线
+          </label>
+          <label class="flex items-center gap-8px text-13px text-text-primary cursor-pointer select-none">
+            <input v-model="showNumber" type="checkbox"
+              class="w-15px h-15px cursor-pointer accent-[rgb(var(--brand))]" />
+            显示编号
+          </label>
         </div>
       </div>
 
-      <!-- 生成 -->
-      <button type="button" class="btn-soft w-full" :disabled="imgGenerating || !songs.length" @click="generate">
-        {{ imgGenerating ? '生成中…' : `生成并下载（${pageCount} 张）` }}
-      </button>
-      <p class="text-11px text-text-secondary text-center">
-        全量歌名排成竖版图,编号与页面歌曲顺序一致,可直接发动态
-      </p>
+      <!-- 操作 -->
+      <div class="flex gap-8px mt-4px">
+        <button type="button" class="btn-soft flex-1" :disabled="imgGenerating || !songs.length" @click="generate">
+          {{ imgGenerating ? '生成中…' : `生成并下载（${pageCount} 张）` }}
+        </button>
+        <button type="button" class="btn-soft" @click="emit('close')">关闭</button>
+      </div>
     </div>
   </div>
 </template>
