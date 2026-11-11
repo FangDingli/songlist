@@ -18,6 +18,7 @@ import { useClipboard } from '@/composables/useClipboard'
 import { useToast } from '@/composables/useToast'
 import { useTheme } from '@/composables/useTheme'
 import { avatarCandidates, avatarFallbackBg, resolveAvatar } from '@/utils/avatar'
+import { downloadSonglistImages } from '@/utils/songlist-image'
 
 const { copy } = useClipboard()
 const { toasts, show } = useToast()
@@ -39,6 +40,22 @@ const barAvatarCandidates = computed(() => avatarCandidates(meta.value))
 const barAvatarFailed = ref(0)
 watch(() => `${meta.value.uid ?? ''}|${meta.value.avatar ?? ''}`, () => (barAvatarFailed.value = 0))
 const barAvatarSrc = computed(() => barAvatarCandidates.value[barAvatarFailed.value] ?? '')
+
+// 图片歌单:全量歌名生成竖版长图(自动分页逐张下载),生成期间按钮禁用
+const imgGenerating = ref(false)
+async function exportImageSonglist() {
+  if (imgGenerating.value) return
+  imgGenerating.value = true
+  show('开始生成图片歌单…')
+  try {
+    const pages = await downloadSonglistImages(songs.value, meta.value)
+    show(`已生成 ${pages} 张图片并开始下载`)
+  } catch {
+    show('图片歌单生成失败', 'error')
+  } finally {
+    imgGenerating.value = false
+  }
+}
 
 // 默认主播使用打包内置数据,首屏零等待
 if (streamerId.value === DEFAULT_STREAMER_ID) {
@@ -392,6 +409,16 @@ const dataMeta = computed(
           <div class="surface-card p-20px">
             <FilterPanel v-model:keyword="keyword" :tags="tags" :selected-tag="selectedTag" :total="songs.length"
               :filtered-count="filtered.length" @toggle-tag="toggleTag" @shuffle="shuffle" @random="randomPick" />
+          </div>
+
+          <!-- 图片歌单:全量歌名排成竖版长图(自动分页),供主播直接发动态 -->
+          <div class="surface-card p-20px flex flex-col items-center">
+            <button type="button" class="btn-soft w-full" :disabled="imgGenerating" @click="exportImageSonglist">
+              {{ imgGenerating ? '生成中…' : '生成图片歌单' }}
+            </button>
+            <p class="mt-6px text-11px text-text-secondary text-center">
+              全量歌名排成竖版图,自动分页下载,可直接发动态
+            </p>
           </div>
         </div>
       </aside>
