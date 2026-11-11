@@ -115,6 +115,11 @@ const PAGE = `<!doctype html>
     <input id="slugId" placeholder="主播 id(可留空)" style="width:160px"/>
     <button onclick="run('2some-to-json.mjs', [document.getElementById('slug').value.trim(), document.getElementById('slugId').value.trim()].filter(Boolean))">2some 抓取</button>
   </div>
+  <div class="row" style="margin-top:10px">
+    <input id="slAddr" style="flex:1;min-width:260px" placeholder="songlist.cc 地址,如 shio.songlist.cc 或 bot.starlwr.com/songlist?uid=xxx"/>
+    <input id="slId" placeholder="主播 id(可留空,默认取子域名)" style="width:190px"/>
+    <button onclick="run('songlistcc-fetch-to-json.mjs', [document.getElementById('slAddr').value.trim(), document.getElementById('slId').value.trim()].filter(Boolean))">songlist.cc 抓取</button>
+  </div>
 </div>
 
 <div class="card">
@@ -221,7 +226,7 @@ createServer((req, res) => {
       if (!script.startsWith('scripts/') && !existsSync(scriptPath)) {
         return json(res, { ok: false, error: `脚本不存在:${script}` }, 400)
       }
-      if (script !== 'publish.mjs' && script !== '2some-to-json.mjs' && script !== 'excel-to-json.mjs' && script !== 'json-to-excel.mjs') {
+      if (script !== 'publish.mjs' && script !== '2some-to-json.mjs' && script !== 'songlistcc-fetch-to-json.mjs' && script !== 'excel-to-json.mjs' && script !== 'json-to-excel.mjs') {
         return json(res, { ok: false, error: `不允许执行的脚本:${script}` }, 400)
       }
       runJob(script, args.map(String))

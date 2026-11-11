@@ -1,7 +1,9 @@
 /**
- * 把 songlist.cc(xxx.songlist.cc)导出的 json 转换为本站数据文件。
+ * 把 songlist.cc(xxx.songlist.cc)导出的 json 文件转换为本站数据文件。
  * 用法:node scripts/songlistcc-to-json.mjs <json路径> <主播id>
  * 输出:data-local/streamers/<id>/songs.json + config.json(发布用 publish 脚本)
+ * 在线抓取同一数据的入口见 songlistcc-fetch-to-json.mjs(转换逻辑共用本目录
+ * songlistcc-convert.mjs,字段映射说明见下)。
  *
  * 字段映射(config 均在 data 字段内):
  * - title → title;face → avatar;subTitle → subtitle(非空时)
@@ -18,10 +20,9 @@
  *   gift 优先用 data.gifts 字典里的礼物名,缺失时为「礼物#ID」
  * - video(BV号)与 remark 原样保留,页面暂不展示
  */
-import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs'
-import { deriveSeed as deriveThemeSeed } from './lib/theme-seed.mjs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { convertSonglistcc } from './lib/songlistcc-convert.mjs'
 
-/** 与 src/config.ts 的 DEFAULT_THEME 保持一致(Node 无法解析 @/ 别名,故此处内联) */
 const DEFAULT_THEME = '#1677FF'
 
 const [jsonPath, streamerId] = process.argv.slice(2)
@@ -38,87 +39,8 @@ if (!/^[^/\\]{1,32}$/.test(streamerId)) {
   process.exit(1)
 }
 
-const str = (v) => String(v ?? '').trim()
-const num = (v) => Number(v)
+const { songs, config } = convertSonglistcc(JSON.parse(readFileSync(jsonPath, 'utf8')))
 
-/**
- * 背景色 → 适合做主色的种子色(梯度算法见 scripts/lib/theme-seed.mjs)。
- * #FFEBCD 视为对方站点的默认色,返回 null 以省略 theme。
- */
-function deriveSeed(backColor) {
-  if (/^#FFEBCD$/i.test(backColor)) return null
-  return deriveThemeSeed(backColor)
-}
-
-const GUARD_NAMES = { 1: '舰长', 2: '提督', 3: '总督' }
-
-/** 礼物字典的值可能是字符串或 {name, icon} 对象,统一取礼物名 */
-function giftName(dict, id) {
-  const g = dict[String(id)]
-  if (!g) return `礼物#${id}`
-  return typeof g === 'string' ? g : str(g.name) || `礼物#${id}`
-}
-
-const root = JSON.parse(readFileSync(jsonPath, 'utf8'))
-const data = root.data ?? root
-
-/* ---------- config ---------- */
-const today = new Date().toLocaleDateString('sv') // 本地日期(ISO 会取 UTC 日期,东八区晚间差一天)
-const config = {}
-if (str(data.title)) config.title = str(data.title)
-if (str(data.subTitle)) config.subtitle = str(data.subTitle)
-if (str(data.face)) config.avatar = str(data.face)
-const bg = {}
-if (str(data.mobileBackImage)) bg.mobile = str(data.mobileBackImage)
-if (str(data.backImage)) bg.desktop = str(data.backImage)
-if (Object.keys(bg).length) config.bg = bg
-const themeSeed = deriveSeed(data.backColor)
-if (themeSeed) config.theme = themeSeed
-if (str(data.command)) config.orderTemplate = `${str(data.command)} {title} {singer}`
-if (data.uid) {
-  config.uid = str(data.uid)
-  config.userProfileUrl = `https://space.bilibili.com/${str(data.uid)}`
-}
-if (data.roomId) {
-  config.liveroomId = str(data.roomId)
-  config.liveUrl = `https://live.bilibili.com/${str(data.roomId)}`
-}
-// 站点配置中的静态资源是相对文件名时无法还原完整地址,仅接受完整 URL
-for (const [key, path] of [['icon', 'favicon'], ['backImage', 'bg.desktop'], ['mobileBackImage', 'bg.mobile']]) {
-  const v = str(data[key])
-  if (/^https?:\/\//.test(v)) {
-    const keys = path.split('.')
-    let obj = config
-    keys.slice(0, -1).forEach((k) => (obj = obj[k] ??= {}))
-    obj[keys.at(-1)] = v
-  }
-}
-config.songsUpdatedAt = today
-
-/* ---------- songs ---------- */
-const giftDict = data.gifts ?? {}
-const songs = []
-for (const item of data.songs ?? []) {
-  const title = str(item.name)
-  if (!title) continue
-
-  const paidParts = []
-  const pay = num(item.pay)
-  if (Number.isFinite(pay) && pay > 0) paidParts.push(`${pay % 1 === 0 ? Math.round(pay) : pay}SC`)
-  const guard = num(item.guard)
-  if (Number.isFinite(guard) && guard > 0) paidParts.push(GUARD_NAMES[guard] ?? `大航海${guard}`)
-  if (item.gift) paidParts.push(giftName(giftDict, item.gift))
-
-  songs.push({
-    title,
-    singer: str(item.singer),
-    lang: str(item.language),
-    genre: str(item.style),
-    paid: paidParts.join('、') || undefined,
-    video: str(item.video) || undefined,
-    remark: str(item.remark) || undefined,
-  })
-}
 if (!songs.length) {
   console.error('没有解析到有效歌曲(data.songs 为空,以 name 字段为准)')
   process.exit(1)
@@ -138,5 +60,5 @@ writeFileSync(
   'utf8',
 )
 
-console.log(`✓ 已写入 data-local/streamers/${streamerId}/:songs.json 共 ${songs.length} 首,config.json(主题色 ${config.theme ?? `(默认 ${DEFAULT_THEME})`},数据日期 ${today})`)
+console.log(`✓ 已写入 data-local/streamers/${streamerId}/:songs.json 共 ${songs.length} 首,config.json(主题色 ${config.theme ?? `(默认 ${DEFAULT_THEME})`},数据日期 ${config.songsUpdatedAt})`)
 console.log('  记得运行 node scripts/publish.mjs 发布到数据源。')
