@@ -99,9 +99,11 @@
 (`prefers-color-scheme`),点击主题按钮在「跟随系统 → 亮色 → 暗色」间循环,
 选择持久化在 localStorage(键 `songlist-theme`)。
 
-歌曲卡片的分类 tag 配色在 `src/components/SongCard.vue` 的 `TAG_PALETTE`,
-按 key 哈希稳定取色;tag 全部渲染,第二行 `overflow-hidden` 保证不撑破卡片,
-tag 多时歌手可被挤压,完整列表放在该行 `title` 里。
+歌曲卡片的分类 tag 配色在 `src/components/SongCard.vue` 的 `TAG_PALETTE`,按 key 哈希稳定取色。
+卡片实际宽度由 `App.vue` 按网格列数算出后传入(`cardWidth`),`SongCard` 据此只渲染
+**能完整放下**的 tag,放不下的折成「+N」,完整列表放在 `title` 里;tag 区固定单行高度
+并换行裁切,杜绝窄卡(尤其桌面 5 列,卡片约 257px)出现半截 tag。
+不按数量写死上限:手机单列(约 358px)放得下就全部显示,只有放不下才折叠。
 
 ## 点歌口令格式
 

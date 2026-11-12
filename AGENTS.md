@@ -81,6 +81,8 @@
   tag 多的歌单(如 xiu 平均 4.5 个/首)宜保持 1 列,tag 少的可配 2 列;
   `DEFAULT_MOBILE_COLS` 是全局缺省值。切换会按当前可见歌曲序号重算 scrollY 防止跳变,
   行高与 ROW_H 都不用动
+- 网格是等宽列,卡片宽度 `cardW = (mainW - (cols - 1) * GAP) / cols` 直接传给
+  `SongCard` 算 tag 预算,**不做逐卡 DOM 测量**(虚拟滚动下避免几十个 ResizeObserver)
 - 卡片内的 remark 面板/视频图标等悬浮元素**不占布局高度**(绝对定位覆盖下一行,
   hover/展开时提升 z-index);卡片根节点是 `role="button"` 的 div(button 内不能嵌链接)
 - 刻意**没有用 TransitionGroup**(全量 diff 是之前的性能问题来源);新增动画别加回去
@@ -148,5 +150,8 @@
   可视化跑 excel 转换 / songlist.cc 与 2some 抓取 / 发布数据源 / 构建部署,日志走 SSE
 - 首页「入驻主播」板块限高独立滚动,卡片 `target="_blank" rel="noopener noreferrer"`
   新标签打开;板块随主播数量增长不再把首页撑长
-- `SongCard.vue` 的 genre tag 全部渲染,第二行 `overflow-hidden` 保证不撑破卡片;
-  tag 多时歌手可以被挤压,完整列表放在该行 `title`。卡片高度(90px)与虚拟滚动常量不变
+- `SongCard.vue` 的 genre tag 按 `App.vue` 传入的 `cardWidth` 做宽度预算,只渲染
+  完整放得下的 tag,剩余折成「+N」(title 有全量列表);tag 区 `flex-wrap` +
+  `h-20px` + `overflow-hidden` 兜底,桌面 5 列(约 257px)也不会出现半截 tag。
+  不设写死数量上限,手机单列(约 358px)放得下就照常全显示;
+  卡片高度(90px)与虚拟滚动常量不变

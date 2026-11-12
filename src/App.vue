@@ -277,6 +277,13 @@ const cols = computed(() => {
   return Math.min(5, Math.max(1, Math.floor((w + GAP) / (CARD_MIN_W + GAP))))
 })
 
+/** 网格等宽列:卡片宽度直接由容器宽与列数算出,传给卡片算 tag 预算,避免逐卡测量 DOM */
+const cardW = computed(() => {
+  const w = mainW.value
+  if (!w) return 0
+  return (w - (cols.value - 1) * GAP) / cols.value
+})
+
 const rows = computed(() => {
   const list = filtered.value
   const out: Song[][] = []
@@ -502,7 +509,7 @@ const dataMeta = computed(
               <div v-for="(row, ri) in visibleRows" :key="row[0].id" class="grid gap-16px mb-16px"
                 :style="{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }">
                 <SongCard v-for="(song, ci) in row" :key="song.id"
-                  v-bind="{ song, no: (firstVisible + ri) * cols + ci + 1, highlighted: song.id === highlightId, style: { '--i': (ri * 2 + ci) % 8 } }"
+                  v-bind="{ song, no: (firstVisible + ri) * cols + ci + 1, highlighted: song.id === highlightId, cardWidth: cardW, style: { '--i': (ri * 2 + ci) % 8 } }"
                   @order="orderSong" />
               </div>
             </div>
