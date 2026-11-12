@@ -55,6 +55,12 @@ function colorStyle(key: string) {
   const c = colorOf(key)
   return { backgroundColor: c.bg, color: c.fg }
 }
+
+/**
+ * 展示 tag(genre 拆分结果)。tag 多时歌手可以被挤压,全部 tag 照常渲染,
+ * 由第二行的 overflow-hidden 保证不撑破卡片;完整列表放在 title 里供悬停查看。
+ */
+const allTags = computed(() => songTags(props.song))
 </script>
 
 <template>
@@ -116,10 +122,11 @@ function colorStyle(key: string) {
         </button>
       </div>
       </div>
-      <div class="mt-8px flex items-center justify-between gap-8px">
+      <!-- tag 全部展示;歌手可被挤压,整行 overflow-hidden 保证不撑破卡片 -->
+      <div class="mt-8px flex items-center justify-between gap-8px min-w-0 overflow-hidden">
         <p class="min-w-0 text-13px text-text-secondary truncate" :title="song.singer">{{ song.singer }}</p>
-        <div class="shrink-0 flex gap-6px">
-          <span v-for="tag in songTags(song)" :key="tag" class="song-tag" :style="colorStyle(tag)">
+        <div class="shrink-0 flex items-center gap-6px" :title="allTags.join('、')">
+          <span v-for="tag in allTags" :key="tag" class="song-tag shrink-0" :style="colorStyle(tag)">
             {{ tag }}
           </span>
         </div>

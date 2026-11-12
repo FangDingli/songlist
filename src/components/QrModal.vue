@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nextTick, ref, watch } from 'vue'
 import QRCode from 'qrcode'
+import AvatarImage from './AvatarImage.vue'
 
 const props = defineProps<{
   open: boolean
@@ -131,12 +132,12 @@ function showGenerateError() {
         <canvas ref="canvasRef" class="block flex-none w-448px! h-auto! max-w-full aspect-square rounded-xl"></canvas>
         <div v-if="ready && logo" class="absolute inset-0 flex-center pointer-events-none">
           <div class="bg-bg-card rounded-xl p-6px border border-border">
-            <img
+            <!-- 兜底背景由 AvatarImage 设在容器上,加载失败时逐级降级 -->
+            <AvatarImage
               :src="logo"
-              class="w-56px h-56px rounded-lg object-cover bg-cover bg-center"
-              :style="logoFallback ? { backgroundImage: `url(&quot;${logoFallback}&quot;)` } : undefined"
-              alt=""
-              referrerpolicy="no-referrer"
+              :fallback="logoFallback"
+              rounded="rounded-lg"
+              class="w-56px h-56px"
             />
           </div>
         </div>

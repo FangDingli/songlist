@@ -3,7 +3,7 @@ export interface Song {
   title: string
   singer: string
   lang: string
-  /** 类型,多值用中英文分号分隔,页面端拆成 tag;所有转换脚本只写此字段 */
+  /** 类型,多值可用中英文分号/逗号/顿号/斜杠分隔,页面端拆成 tag;所有转换脚本只写此字段 */
   genre?: string
   /** 点歌需要的 SuperChat 金额,空串/0/缺省表示无 SC */
   sc?: number | string
@@ -24,6 +24,8 @@ export interface StreamerMeta {
   subtitle?: string
   /** 主播头像 URL,缺省显示音符图标 */
   avatar?: string
+  /** 手动指定头像:true 时只用 avatar 静态地址,不通过 uid 动态解析 */
+  avatarManual?: boolean
   /** 背景图:移动端与宽屏各一张,路径相对站点根 */
   bg?: { mobile?: string; desktop?: string }
   /** 点歌口令模板,占位符 {title} {singer} {lang} {tags} */

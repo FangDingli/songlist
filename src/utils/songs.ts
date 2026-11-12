@@ -3,7 +3,7 @@ import type { Song } from '@/types'
 /** 展示用 tag:genre 按分隔符拆分、去重;为空时返回空数组(纯歌名数据集不产生噪音) */
 export function songTags(song: Song): string[] {
   const tags = [...new Set(
-    (typeof song.genre === 'string' ? song.genre.split(/[;；,，、]/) : [])
+    (typeof song.genre === 'string' ? song.genre.split(/[;；,，、\/]/) : [])
       .map((s) => s.trim())
       .filter(Boolean),
   )]

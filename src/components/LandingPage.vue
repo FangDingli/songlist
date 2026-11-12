@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { dataUrl } from '@/config'
 import { useTheme } from '@/composables/useTheme'
-import { avatarFallbackBg, avatarThumb, resolveAvatar } from '@/utils/avatar'
+import AvatarImage from './AvatarImage.vue'
 import type { StreamerMeta } from '@/types'
 
 const { mode, cycleMode } = useTheme()
@@ -84,30 +84,30 @@ const features = [
         </div>
       </section>
 
-      <!-- 入驻主播 -->
+      <!-- 入驻主播:数量增长时限高独立滚动,不把首页撑长 -->
       <section v-if="validStreamers.length" class="pb-56px">
         <h2 class="text-20px lh-28px font-600 text-center text-text-primary">入驻主播</h2>
-        <p class="mt-8px text-center text-14px text-text-secondary">点击卡片进入对应歌单</p>
-        <div class="mt-24px grid sm:grid-cols-2 lg:grid-cols-3 gap-12px">
+        <p class="mt-8px text-center text-14px text-text-secondary">
+          点击卡片在新标签页打开歌单<span v-if="validStreamers.length > 6"> · 向下滚动查看更多</span>
+        </p>
+        <div
+          class="streamer-scroll mt-24px px-4px pt-4px grid sm:grid-cols-2 lg:grid-cols-3 gap-12px max-h-[340px] overflow-y-auto overscroll-contain"
+        >
           <a
             v-for="s in validStreamers"
             :key="s.id"
             :href="`/${s.id}`"
+            target="_blank"
+            rel="noopener noreferrer"
             class="no-underline surface-card p-20px flex items-center gap-16px transition-all duration-200 hover:shadow-[0_6px_20px_rgb(var(--brand)/0.2)] hover:-translate-y-2px"
           >
-            <!-- 静态头像垫底:动态解析请求期间即有显示;动态加载失败时隐藏 img 露出垫底图 -->
-            <img
-              v-if="resolveAvatar(s.config)"
-              :src="avatarThumb(resolveAvatar(s.config))"
-              class="w-56px h-56px rounded-full object-cover shrink-0 bg-cover bg-center"
-              :style="{ backgroundImage: avatarFallbackBg(s.config.avatar) }"
-              alt=""
-              referrerpolicy="no-referrer"
-              @error="($event.target as HTMLImageElement).style.visibility = 'hidden'"
+            <AvatarImage
+              :uid="s.config.uid"
+              :avatar="s.config.avatar"
+              :avatar-manual="s.config.avatarManual"
+              class="w-56px h-56px"
+              icon-class="text-24px"
             />
-            <div v-else class="w-56px h-56px rounded-full bg-brand-soft text-brand text-24px flex-center shrink-0">
-              <div class="i-carbon-music"></div>
-            </div>
             <h3 class="min-w-0 text-15px font-bold text-text-primary truncate">
               {{ s.config.title || s.id }}
             </h3>
@@ -176,7 +176,7 @@ const features = [
             </div>
             <h3 class="mt-12px text-15px font-bold text-text-primary">填写「歌曲列表」</h3>
             <p class="mt-4px text-13px lh-20px text-text-secondary">
-              按储量填写,模板已含示例,<b class="text-text-primary">请勿修改表头文字与列顺序</b>;「类型」列多个值用中英文分号分隔均可识别,「歌手」列多人支持顿号、中英文分号与 &amp; 符号
+              按储量填写,模板已含示例,<b class="text-text-primary">请勿修改表头文字与列顺序</b>;「类型」列多个值用中英文分号、逗号、顿号或斜杠分隔均可识别,「歌手」列多人支持顿号、中英文分号与 &amp; 符号
             </p>
           </div>
           <div class="surface-card p-20px relative">
@@ -232,3 +232,24 @@ const features = [
     </footer>
   </div>
 </template>
+
+<style scoped>
+/* 入驻主播板块的独立滚动条:亮暗主题都取自设计 token */
+.streamer-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--text-secondary)/0.4) transparent;
+}
+.streamer-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.streamer-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.streamer-scroll::-webkit-scrollbar-thumb {
+  background: rgb(var(--text-secondary)/0.4);
+  border-radius: 999px;
+}
+.streamer-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--brand)/0.7);
+}
+</style>

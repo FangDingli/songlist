@@ -10,3 +10,8 @@ dist/
 
 # 本地数据暂存区(发布到数据源的数据,不进仓库)
 data-local/
+
+# 助手工作记录 / 发布与构建缓存(不属于项目资产)
+.workbuddy/
+.publish-tmp/
+.wrangler/

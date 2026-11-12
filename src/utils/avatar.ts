@@ -1,18 +1,26 @@
 /** 头像动态解析服务(307 重定向到 B 站头像,自带缩放后缀),跟随主播更换头像 */
 const BILIBILI_AVATAR_API = 'https://workers.vrp.moe/api/bilibili/avatar'
 
+/** 头像相关配置(StreamerMeta 的子集,组件与工具共用) */
+export interface AvatarMeta {
+  uid?: string
+  avatar?: string
+  /** 手动指定头像:只用静态 avatar,不通过 uid 动态解析 */
+  avatarManual?: boolean
+}
+
 /**
- * 头像解析:uid 存在时优先走动态解析服务(避免 B 站换头像后站点长期过期),
- * 静态 avatar 字段作为加载失败时的兜底,调用方按候选列表逐个降级。
+ * 头像解析:uid 存在且未标记手动指定时优先走动态解析服务
+ * (避免 B 站换头像后站点长期过期);静态 avatar 字段作为兜底。
  */
-export function resolveAvatar(meta: { uid?: string; avatar?: string }): string {
+export function resolveAvatar(meta: AvatarMeta): string {
   const uid = meta.uid?.trim()
-  if (uid) return `${BILIBILI_AVATAR_API}/${uid}`
+  if (uid && !meta.avatarManual) return `${BILIBILI_AVATAR_API}/${uid}`
   return meta.avatar?.trim() ?? ''
 }
 
 /** 候选列表:动态解析 + 静态地址去重,供调用方在加载失败时逐级降级 */
-export function avatarCandidates(meta: { uid?: string; avatar?: string }): string[] {
+export function avatarCandidates(meta: AvatarMeta): string[] {
   return [...new Set([resolveAvatar(meta), meta.avatar?.trim() ?? ''].filter(Boolean))]
 }
 

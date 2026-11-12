@@ -5,7 +5,7 @@
  *
  * 模板含两个工作表(表头/字段名不可修改):
  * - 「歌曲列表」:歌名 | 歌手 | 语种 | 类型 | 付费 | 歌切 | 备注
- *   - 类型:多值用中英文分号分隔,整串存入 genre,页面按分隔符拆成 tag
+ *   - 类型:多值用中英文分号、逗号、顿号或斜杠分隔,整串存入 genre,页面按分隔符拆成 tag
  *   - 歌手:顿号、中英文分号、& 均可识别,输出统一为顿号
  *   - 付费:有值表示点歌需要付费/SC(如「30SC」「舰长」),原样存入 paid
  *   - 歌切:B 站视频 BV 号,原样存入 video;备注:原样存入 remark
@@ -107,6 +107,14 @@ if (config.theme) {
       config.theme = seed
     }
   }
+}
+
+// 头像:值加「!」前缀表示手动指定(avatarManual),只使用静态地址、不通过 uid 动态解析。
+// 与主题色的「!」前缀同一套标记方式;未标记时不写该字段,保留 config.json 里手改的值。
+if (config.avatar?.startsWith('!')) {
+  config.avatar = config.avatar.slice(1).trim()
+  config.avatarManual = true
+  console.log('  头像已标记手动指定,不走 uid 动态解析')
 }
 
 // 由 uid / liveroomId 派生主页与直播间地址(与 config.json 的字段规则一致)

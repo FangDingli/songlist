@@ -6,9 +6,9 @@
 2. Cloudflare 控制台 → Workers & Pages → 创建 Pages 项目 → 连接该仓库。
 3. 构建配置:框架预设选 Vite;构建命令 `npm run build`;输出目录 `dist`。
    建议加环境变量 `NODE_VERSION=22`。
-5. **SPA 回退**:本项目按路径区分主播,依赖「未匹配路径回退 index.html」;
+4. **SPA 回退**:本项目按路径区分主播,依赖「未匹配路径回退 index.html」;
    构建产物中不要放 404.html(CF Pages 无 404.html 时自动启用 SPA 回退)。
-4. 绑定自定义域名(根域或泛解析,国内访问稳定性明显更好)。
+5. 绑定自定义域名(根域或泛解析,国内访问稳定性明显更好)。
 
 **SPA 路由注意**:本项目按路径区分主播(如 `/qixuan`),依赖「未匹配路径回退到
 index.html」的 SPA 行为。CF Pages 在构建产物没有 404.html 时会自动启用该回退,
@@ -46,5 +46,6 @@ index.html」的 SPA 行为。CF Pages 在构建产物没有 404.html 时会自�
   无需动代码仓库。
 
 数据更新日常流程:主播交 Excel → `node scripts/excel-to-json.mjs <excel> <id>`
-(输出到 `public/streamers/<id>/`,把生成的两个 json 移到 `data-local/streamers/<id>/`)
-→ `node scripts/publish.mjs`。
+(脚本直接写入 `data-local/streamers/<id>/`,不需要手工搬文件)→ `node scripts/publish.mjs`。
+需要把现有 json 导回 excel 核对时用 `node scripts/json-to-excel.mjs <id> [输出路径]`;
+也可以跑 `npm run studio` 在图形管理台里点按钮完成转换、发布与部署。

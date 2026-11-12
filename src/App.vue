@@ -17,7 +17,8 @@ import RotatingDisc from '@/components/RotatingDisc.vue'
 import { useClipboard } from '@/composables/useClipboard'
 import { useToast } from '@/composables/useToast'
 import { useTheme } from '@/composables/useTheme'
-import { avatarCandidates, avatarFallbackBg, resolveAvatar } from '@/utils/avatar'
+import { resolveAvatar } from '@/utils/avatar'
+import AvatarImage from '@/components/AvatarImage.vue'
 import SonglistImageModal from '@/components/SonglistImageModal.vue'
 
 const { copy } = useClipboard()
@@ -34,12 +35,6 @@ const songs = shallowRef<Song[]>([])
 const dataStatus = ref<'loading' | 'ready' | 'not-found'>('loading')
 // 数据更新日期来自主播配置(meta.songsUpdatedAt),由转换脚本写入
 const updatedAt = computed(() => meta.value.songsUpdatedAt ?? '')
-
-// 移动端顶栏头像:uid 动态解析优先,静态地址兜底,全部失败回落音符图标
-const barAvatarCandidates = computed(() => avatarCandidates(meta.value))
-const barAvatarFailed = ref(0)
-watch(() => `${meta.value.uid ?? ''}|${meta.value.avatar ?? ''}`, () => (barAvatarFailed.value = 0))
-const barAvatarSrc = computed(() => barAvatarCandidates.value[barAvatarFailed.value] ?? '')
 
 // 默认主播使用打包内置数据,首屏零等待
 if (streamerId.value === DEFAULT_STREAMER_ID) {
@@ -356,19 +351,17 @@ const dataMeta = computed(
     <div class="lg:hidden sticky top-0 z-50 bg-[rgb(var(--bg-card)/0.9)] backdrop-blur-xl border-b border-border">
         <div class="flex items-center justify-between gap-12px px-16px h-52px">
           <div class="flex items-center gap-8px min-w-0">
-            <!-- 头像优先(随唱片机节奏旋转),静态头像垫底显示,动态加载失败逐级降级,全失败回落音符图标 -->
-            <img v-if="barAvatarSrc" :src="barAvatarSrc" alt="" referrerpolicy="no-referrer"
-              class="bar-avatar w-28px h-28px rounded-full object-cover shrink-0 bg-cover bg-center"
-              :style="{ backgroundImage: avatarFallbackBg(meta.avatar) }" @error="barAvatarFailed++" />
-            <div v-else class="i-carbon-music text-brand text-18px shrink-0"></div>
+            <!-- 随唱片机节奏旋转;容器背景垫底、加载失败降级由 AvatarImage 统一处理 -->
+            <AvatarImage :uid="meta.uid" :avatar="meta.avatar" :avatar-manual="meta.avatarManual"
+              icon-class="text-14px" class="bar-avatar w-28px h-28px" />
             <h1 class="text-17px lh-24px font-bold text-text-primary truncate">{{ meta.title }}</h1>
           <span v-if="dataStatus === 'ready'" class="shrink-0 text-12px text-text-secondary">共 {{ songs.length }}
             首</span>
         </div>
         <div class="flex items-center gap-8px shrink-0">
-          <button type="button" class="theme-toggle" title="生成图片歌单" @click="showImageModal = true">
+          <!-- <button type="button" class="theme-toggle" title="生成图片歌单" @click="showImageModal = true">
             <div class="i-carbon-image"></div>
-          </button>
+          </button> -->
           <button type="button" class="theme-toggle" :title="themeTitle" @click="cycleMode">
             <div :class="themeIcon"></div>
           </button>
@@ -393,7 +386,8 @@ const dataMeta = computed(
               @click="cycleMode">
               <div :class="themeIcon"></div>
             </button>
-            <RotatingDisc :avatar="meta.avatar" :uid="meta.uid" :href="meta.liveUrl" />
+            <RotatingDisc :avatar="meta.avatar" :uid="meta.uid" :avatar-manual="meta.avatarManual"
+              :href="meta.liveUrl" />
             <h2 class="mt-12px text-18px lh-28px font-bold text-text-primary">{{ meta.title }}</h2>
             <p v-if="meta.subtitle" class="mt-8px text-13px text-text-secondary text-center px-8px">{{ meta.subtitle }}
             </p>

@@ -34,7 +34,8 @@
   未列出的按 id 字典序垫底),改顺序只动这一个文件
 - 歌曲数据全部通过静态 json 文件获取,**不使用 API/Worker**(数据源为纯静态托管)
 - `id`(歌曲)由 `src/utils/songs.ts` 的 `withIds` 运行时按行序生成,与外部编号解耦
-- 展示 tag 由 `songTags()` 从 genre 按分隔符拆分,无需改组件;
+- 展示 tag 由 `songTags()` 从 genre 按分隔符拆分(中英文分号 / 逗号 / 顿号 / 斜杠),
+  无需改组件;
   为空时返回空数组(纯歌名数据集不产生「未知」噪音)。
   历史 qiyuan 数据里的 `style` 键已废弃不读(代码已移除相关逻辑,json 不回改)
 - 加新主播 = 在 `data-local/streamers/<id>/` 放入两个 json(+背景图)→ 跑
@@ -45,7 +46,8 @@
 ## 技术栈与命令
 
 - Vite + Vue 3 + TS + UnoCSS(presetUno + presetIcons),组件手写不引库
-- `npm run dev` / `npm run build`(vue-tsc + vite build)/ `npm run preview`
+- `npm run dev` / `npm run build`(vue-tsc + vite build)/ `npm run preview` /
+  `npm run deploy`(构建 + wrangler 部署)/ `npm run studio`(本地图形管理台)
 
 ## 数据通道(三层,不使用 API/Worker,数据源为纯静态托管)
 
@@ -99,16 +101,21 @@
 ## 约定与细节
 
 - 外链一律 `target="_blank" rel="noopener noreferrer"`;bilibili 图床加 `referrerpolicy="no-referrer"`
-- 站点 favicon 动态使用主播头像(`meta.avatar`,无 favicon 配置时),在 App.vue 设置
-- 头像展示统一走 `utils/avatar.ts` 的 `resolveAvatar`/`avatarCandidates`:
-  uid 存在时优先经第三方解析服务(`workers.vrp.moe`,307 到 B 站头像)动态获取,
-  跟随主播更换头像;静态 `avatar` 字段为加载失败时的兜底,调用方逐级降级
+- 头像展示统一走 `src/components/AvatarImage.vue` + `utils/avatar.ts` 的
+  `resolveAvatar`/`avatarCandidates`:uid 存在且未设置 `avatarManual` 时优先经第三方
+  解析服务(`workers.vrp.moe`,307 到 B 站头像)动态获取,跟随主播更换头像;
+  静态 `avatar` 为加载失败时的兜底,调用方逐级降级,全失败回落音符图标。
+  站点 favicon 无 favicon 配置时取同一候选链,在 App.vue 设置
+- **手动指定头像**:config.json 的 `avatarManual: true`(或 excel「站点配置」
+  「头像图片地址」值前加「!」,与主题色「!」前缀同一套标记方式)让该主播只用
+  `avatar` 静态地址、不通过 uid 动态解析。用于解析服务异常返回 B 站默认头像
+  `noface.jpg` 等情况;这是按主播手动配置的开关,不做运行时自动探测
 - 观众在国内:部署走 Cloudflare + 自定义域名(见 docs/deploy.md),不要引入会被墙的运行时依赖
 - 主播 excel 模板在 `public/songlist.xlsx`(首页提供下载,含「歌曲列表」「站点配置」
   两个工作表),表头与字段名不可改
 - 转换脚本:`scripts/excel-to-json.mjs <excel> <id>`(类型列原样存 genre,「付费」列
   原样存 paid,「歌切」「备注」列原样存 video/remark,歌手分隔符统一为顿号,
-  主题色加「!」前缀=强制原色 themeForced);
+  主题色加「!」前缀=强制原色 themeForced,头像地址加「!」前缀=avatarManual);
   `scripts/json-to-excel.mjs <id> [输出路径]`(反向转换,与 excel-to-json 互逆:
   genre 原样写回「类型」列、sc 合成为「<n>SC」、video/remark 写回「歌切」「备注」);
   `scripts/songlistcc-to-json.mjs <json> <id>`(songlist.cc 导出格式,
@@ -117,3 +124,23 @@
   走 Next.js Server Action,action id 硬编码在脚本头,失效时按注释重新提取)
 - 页脚制作人员为固定文案(写在 App.vue footer),不走配置
 - 提交信息与代码注释用中文
+
+## 页面组件与附加能力
+
+- 组件清单见 docs/guide.md「代码结构」;核心编排全在 `App.vue`,组件手写不引库
+- **头像兜底图必须设在包裹 img 的容器 div 上**,不能设在 img 上:img 加载成功后
+  内容会盖住背景,加载失败时隐藏 img 又会把背景一起藏掉,两种情况下兜底都无效。
+  `AvatarImage.vue` 统一处理容器背景 + 候选降级链;唱片机、移动端顶栏、
+  首页入驻卡片、二维码弹窗都走这套(或同构写法)
+- 不做 noface 运行时探测:img 跟随 307 后 `src`/`currentSrc` 不含重定向终点,
+  额外发 fetch/XHR 拿终点又受 CORS 与 CF 挑战限制,实测不可靠,已撤回。
+  改为按主播手动配置 `avatarManual`
+- 图片歌单:`SonglistImageModal.vue` + `utils/songlist-image.ts`,纯 Canvas 把全量歌名
+  排成竖版长图,可配文字色/背景色/背景图/尺寸/标题/编号,超页自动分页;
+  入口在侧栏头像卡与移动端顶栏。二维码:`QrModal.vue`(qrcode,H 级纠错,头像居中)
+- 管理台:`npm run studio` → `scripts/studio.mjs`,仅监听 127.0.0.1:5199、不做鉴权,
+  可视化跑 excel 转换 / songlist.cc 与 2some 抓取 / 发布数据源 / 构建部署,日志走 SSE
+- 首页「入驻主播」板块限高独立滚动,卡片 `target="_blank" rel="noopener noreferrer"`
+  新标签打开;板块随主播数量增长不再把首页撑长
+- `SongCard.vue` 的 genre tag 全部渲染,第二行 `overflow-hidden` 保证不撑破卡片;
+  tag 多时歌手可以被挤压,完整列表放在该行 `title`。卡片高度(90px)与虚拟滚动常量不变
