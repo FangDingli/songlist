@@ -28,6 +28,8 @@ export interface StreamerMeta {
   avatarManual?: boolean
   /** 背景图:移动端与宽屏各一张,路径相对站点根 */
   bg?: { mobile?: string; desktop?: string }
+  /** 手机端默认列数(1 或 2),缺省 1;观众可在顶栏临时覆盖(按主播记在 localStorage) */
+  mobileCols?: 1 | 2
   /** 点歌口令模板,占位符 {title} {singer} {lang} {tags} */
   orderTemplate?: string
   /** 主播 B 站 UID,与 userProfileUrl 同源 */

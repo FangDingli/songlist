@@ -10,6 +10,7 @@
  *   - 付费:有值表示点歌需要付费/SC(如「30SC」「舰长」),原样存入 paid
  *   - 歌切:B 站视频 BV 号,原样存入 video;备注:原样存入 remark
  * - 「站点配置」:字段 | 填写内容 两列,生成 config.json(meta)
+ *   - 手机端列数:可选填 1 或 2(缺省 1);留空时保留 config.json 里已有的手改值
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import XLSX from 'xlsx'
@@ -26,6 +27,7 @@ const CONFIG_FIELDS = {
   '背景图-移动端': 'bg.mobile',
   '背景图-宽屏': 'bg.desktop',
   主题色: 'theme',
+  手机端列数: 'mobileCols',
   点歌口令模板: 'orderTemplate',
   主播UID: 'uid',
   直播间ID: 'liveroomId',
@@ -115,6 +117,18 @@ if (config.avatar?.startsWith('!')) {
   config.avatar = config.avatar.slice(1).trim()
   config.avatarManual = true
   console.log('  头像已标记手动指定,不走 uid 动态解析')
+}
+
+// 手机端列数:只接受 1 / 2;模板留空时不写该字段,保留 config.json 里手改的值
+if (config.mobileCols !== undefined) {
+  const n = Number(config.mobileCols)
+  if (n === 1 || n === 2) {
+    config.mobileCols = n
+  } else {
+    const bad = config.mobileCols
+    delete config.mobileCols
+    console.log(`  手机端列数「${bad}」无效(只支持 1 或 2),已忽略`)
+  }
 }
 
 // 由 uid / liveroomId 派生主页与直播间地址(与 config.json 的字段规则一致)

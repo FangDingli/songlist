@@ -74,7 +74,13 @@
 
 - **常量必须与样式同步**:`CARD_H = 90` 对应 song-card 的 `h-90px`,`GAP = 16` 对应行间距;
   改卡片高度时两处一起改,否则滚动定位错位
-- 列数由容器宽度自动算(卡片最小 240px,1~5 列)
+- 列数由容器宽度自动算(卡片最小 240px,1~5 列);窄屏(容器 <640px)例外,
+  列数取 `App.vue` 的 `mobileCols`:主播 `config.json` 的 `mobileCols`(1|2,缺省 1)定默认值,
+  观众在移动端顶栏一键切换 1⇄2,覆盖值按主播 id 存 `localStorage`
+  (`songlist:mobileCols:<id>`);切回主播配置值时清掉覆盖、恢复「跟随主播设置」。
+  tag 多的歌单(如 xiu 平均 4.5 个/首)宜保持 1 列,tag 少的可配 2 列;
+  `DEFAULT_MOBILE_COLS` 是全局缺省值。切换会按当前可见歌曲序号重算 scrollY 防止跳变,
+  行高与 ROW_H 都不用动
 - 卡片内的 remark 面板/视频图标等悬浮元素**不占布局高度**(绝对定位覆盖下一行,
   hover/展开时提升 z-index);卡片根节点是 `role="button"` 的 div(button 内不能嵌链接)
 - 刻意**没有用 TransitionGroup**(全量 diff 是之前的性能问题来源);新增动画别加回去

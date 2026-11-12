@@ -14,6 +14,7 @@
   "subtitle": "点击卡片复制点歌口令,回到直播间粘贴即可点歌",
   "avatar": "https://头像地址.jpg",
   "avatarManual": false,
+  "mobileCols": 1,
   "bg": { "mobile": "/bg/<id>/mobile.png", "desktop": "/bg/<id>/desktop.jpg" },
   "orderTemplate": "点歌 {title} {singer}",
   "uid": "主播uid",
@@ -41,6 +42,14 @@
      给该主播开这个开关即可(参考 `theme` / `themeForced` 的按主播配置方式)。
      excel 里给「头像图片地址」的值加「!」前缀也能让转换脚本写入该字段;
      想恢复自动解析,把 config.json 里的 `avatarManual` 删掉或改成 `false`。
+   - `mobileCols`:手机端默认列数,填 `1` 或 `2`,**缺省 1 列**。tag 多的歌单
+     (窄卡放不下几个类型标签)保持 1 列,tag 少的可设为 2 列提高一屏信息量。
+     观众可在手机顶栏用布局按钮临时切换 1⇄2,选择按主播 id 存在自己浏览器里,
+     不影响其他主播、也不需要重新发布;切回主播配置的值时自动恢复「跟随设置」。
+     excel「站点配置」加一行「手机端列数」填 1/2 也能让转换脚本写入;
+     留空则保留 config.json 里手改的值(转换脚本会合并已有 config,不会覆盖)。
+     注意 `json-to-excel.mjs` 反向导出严格按 `public/songlist.xlsx` 模板行序,
+     若模板里没有补这一行,导出的 excel 不含该字段,但 config.json 里的值仍在。
    - 首页「入驻主播」的展示顺序由 `data-local/streamers/order.json` 的 id 数组决定
      (数组序即展示序,未列出的按 id 字典序垫底),改顺序只动这一个文件。
 

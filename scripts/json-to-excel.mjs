@@ -29,6 +29,7 @@ const LABEL_KEYS = {
   '背景图-移动端': 'bg.mobile',
   '背景图-宽屏': 'bg.desktop',
   主题色: 'theme',
+  手机端列数: 'mobileCols',
   点歌口令模板: 'orderTemplate',
   主播UID: 'uid',
   直播间ID: 'liveroomId',

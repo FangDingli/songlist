@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, shallowRef, watch, watchEffect } from 'vue'
+import { computed, nextTick, onMounted, ref, shallowRef, watch, watchEffect } from 'vue'
 import { useElementSize, useWindowSize, useWindowScroll } from '@vueuse/core'
 import configRaw from '@/data/qiyuan-config.json?raw'
 import songsRaw from '@/data/qiyuan-songs.json?raw'
@@ -116,6 +116,12 @@ const CARD_H = 90
 const GAP = 16
 const ROW_H = CARD_H + GAP
 const CARD_MIN_W = 240
+/** 窄屏(手机)阈值:低于此宽度按 mobileCols 决定列数,宽屏仍按 CARD_MIN_W 自适应 */
+const MOBILE_MAX_W = 640
+/** 主播未配置时的手机端默认列数(1 列);仅 1 / 2 两档,tag 多的歌单适合 1 列 */
+const DEFAULT_MOBILE_COLS = 1
+/** 观众手动覆盖的偏好按主播 id 存本地,互不串扰;键为前缀 + id */
+const MOBILE_COLS_KEY = 'songlist:mobileCols:'
 const OVERSCAN = 3
 const MOBILE_BAR_TOP = 52 // 移动端吸顶栏高度
 
@@ -240,9 +246,34 @@ const { width: mainW } = useElementSize(mainEl)
 const { y: scrollY } = useWindowScroll()
 const { height: winH } = useWindowSize()
 
+/* 手机端列数:主播配置(config.json 的 mobileCols)定默认值,观众可在顶栏临时覆盖。
+   覆盖值按主播 id 存 localStorage,只影响当前主播页,不会带去别人的歌单。 */
+const mobileColsOverride = ref<1 | 2 | null>(null) // null = 跟随主播配置
+const mobileColsKey = () => `${MOBILE_COLS_KEY}${streamerId.value ?? ''}`
+
+function readMobileColsOverride() {
+  if (isLanding.value) return void (mobileColsOverride.value = null)
+  try {
+    const raw = localStorage.getItem(mobileColsKey())
+    mobileColsOverride.value = raw === '1' || raw === '2' ? (Number(raw) as 1 | 2) : null
+  } catch {
+    mobileColsOverride.value = null // 隐私模式/禁用存储时静默降级
+  }
+}
+// 别名反查会把 streamerId 换成真实 id,此时按新 id 重读偏好
+watch(streamerId, readMobileColsOverride, { immediate: true })
+
+const configuredMobileCols = computed<1 | 2>(() =>
+  meta.value.mobileCols === 2 ? 2 : DEFAULT_MOBILE_COLS,
+)
+const mobileCols = computed<1 | 2>(() => mobileColsOverride.value ?? configuredMobileCols.value)
+// 桌面浏览器窄窗口(<640px 容器)也走手机端列数,此时才显示切换按钮
+const isNarrow = computed(() => mainW.value > 0 && mainW.value < MOBILE_MAX_W)
+
 const cols = computed(() => {
   const w = mainW.value
   if (!w) return 4
+  if (w < MOBILE_MAX_W) return mobileCols.value
   return Math.min(5, Math.max(1, Math.floor((w + GAP) / (CARD_MIN_W + GAP))))
 })
 
@@ -254,6 +285,37 @@ const rows = computed(() => {
 })
 
 const gridRef = ref<HTMLElement | null>(null)
+
+/** 顶栏按钮:1 列 ⇄ 2 列;切回主播配置的值时清掉覆盖,恢复「跟随主播设置」 */
+async function toggleMobileCols() {
+  // 列数变化会让总行数(页面高度)突变,先记住当前可见的第一首歌,切换后滚回同一位置
+  const grid = gridRef.value
+  const gridTop = grid ? grid.getBoundingClientRect().top + scrollY.value : 0
+  const rel = Math.max(0, scrollY.value - gridTop)
+  const firstSongIndex = rel > 0 ? Math.floor(rel / ROW_H) * cols.value : -1
+
+  const next: 1 | 2 = mobileCols.value === 2 ? 1 : 2
+  const followConfig = next === configuredMobileCols.value
+  mobileColsOverride.value = followConfig ? null : next
+  try {
+    const key = mobileColsKey()
+    if (followConfig) localStorage.removeItem(key)
+    else localStorage.setItem(key, String(next))
+  } catch {
+    /* 存储不可用时仅本次会话生效 */
+  }
+  show(`手机端已切换为${next === 2 ? '双列' : '单列'}`, 'success')
+
+  await nextTick()
+  // rows 重新切块、外层高度更新后,把视口对齐回原来的第一首歌
+  if (grid && firstSongIndex >= 0) {
+    window.scrollTo({ top: gridTop + Math.floor(firstSongIndex / cols.value) * ROW_H })
+  }
+}
+
+const mobileColsTitle = computed(() =>
+  `手机端布局:当前${mobileCols.value === 2 ? '双列' : '单列'},点击切换为${mobileCols.value === 2 ? '单列' : '双列'}`,
+)
 
 const firstVisible = computed(() => {
   void rows.value.length
@@ -362,6 +424,11 @@ const dataMeta = computed(
           <!-- <button type="button" class="theme-toggle" title="生成图片歌单" @click="showImageModal = true">
             <div class="i-carbon-image"></div>
           </button> -->
+          <!-- 手机端列数切换:主播配置定默认值,观众选择按主播 id 记在 localStorage -->
+          <button v-if="isNarrow" type="button" class="theme-toggle" :title="mobileColsTitle"
+            :aria-label="mobileColsTitle" @click="toggleMobileCols">
+            <div :class="mobileCols === 2 ? 'i-carbon-grid' : 'i-carbon-list'"></div>
+          </button>
           <button type="button" class="theme-toggle" :title="themeTitle" @click="cycleMode">
             <div :class="themeIcon"></div>
           </button>
