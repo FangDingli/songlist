@@ -3,7 +3,7 @@
  * 仅监听 127.0.0.1,供本机使用(不做鉴权,不要暴露到公网)。
  *
  * 功能:
- * - 主播列表(data-local/streamers/*):生成 excel / 导入 excel / 打开数据目录
+ * - 主播列表(data-local/streamers/*):生成 excel / excel 转 json / 打开数据目录
  * - 2some 抓取:输入站点 slug 在线拉歌单
  * - 全局操作:发布数据源(publish.mjs) / 构建并部署站点(npm run deploy)
  * - 脚本以仓库根为 cwd 子进程执行,日志经 SSE 实时流到页面(同时并发的任务按 id 区分)
@@ -150,7 +150,7 @@ async function refresh() {
       '<span class="tag ' + (s.songs ? 'ok' : 'miss') + '">songs</span></td>' +
       '<td><div class="row">' +
       '<button onclick="run(\\'json-to-excel.mjs\\', [\\'' + s.id + '\\'])">生成 excel</button>' +
-      '<button onclick="importExcel(\\'' + s.id + '\\')">导入 excel</button>' +
+      '<button onclick="exportExcel(\\'' + s.id + '\\')">excel 转 json</button>' +
       '<button onclick="openDir(\\'' + s.id + '\\')">打开目录</button>' +
       '</div></td>'
     tb.appendChild(tr)
@@ -174,10 +174,10 @@ function runDeploy() {
   setRunning(true)
   fetch('/api/deploy', { method: 'POST' })
 }
-function importExcel(id) {
-  const p = prompt('输入 excel 文件路径(含文件名):')
-  if (!p) return
-  run('excel-to-json.mjs', [p, id])
+/** excel 转 json:默认用该主播目录下的 <id>.xlsx(json-to-excel 的默认输出);文件缺失时日志会报「找不到文件」 */
+function exportExcel(id) {
+  // PAGE 是外层模板字符串,这里不能用反引号,只能拼接
+  run('excel-to-json.mjs', ['data-local/streamers/' + id + '/' + id + '.xlsx', id])
 }
 async function openDir(id) { await fetch('/api/open-dir', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) }) }
 const es = new EventSource('/api/events')

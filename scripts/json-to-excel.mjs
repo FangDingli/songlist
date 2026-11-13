@@ -1,7 +1,7 @@
 /**
  * 把本地主播数据反向转换为模板格式的 excel(可编辑后用 excel-to-json.mjs 再导入)。
  * 用法:node scripts/json-to-excel.mjs <主播id> [输出excel路径]
- * 默认输出:public/streamers/<id>/songlist.xlsx
+ * 默认输出:data-local/streamers/<id>/<id>.xlsx
  *
  * 严格以 public/songlist.xlsx 模板为基底构建:
  * - 工作表名/表头/站点配置的行序与「说明」「备注」引导文案全部取自模板原文件,
@@ -108,7 +108,7 @@ const wb = XLSX.utils.book_new()
 XLSX.utils.book_append_sheet(wb, songsWs, songsSheetName)
 XLSX.utils.book_append_sheet(wb, configWs, CONFIG_SHEET)
 
-const outPath = resolve(outArg ?? resolve(dataDir, 'songlist.xlsx'))
+const outPath = resolve(outArg ?? resolve(dataDir, `${streamerId}.xlsx`))
 mkdirSync(dirname(outPath), { recursive: true })
 XLSX.writeFile(wb, outPath)
 
