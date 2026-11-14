@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import TagPill from './TagPill.vue'
 import type { FilterTag } from '@/types'
 
-defineProps<{
+const props = defineProps<{
   keyword: string
   tags: FilterTag[]
   selectedTag: { kind: FilterTag['kind']; name: string } | null
@@ -16,6 +17,36 @@ const emit = defineEmits<{
   (e: 'shuffle'): void
   (e: 'random'): void
 }>()
+
+/* 窄屏 tag 折叠:tag 种类多的主播(shiro/xiu 29 种)全量换行铺开会占近半屏,
+ * 默认只显示前 3 行,底部渐变提示 + 展开按钮;桌面侧栏(≥1024px)空间充足不折叠 */
+const COLLAPSED_H = 106 // 3 行 tag(30px×3 + 间距 8px×2)
+const expanded = ref(false)
+const overflow = ref(false)
+const listEl = ref<HTMLElement | null>(null)
+const desktopMq =
+  typeof window !== 'undefined' ? window.matchMedia('(min-width: 1024px)') : null
+
+function checkOverflow() {
+  if (desktopMq?.matches) {
+    overflow.value = false
+    return
+  }
+  overflow.value = !!listEl.value && listEl.value.scrollHeight > COLLAPSED_H + 1
+}
+
+// tag 数量、视口宽度都会影响折叠判定;选中 tag 时自动展开(方便看到选中上下文),取消后不强制收起
+watch(() => props.tags, async () => { await nextTick(); checkOverflow() }, { deep: true })
+watch(() => props.selectedTag, (v) => { if (v) expanded.value = true })
+onMounted(() => {
+  checkOverflow()
+  desktopMq?.addEventListener('change', checkOverflow)
+  window.addEventListener('resize', checkOverflow)
+})
+onUnmounted(() => {
+  desktopMq?.removeEventListener('change', checkOverflow)
+  window.removeEventListener('resize', checkOverflow)
+})
 </script>
 
 <template>
@@ -48,15 +79,40 @@ const emit = defineEmits<{
       {{ filteredCount === total ? `共 ${total} 首` : `筛选出 ${filteredCount} / ${total} 首` }}
     </p>
 
-    <div class="flex flex-wrap gap-8px">
-      <TagPill
-        v-for="tag in tags"
-        :key="tag.kind + tag.name"
-        :label="tag.name"
-        :count="tag.count"
-        :selected="!!selectedTag && selectedTag.kind === tag.kind && selectedTag.name === tag.name"
-        @toggle="emit('toggleTag', tag.kind, tag.name)"
-      />
+    <div>
+      <div class="relative">
+        <div
+          ref="listEl"
+          class="flex flex-wrap gap-8px"
+          :style="!expanded && overflow ? { maxHeight: `${COLLAPSED_H}px`, overflow: 'hidden' } : undefined"
+        >
+          <TagPill
+            v-for="tag in tags"
+            :key="tag.kind + tag.name"
+            :label="tag.name"
+            :count="tag.count"
+            :selected="!!selectedTag && selectedTag.kind === tag.kind && selectedTag.name === tag.name"
+            @toggle="emit('toggleTag', tag.kind, tag.name)"
+          />
+        </div>
+        <!-- 收起时被裁断的行用渐变隐去,提示下方还有更多 -->
+        <div
+          v-if="!expanded && overflow"
+          class="pointer-events-none absolute left-0 right-0 bottom-0 h-28px bg-gradient-to-t from-[rgb(var(--bg-card))] to-transparent"
+        ></div>
+      </div>
+      <button
+        v-if="overflow"
+        type="button"
+        class="mt-6px flex items-center gap-4px text-12px text-brand-strong cursor-pointer"
+        @click="expanded = !expanded"
+      >
+        {{ expanded ? '收起标签' : `展开全部标签(${tags.length})` }}
+        <div
+          class="i-carbon-chevron-down text-12px transition-transform duration-200"
+          :class="expanded ? 'rotate-180' : ''"
+        ></div>
+      </button>
     </div>
   </div>
 </template>
