@@ -80,7 +80,10 @@
   (`songlist:mobileCols:<id>`);切回主播配置值时清掉覆盖、恢复「跟随主播设置」。
   tag 多的歌单(如 xiu 平均 4.5 个/首)宜保持 1 列,tag 少的可配 2 列;
   `DEFAULT_MOBILE_COLS` 是全局缺省值。切换会按当前可见歌曲序号重算 scrollY 防止跳变,
-  行高与 ROW_H 都不用动
+  行高与 ROW_H 都不用动。切换时的卡片宽度动画:行按 cols 重新切块、DOM 重建,
+  CSS transition 无法附着,改为对可见卡片统一跑 WAAPI「旧 cardW → 新 cardW」morph
+  (`morphCardWidths`),过渡期间 gridRef 临时 overflow:hidden 防横向滚动条,
+  prefers-reduced-motion 下跳过
 - 网格是等宽列,卡片宽度 `cardW = (mainW - (cols - 1) * GAP) / cols` 直接传给
   `SongCard` 算 tag 预算,**不做逐卡 DOM 测量**(虚拟滚动下避免几十个 ResizeObserver)
 - 卡片内的 remark 面板/视频图标等悬浮元素**不占布局高度**(绝对定位覆盖下一行,

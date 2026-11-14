@@ -302,6 +302,8 @@ async function toggleMobileCols() {
   const gridTop = grid ? grid.getBoundingClientRect().top + scrollY.value : 0
   const rel = Math.max(0, scrollY.value - gridTop)
   const firstSongIndex = rel > 0 ? Math.floor(rel / ROW_H) * cols.value : -1
+  // 卡片宽度动画的起点:列数变化前 cardW 即旧列宽
+  const prevCardW = cardW.value
 
   const next: 1 | 2 = mobileCols.value === 2 ? 1 : 2
   const followConfig = next === configuredMobileCols.value
@@ -320,6 +322,35 @@ async function toggleMobileCols() {
   if (grid && firstSongIndex >= 0) {
     window.scrollTo({ top: gridTop + Math.floor(firstSongIndex / cols.value) * ROW_H })
   }
+  morphCardWidths(prevCardW, cardW.value)
+}
+
+/* ---------- 列数切换的卡片宽度动画 ----------
+ * 行按 cols 重新切块,行 key 变化导致 DOM 重建,CSS transition/TransitionGroup 都无从附着
+ * (虚拟滚动下 FLIP 不可行,同打乱顺序的处理思路)。但新旧宽度只是 cardW 的两个计算值,
+ * 所以切换完成后对当前可见卡片统一跑一次 WAAPI「旧宽 → 新宽」:所有卡片(含重建的)
+ * 同步 morph,不需要逐卡识别。单→双时卡片以旧宽(整行宽)为起点会横向超出网格,
+ * 过渡期间给 gridRef 加 overflow:hidden 裁掉,避免横向滚动条闪现。 */
+let colsMorphAnims: Animation[] = []
+function morphCardWidths(from: number, to: number) {
+  colsMorphAnims.forEach((a) => a.cancel())
+  colsMorphAnims = []
+  const grid = gridRef.value
+  if (!grid || !from || !to || from === to) return
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  const cards = [...grid.querySelectorAll<HTMLElement>('.song-card')]
+  if (!cards.length) return
+  grid.style.overflow = 'hidden'
+  colsMorphAnims = cards.map((el) =>
+    el.animate([{ width: `${from}px` }, { width: `${to}px` }], {
+      duration: 300,
+      easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // --ease-out
+    }),
+  )
+  // cancel 也会让 finished 进入 settled,正常结束与中途打断都从这里恢复裁切
+  Promise.allSettled(colsMorphAnims.map((a) => a.finished)).then(() => {
+    grid.style.overflow = ''
+  })
 }
 
 const mobileColsTitle = computed(() =>
