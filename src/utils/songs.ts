@@ -1,6 +1,6 @@
 import type { Song } from '@/types'
 
-/** tag 类字段(genre/lang)的值分隔符:中英文分号、中英文逗号、顿号、斜杠 */
+/** genre 的值分隔符:中英文分号、中英文逗号、顿号、斜杠 */
 const SPLIT_RE = /[;；,，、\/]/
 
 /** 按分隔符拆分、去空、去重(同一首歌内重复的值只计一次) */
@@ -17,9 +17,13 @@ export function songTags(song: Song): string[] {
   return splitValues(song.genre)
 }
 
-/** 语种:与 genre 同一套分隔符,多语种歌曲(如「国语/日语」)拆成多个可筛选 tag */
+/** 语种:分隔符比 genre 多支持「+」(qiyu 数据的「闽南话+国语」),多语种歌拆成多个可筛选 tag */
 export function songLangs(song: Song): string[] {
-  return splitValues(song.lang)
+  return [...new Set(
+    (typeof song.lang === 'string' ? song.lang.split(/[;；,，、\/+＋]/) : [])
+      .map((s) => s.trim())
+      .filter(Boolean),
+  )]
 }
 
 /**
