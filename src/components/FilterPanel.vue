@@ -19,20 +19,23 @@ const emit = defineEmits<{
 }>()
 
 /* 窄屏 tag 折叠:tag 种类多的主播(shiro/xiu 29 种)全量换行铺开会占近半屏,
- * 默认只显示前 3 行,底部渐变提示 + 展开按钮;桌面侧栏(≥1024px)空间充足不折叠 */
+ * 默认只显示前 3 行,底部渐变提示 + 展开按钮;桌面侧栏(≥1024px)空间充足不折叠。
+ * 展开/收起做 max-height 过渡:收起恒为 106px,展开为实测内容高度,px→px 可平滑动画 */
 const COLLAPSED_H = 106 // 3 行 tag(30px×3 + 间距 8px×2)
 const expanded = ref(false)
 const overflow = ref(false)
+const contentH = ref(COLLAPSED_H) // 全量内容高度(scrollHeight,收起状态下也能测到)
 const listEl = ref<HTMLElement | null>(null)
 const desktopMq =
   typeof window !== 'undefined' ? window.matchMedia('(min-width: 1024px)') : null
 
 function checkOverflow() {
+  if (listEl.value) contentH.value = listEl.value.scrollHeight
   if (desktopMq?.matches) {
     overflow.value = false
     return
   }
-  overflow.value = !!listEl.value && listEl.value.scrollHeight > COLLAPSED_H + 1
+  overflow.value = !!listEl.value && contentH.value > COLLAPSED_H + 1
 }
 
 // tag 数量、视口宽度都会影响折叠判定;选中 tag 时自动展开(方便看到选中上下文),取消后不强制收起
@@ -83,8 +86,8 @@ onUnmounted(() => {
       <div class="relative">
         <div
           ref="listEl"
-          class="flex flex-wrap gap-8px"
-          :style="!expanded && overflow ? { maxHeight: `${COLLAPSED_H}px`, overflow: 'hidden' } : undefined"
+          class="flex flex-wrap gap-8px overflow-hidden transition-[max-height] duration-300 ease-out"
+          :style="{ maxHeight: `${expanded || !overflow ? contentH : COLLAPSED_H}px` }"
         >
           <TagPill
             v-for="tag in tags"
@@ -96,15 +99,17 @@ onUnmounted(() => {
           />
         </div>
         <!-- 收起时被裁断的行用渐变隐去,提示下方还有更多 -->
-        <div
-          v-if="!expanded && overflow"
-          class="pointer-events-none absolute left-0 right-0 bottom-0 h-28px bg-gradient-to-t from-[rgb(var(--bg-card))] to-transparent"
-        ></div>
+        <Transition name="fade">
+          <div
+            v-if="!expanded && overflow"
+            class="pointer-events-none absolute left-0 right-0 bottom-0 h-28px bg-gradient-to-t from-[rgb(var(--bg-card))] to-transparent"
+          ></div>
+        </Transition>
       </div>
       <button
         v-if="overflow"
         type="button"
-        class="mt-6px flex items-center gap-4px text-12px text-brand-strong cursor-pointer"
+        class="mt-6px mx-auto flex items-center justify-center gap-4px text-12px text-brand-strong cursor-pointer"
         @click="expanded = !expanded"
       >
         {{ expanded ? '收起标签' : `展开全部标签(${tags.length})` }}

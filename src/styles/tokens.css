@@ -33,6 +33,11 @@
 
   --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
   --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  /* 动效时长(此前 .bar 过渡引用了未定义的 --motion-mid,动画实际失效) */
+  --motion-fast: 0.15s;
+  --motion-mid: 0.25s;
+  --motion-slow: 0.35s;
 }
 
 .dark {
@@ -158,4 +163,45 @@ dd {
 }
 .toast-move {
   transition: transform 0.2s var(--ease-out);
+}
+
+/* 弹窗进出场:遮罩淡入淡出,内容卡片轻微上浮缩放(配合 <Transition name="modal">) */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity var(--motion-mid) var(--ease-out);
+}
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+.modal-enter-active .modal-panel {
+  animation: modal-in var(--motion-mid) var(--ease-out);
+}
+.modal-leave-active .modal-panel {
+  transform: scale(0.96) translateY(6px);
+  transition: transform var(--motion-mid) var(--ease-out);
+}
+@keyframes modal-in {
+  from {
+    opacity: 0.6;
+    transform: scale(0.94) translateY(10px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal-enter-active .modal-panel {
+    animation: none;
+  }
+  .modal-leave-active .modal-panel {
+    transform: none;
+  }
+}
+
+/* 通用渐隐(筛选面板收起渐变提示等) */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--motion-mid) var(--ease-out);
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

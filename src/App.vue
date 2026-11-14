@@ -160,6 +160,8 @@ function countBy(get: (s: Song) => string | string[]): Array<[string, number]> {
 // 「未知」是数据里的字面值(卡片上照常显示),但不作为可筛选的 tag
 const languages = computed(() => countBy((s) => s.lang).filter(([name]) => name && name !== '未知'))
 const genres = computed(() => countBy((s) => songTags(s)).filter(([name]) => name && name !== '未知'))
+/** 卡片 genre tag 用的全站计数:卡片上的 tag 按出现次数降序展示 */
+const genreCounts = computed(() => new Map(genres.value))
 
 /** 是否付费/SC 歌曲:「付费」「免费」筛选与计数共用 */
 const isPaid = (s: Song) => !!s.paid || (!!s.sc && Number(s.sc) > 0)
@@ -416,14 +418,18 @@ const dataMeta = computed(
   <LandingPage v-if="isLanding" />
 
   <div v-else class="min-h-screen">
-    <!-- 移动端吸顶栏 -->
+    <!-- 移动端吸顶栏:标题+副标题两行(无副标题时 min-h 兜底 52px,与 MOBILE_BAR_TOP 对应) -->
     <div class="lg:hidden sticky top-0 z-50 bg-[rgb(var(--bg-card)/0.9)] backdrop-blur-xl border-b border-border">
-        <div class="flex items-center justify-between gap-12px px-16px h-52px">
+        <div class="flex items-center justify-between gap-12px px-16px min-h-52px py-8px">
           <div class="flex items-center gap-8px min-w-0">
             <!-- 随唱片机节奏旋转;容器背景垫底、加载失败降级由 AvatarImage 统一处理 -->
             <AvatarImage :uid="meta.uid" :avatar="meta.avatar" :avatar-manual="meta.avatarManual"
               icon-class="text-14px" class="bar-avatar w-28px h-28px" />
-            <h1 class="text-17px lh-24px font-bold text-text-primary truncate">{{ meta.title }}</h1>
+            <div class="min-w-0">
+              <h1 class="text-15px lh-20px font-bold text-text-primary truncate">{{ meta.title }}</h1>
+              <p v-if="meta.subtitle"
+                class="text-11px lh-14px mt-2px text-text-secondary truncate">{{ meta.subtitle }}</p>
+            </div>
           <span v-if="dataStatus === 'ready'" class="shrink-0 text-12px text-text-secondary">共 {{ songs.length }}
             首</span>
         </div>
@@ -509,7 +515,7 @@ const dataMeta = computed(
               <div v-for="(row, ri) in visibleRows" :key="row[0].id" class="grid gap-16px mb-16px"
                 :style="{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }">
                 <SongCard v-for="(song, ci) in row" :key="song.id"
-                  v-bind="{ song, no: (firstVisible + ri) * cols + ci + 1, highlighted: song.id === highlightId, cardWidth: cardW, style: { '--i': (ri * 2 + ci) % 8 } }"
+                  v-bind="{ song, no: (firstVisible + ri) * cols + ci + 1, highlighted: song.id === highlightId, cardWidth: cardW, tagCounts: genreCounts, style: { '--i': (ri * 2 + ci) % 8 } }"
                   @order="orderSong" />
               </div>
             </div>
@@ -530,8 +536,12 @@ const dataMeta = computed(
               制作:
               <a href="https://space.bilibili.com/23598218" target="_blank" rel="noopener noreferrer"
                 class="text-brand-strong hover:underline underline-offset-2px">归墟丶</a>
-              · with GLM-5.3-Flash · 
-              <a href="/" class="text-brand-strong hover:underline underline-offset-2px">关于本站</a> · 特别鸣谢:
+              · with GLM-5.3-Flash ·
+              <a href="/" class="text-brand-strong hover:underline underline-offset-2px">关于本站</a>
+            </p>
+            <!-- 特别鸣谢单独一行:与制作信息同行时手机端会挤换行 -->
+            <p class="mt-4px">
+              特别鸣谢:
               <a href="https://space.bilibili.com/94843915" target="_blank" rel="noopener noreferrer"
                 class="text-brand-strong hover:underline underline-offset-2px">来只奶茶</a>
             </p>

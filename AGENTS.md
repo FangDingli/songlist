@@ -154,7 +154,10 @@
   完整放得下的 tag,剩余折成「+N」(title 有全量列表);tag 区 `flex-wrap` +
   `h-20px` + `overflow-hidden` 兜底,桌面 5 列(约 257px)也不会出现半截 tag。
   不设写死数量上限,手机单列(约 358px)放得下就照常全显示;
-  卡片高度(90px)与虚拟滚动常量不变
+  卡片高度(90px)与虚拟滚动常量不变。
+  卡片 genre tag 按全站出现次数降序展示(App 传 `tagCounts` 计数表;
+  计数相同保持数据原序,稳定不跳变)。动效时长变量在 tokens.css
+  (`--motion-fast/mid/slow`),弹窗开合用全局 `Transition name="modal"`
 - `FilterPanel.vue` 窄屏 tag 折叠:tag 种类多的主播(shiro/xiu 各 29 种)全量换行
   会占近半屏,窄屏默认只显示前 3 行(106px = 30px×3 + 8px×2),底部渐变提示 +
   「展开全部标签(N)」按钮;选中 tag 自动展开(取消后不强制收起);

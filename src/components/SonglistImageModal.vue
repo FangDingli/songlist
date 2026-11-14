@@ -104,13 +104,14 @@ function clearBgImage() {
 </script>
 
 <template>
-  <div
-    v-if="open"
-    class="fixed inset-0 z-90 bg-black/45 flex-center p-16px"
-    @click.self="emit('close')"
-  >
-    <div class="surface-card p-24px w-full max-w-440px flex flex-col gap-12px max-h-85vh overflow-y-auto">
-      <h3 class="text-16px font-bold text-text-primary">生成图片歌单</h3>
+  <Transition name="modal">
+    <div
+      v-if="open"
+      class="fixed inset-0 z-90 bg-black/45 flex-center p-16px"
+      @click.self="emit('close')"
+    >
+      <div class="modal-panel surface-card p-24px w-full max-w-440px flex flex-col gap-12px max-h-85vh overflow-y-auto">
+        <h3 class="text-16px font-bold text-text-primary">生成图片歌单</h3>
       <p class="text-12px text-text-secondary -mt-4px">
         全量歌名排成长图,自动分页,可直接发动态
       </p>
@@ -185,6 +186,7 @@ function clearBgImage() {
         </button>
         <button type="button" class="btn-soft" @click="emit('close')">关闭</button>
       </div>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>

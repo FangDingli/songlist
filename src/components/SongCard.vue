@@ -10,6 +10,8 @@ const props = defineProps<{
   highlighted?: boolean
   /** 卡片实际宽度(px,由虚拟滚动按容器宽与列数算出);0 表示首帧尚未测量 */
   cardWidth?: number
+  /** 全站 genre tag 计数:卡片 tag 按出现次数降序展示(缺省保持数据原序) */
+  tagCounts?: Map<string, number>
 }>()
 
 const emit = defineEmits<{
@@ -65,7 +67,16 @@ function colorStyle(key: string) {
  * 完整列表放在 title 里。宽度由 App.vue 传入(网格等宽列),纯计算不测 DOM,
  * 虚拟滚动下零额外开销;tag 区再以整行换行裁切做兜底,杜绝半截 tag。
  */
-const allTags = computed(() => songTags(props.song))
+const allTags = computed(() => {
+  const tags = songTags(props.song)
+  const counts = props.tagCounts
+  if (!counts) return tags
+  // 按全站出现次数降序;计数相同的保持数据原序(map 是稳定排序),避免卡片间跳动
+  return tags
+    .map((tag, i) => ({ tag, i, count: counts.get(tag) ?? 0 }))
+    .sort((a, b) => b.count - a.count || a.i - b.i)
+    .map((x) => x.tag)
+})
 
 const MAX_TAGS = 8 // 防御异常数据(一首歌几十个 tag),正常歌单达不到
 const CARD_INSET = 38 // song-card 左右各 p-18px + 1px 边框

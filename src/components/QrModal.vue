@@ -118,12 +118,13 @@ function showGenerateError() {
 </script>
 
 <template>
-  <div
-    v-if="open"
-    class="fixed inset-0 z-90 bg-black/45 flex-center p-16px"
-    @click.self="emit('close')"
-  >
-    <div class="surface-card p-24px flex flex-col items-center gap-12px w-full max-w-520px">
+  <Transition name="modal">
+    <div
+      v-if="open"
+      class="fixed inset-0 z-90 bg-black/45 flex-center p-16px"
+      @click.self="emit('close')"
+    >
+      <div class="modal-panel surface-card p-24px flex flex-col items-center gap-12px w-full max-w-520px">
       <h3 class="text-16px font-bold text-text-primary">{{ title }}</h3>
       <div class="relative w-full flex justify-center">
         <!-- qrcode 的 toCanvas 会写内联 style width/height(渲染尺寸),必须用 !important
@@ -154,6 +155,7 @@ function showGenerateError() {
         <button type="button" class="btn-soft" @click="emit('close')">关闭</button>
       </div>
       <p v-if="generateError" class="text-12px text-error">生成失败,请重试</p>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
