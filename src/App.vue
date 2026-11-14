@@ -7,7 +7,7 @@ import type { FilterTag, Song, StreamerMeta } from '@/types'
 import { DATA_BASE_URL, DEFAULT_STREAMER_ID, FALLBACK_META, dataUrl, formatOrder } from '@/config'
 import { getStreamerId } from '@/utils/streamer'
 import { applyStreamerTheme } from '@/utils/theme'
-import { songTags, withIds } from '@/utils/songs'
+import { songLangs, songTags, withIds } from '@/utils/songs'
 import SongCard from '@/components/SongCard.vue'
 import LandingPage from '@/components/LandingPage.vue'
 import FilterPanel from '@/components/FilterPanel.vue'
@@ -158,7 +158,7 @@ function countBy(get: (s: Song) => string | string[]): Array<[string, number]> {
 }
 
 // 「未知」是数据里的字面值(卡片上照常显示),但不作为可筛选的 tag
-const languages = computed(() => countBy((s) => s.lang).filter(([name]) => name && name !== '未知'))
+const languages = computed(() => countBy((s) => songLangs(s)).filter(([name]) => name && name !== '未知'))
 const genres = computed(() => countBy((s) => songTags(s)).filter(([name]) => name && name !== '未知'))
 /** 卡片 genre tag 用的全站计数:卡片上的 tag 按出现次数降序展示 */
 const genreCounts = computed(() => new Map(genres.value))
@@ -189,7 +189,7 @@ const filtered = computed(() => {
   const sel = selectedTag.value
   const byTag = songs.value.filter((song) => {
     if (!sel) return true
-    if (sel.kind === 'language') return song.lang === sel.name
+    if (sel.kind === 'language') return songLangs(song).includes(sel.name)
     if (sel.kind === 'genre') return songTags(song).includes(sel.name)
     if (sel.kind === 'paid') return isPaid(song)
     return !isPaid(song)

@@ -1,13 +1,25 @@
 import type { Song } from '@/types'
 
-/** 展示用 tag:genre 按分隔符拆分、去重;为空时返回空数组(纯歌名数据集不产生噪音) */
-export function songTags(song: Song): string[] {
-  const tags = [...new Set(
-    (typeof song.genre === 'string' ? song.genre.split(/[;；,，、\/]/) : [])
+/** tag 类字段(genre/lang)的值分隔符:中英文分号、中英文逗号、顿号、斜杠 */
+const SPLIT_RE = /[;；,，、\/]/
+
+/** 按分隔符拆分、去空、去重(同一首歌内重复的值只计一次) */
+function splitValues(value: unknown): string[] {
+  return [...new Set(
+    (typeof value === 'string' ? value.split(SPLIT_RE) : [])
       .map((s) => s.trim())
       .filter(Boolean),
   )]
-  return tags
+}
+
+/** 展示用 tag:genre 拆分;为空时返回空数组(纯歌名数据集不产生噪音) */
+export function songTags(song: Song): string[] {
+  return splitValues(song.genre)
+}
+
+/** 语种:与 genre 同一套分隔符,多语种歌曲(如「国语/日语」)拆成多个可筛选 tag */
+export function songLangs(song: Song): string[] {
+  return splitValues(song.lang)
 }
 
 /**
