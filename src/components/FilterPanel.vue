@@ -53,8 +53,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-14px">
-    <div class="relative">
+  <!-- 根可收缩(min-h-0):桌面侧栏限高时由外层卡片压缩,tag 容器(flex-1 min-h-0)内部滚动;
+       移动端父级不约束高度,这些 flex 属性均为无副作用的空操作 -->
+  <div class="flex flex-col gap-14px min-h-0">
+    <div class="relative shrink-0">
       <div
         class="i-carbon-search absolute left-14px top-1/2 -translate-y-1/2 text-brand text-16px pointer-events-none"
       ></div>
@@ -67,7 +69,7 @@ onUnmounted(() => {
       />
     </div>
 
-    <div class="flex gap-10px">
+    <div class="flex gap-10px shrink-0">
       <button type="button" class="btn-soft flex-1" @click="emit('shuffle')">
         <div class="i-carbon-shuffle text-15px"></div>
         打乱顺序
@@ -78,11 +80,13 @@ onUnmounted(() => {
       </button>
     </div>
 
-    <p class="text-12px text-text-secondary">
+    <p class="text-12px text-text-secondary shrink-0">
       {{ filteredCount === total ? `共 ${total} 首` : `筛选出 ${filteredCount} / ${total} 首` }}
     </p>
 
-    <div>
+    <!-- grow shrink(min-basis auto):桌面限高时填满剩余空间并内部滚动;不能用 flex-1(basis 0
+         会在高度不受限的移动端把容器压成 0) -->
+    <div class="grow shrink min-h-0 overflow-y-auto tag-scroll">
       <div class="relative">
         <div
           ref="listEl"

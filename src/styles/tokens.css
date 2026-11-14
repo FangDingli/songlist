@@ -124,6 +124,22 @@ dd {
   display: none;
 }
 
+/* 桌面侧栏 tag 容器独立滚动:平时无滚动条,窗口过矮溢出时出现细滚动条 */
+.tag-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--text-primary) / 0.25) transparent;
+}
+.tag-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.tag-scroll::-webkit-scrollbar-thumb {
+  background: rgb(var(--text-primary) / 0.25);
+  border-radius: 3px;
+}
+.tag-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* 打乱顺序:卡片错峰抖动入场,表现随机感(--i 为错峰序号) */
 .grid-shuffling .song-card {
   animation: card-shuffle 0.5s var(--ease-out) backwards;

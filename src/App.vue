@@ -481,10 +481,10 @@ const dataMeta = computed(
     </div>
 
     <div class="max-w-1720px mx-auto flex gap-24px p-16px md:p-24px">
-      <!-- 桌面侧栏 -->
+      <!-- 桌面侧栏:sticky 列限高视口,筛选卡可收缩,tag 容器内部滚动(窗口过矮时不超出屏幕) -->
       <aside v-if="dataStatus === 'ready'" class="hidden lg:block w-300px shrink-0">
-        <div class="sticky top-24px flex flex-col gap-24px">
-          <div class="surface-card p-24px relative flex flex-col items-center">
+        <div class="sticky top-24px flex flex-col gap-24px max-h-[calc(100vh-48px)]">
+          <div class="surface-card p-24px relative flex flex-col items-center shrink-0">
             <button type="button" class="theme-toggle absolute top-16px left-16px z-10" title="生成图片歌单"
               @click="showImageModal = true">
               <div class="i-carbon-image"></div>
@@ -505,8 +505,9 @@ const dataMeta = computed(
             <p class="mt-8px text-12px text-text-secondary">{{ dataMeta }}</p>
           </div>
 
-          <div class="surface-card p-20px">
-            <FilterPanel v-model:keyword="keyword" :tags="tags" :selected-tag="selectedTag" :total="songs.length"
+          <div class="surface-card p-20px flex flex-col min-h-0 overflow-hidden">
+            <FilterPanel class="min-h-0" :tags="tags" v-model:keyword="keyword"
+              :selected-tag="selectedTag" :total="songs.length"
               :filtered-count="filtered.length" @toggle-tag="toggleTag" @shuffle="shuffle" @random="randomPick" />
           </div>
         </div>
