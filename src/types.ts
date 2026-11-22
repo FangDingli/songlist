@@ -17,7 +17,7 @@ export interface Song {
   id: number
 }
 
-/** 主播个性化配置与数据,存于 public/data/<id>.json */
+/** 主播个性化配置,存于 data-local/streamers/<id>/config.json */
 export interface StreamerMeta {
   /** 页面标题(浏览器标签页 + 侧栏) */
   title: string

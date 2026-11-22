@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, shallowRef, watch, watchEffect } from 'vue'
 import { useElementSize, useWindowSize, useWindowScroll } from '@vueuse/core'
-import configRaw from '@/data/qiyuan-config.json?raw'
-import songsRaw from '@/data/qiyuan-songs.json?raw'
 import type { FilterTag, Song, StreamerMeta } from '@/types'
-import { DATA_BASE_URL, DEFAULT_STREAMER_ID, FALLBACK_META, dataUrl, formatOrder } from '@/config'
+import { DATA_BASE_URL, FALLBACK_META, dataUrl, formatOrder } from '@/config'
 import { getStreamerId } from '@/utils/streamer'
 import { applyStreamerTheme } from '@/utils/theme'
 import { songLangs, songTags, withIds } from '@/utils/songs'
@@ -31,17 +29,10 @@ const streamerId = ref<string | null>(getStreamerId())
 const isLanding = computed(() => streamerId.value === null)
 const meta = ref<StreamerMeta>({ ...FALLBACK_META })
 const songs = shallowRef<Song[]>([])
-// ready:数据就绪;loading:非默认主播拉取中;not-found:该主播没有数据
+// ready:数据就绪;loading:拉取中;not-found:该主播没有数据
 const dataStatus = ref<'loading' | 'ready' | 'not-found'>('loading')
 // 数据更新日期来自主播配置(meta.songsUpdatedAt),由转换脚本写入
 const updatedAt = computed(() => meta.value.songsUpdatedAt ?? '')
-
-// 默认主播使用打包内置数据,首屏零等待
-if (streamerId.value === DEFAULT_STREAMER_ID) {
-  meta.value = { ...FALLBACK_META, ...(JSON.parse(configRaw) as StreamerMeta) }
-  songs.value = withIds(JSON.parse(songsRaw))
-  dataStatus.value = 'ready'
-}
 
 /** 拉取 json:配置了数据源时优先,404/网络失败回落同源仓库文件(兜底) */
 async function fetchJson(path: string): Promise<unknown | null> {
@@ -82,7 +73,7 @@ async function loadStreamerData() {
     }
   }
   if (!config) {
-    if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
+    dataStatus.value = 'not-found'
     return
   }
   meta.value = { ...FALLBACK_META, ...config }
@@ -90,14 +81,14 @@ async function loadStreamerData() {
   // 歌曲:配置拿到了再拉,避免无效请求;两步任一失败按「没有找到主播」处理
   const songsRaw = await fetchJson(`/streamers/${id}/songs.json`)
   if (!songsRaw) {
-    if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
+    dataStatus.value = 'not-found'
     return
   }
   try {
     songs.value = withIds(songsRaw)
     dataStatus.value = 'ready'
   } catch {
-    if (dataStatus.value !== 'ready') dataStatus.value = 'not-found'
+    dataStatus.value = 'not-found'
   }
 }
 

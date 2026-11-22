@@ -1,11 +1,8 @@
 import type { Song, StreamerMeta } from '@/types'
 import { songTags } from '@/utils/songs'
 
-/** 默认主播:直接访问根路径时展示的主播 id,数据见 src/data/<id>.json(打包内置) */
-export const DEFAULT_STREAMER_ID = 'qiyuan'
-
 /**
- * 数据源基地址,拉取顺序:数据源 → 同源仓库文件(兜底) → 默认主播内置数据 → 「没有找到主播」。
+ * 数据源基地址,拉取顺序:数据源 → 同源仓库文件(兜底) → 「没有找到主播」。
  * 默认值内置在代码里(生产构建,避免 CI/异机构建漏配 env 导致线上无数据);
  * dev 模式走同源本地中间件,不依赖数据源;VITE_DATA_BASE_URL 可覆盖。
  */

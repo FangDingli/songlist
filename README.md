@@ -28,7 +28,7 @@ npm run deploy     # 构建并通过 wrangler 部署站点
 
 主播数据不进代码仓库,放在 `data-local/streamers/<id>/` 的 `config.json` + `songs.json`,
 由 `node scripts/publish.mjs` 发布到独立静态数据源(`VITE_DATA_BASE_URL`)。
-页面拉取顺序 = 数据源 → 同源仓库文件(兜底) → 默认主播内置数据 → 「没有找到主播」。
+页面拉取顺序 = 数据源 → 同源仓库文件(兜底) → 「没有找到主播」。
 
 ## 文档
 

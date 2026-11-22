@@ -43,8 +43,8 @@
   历史 qiyuan 数据里的 `style` 键已废弃不读(代码已移除相关逻辑,json 不回改)
 - 加新主播 = 在 `data-local/streamers/<id>/` 放入两个 json(+背景图)→ 跑
   `node scripts/publish.mjs`,无需提交代码仓库;详见 docs/deploy.md、docs/guide.md
-- 默认主播 `config.ts` 的 `DEFAULT_STREAMER_ID`(`qiyuan`,现移入 unavailable)
-  有打包内置数据(`src/data/qiyuan-config.json` + `qiyuan-songs.json`)首屏零等待
+- 没有打包内置数据、没有默认主播概念;所有主播都走静态 json 拉取,
+  未找到数据时显示「没有找到主播」空态(旧 `src/data/` 内置数据已删除)
 
 ## 技术栈与命令
 
@@ -52,16 +52,15 @@
 - `npm run dev` / `npm run build`(vue-tsc + vite build)/ `npm run preview` /
   `npm run deploy`(构建 + wrangler 部署)/ `npm run studio`(本地图形管理台)
 
-## 数据通道(三层,不使用 API/Worker,数据源为纯静态托管)
+## 数据通道(两层,不使用 API/Worker,数据源为纯静态托管)
 
 1. 数据源:`VITE_DATA_BASE_URL`(如 `https://data.vupsong.com`,写于
    `.env.production.local` 与 Pages 构建设置)下的
    `streamers/<id>/{config,songs}.json` 与入驻清单 `streamers.json`,
    由 `scripts/publish.mjs` 从 `data-local/` 直传发布
 2. 同源兜底:`public/streamers/<id>/…`(仓库内仅 example)
-3. 内置:默认主播数据打包(仅默认主播有首屏零等待)
 
-拉取顺序 = 数据源 → 同源 → 内置,全部失败显示「没有找到主播」空态;
+拉取顺序 = 数据源 → 同源,全部失败显示「没有找到主播」空态;
 本地开发不依赖数据源(vite 中间件把 `data-local/streamers` 以同源提供)。
 
 ## UnoCSS preflight 的三个坑(已在 tokens.css 兜底,新项目同样要防)

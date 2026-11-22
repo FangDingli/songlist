@@ -39,7 +39,7 @@ index.html」的 SPA 行为。CF Pages 在构建产物没有 404.html 时会自�
   并 wrangler 直传,代码仓库零提交、站点不重新构建。
 - **站点侧**:构建时注入环境变量 `VITE_DATA_BASE_URL=https://data.vupsong.com`
   (本地写在 `.env.production.local`,Cloudflare Pages 构建设置里配同名变量);
-  拉取顺序 = 数据源 → 同源仓库文件(兜底) → 默认主播内置数据 → 「没有找到主播」。
+  拉取顺序 = 数据源 → 同源仓库文件(兜底) → 「没有找到主播」。
 - **本地开发**:不依赖数据源。vite dev 中间件把 `data-local/streamers` 以同源
   `/streamers/*` 提供(含动态生成的 `streamers.json`)。
 - **新增主播**:在 `data-local/streamers/` 建目录放入两个 json → 跑发布脚本即可,

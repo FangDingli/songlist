@@ -28,7 +28,7 @@ export function songLangs(song: Song): string[] {
 
 /**
  * 给歌曲数据补上运行时 id(行序,1 起)。
- * 接受打包内置或远端拉取的原样 JSON,结构不符或无有效条目时抛错。
+ * 接受远端拉取的原样 JSON,结构不符或无有效条目时抛错。
  */
 export function withIds(raw: unknown): Song[] {
   if (!Array.isArray(raw)) throw new Error('歌曲数据应为数组')

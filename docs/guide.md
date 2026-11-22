@@ -137,11 +137,9 @@
 ```
 src/
   App.vue                       # 编排:主播识别/数据加载/背景层/侧栏/虚拟滚动/弹窗/Toast
-  config.ts                     # 默认主播 id、数据源地址、兜底 meta、口令渲染
+  config.ts                     # 数据源地址、兜底 meta、口令渲染
   types.ts                      # Song / StreamerMeta / FilterTag
   main.ts                       # 入口(uno.css + tokens.css,禁用滚动位置恢复)
-  data/qiyuan-config.json       # 默认主播打包配置(仅默认主播首屏零等待)
-  data/qiyuan-songs.json        # 默认主播打包歌曲
   utils/
     streamer.ts                 # 从路径解析主播 id(支持中文)
     songs.ts                    # withIds() 运行时编号、songTags() 拆分 genre
