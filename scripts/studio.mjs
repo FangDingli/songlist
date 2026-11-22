@@ -4,12 +4,13 @@
  *
  * 功能:
  * - 主播列表(data-local/streamers/*):生成 excel / excel 转 json / 打开数据目录
+ * - songlist.cc 抓取/更新:输入地址新建,已存在主播自动切更新(备份 + 保留手工配置)
  * - 2some 抓取:输入站点 slug 在线拉歌单
  * - 全局操作:发布数据源(publish.mjs) / 构建并部署站点(npm run deploy)
  * - 脚本以仓库根为 cwd 子进程执行,日志经 SSE 实时流到页面(同时并发的任务按 id 区分)
  */
 import { spawn } from 'node:child_process'
-import { existsSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { createServer } from 'node:http'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -61,14 +62,24 @@ function runJob(name, args = []) {
   })
 }
 
+/** songlist.cc 抓取时记录的来源,供列表里的「一键更新」复用(不进发布目录) */
+function readSources() {
+  try {
+    return JSON.parse(readFileSync(resolve(ROOT, 'data-local/songlistcc-sources.json'), 'utf8'))
+  } catch {
+    return {}
+  }
+}
+
 function listStreamers() {
   const dir = resolve(ROOT, 'data-local/streamers')
   if (!existsSync(dir)) return []
+  const sources = readSources()
   return readdirSync(dir, { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => {
       const has = (f) => existsSync(resolve(dir, e.name, f))
-      return { id: e.name, config: has('config.json'), songs: has('songs.json') }
+      return { id: e.name, config: has('config.json'), songs: has('songs.json'), source: sources[e.name] ?? null }
     })
 }
 
@@ -116,10 +127,12 @@ const PAGE = `<!doctype html>
     <button onclick="run('2some-to-json.mjs', [document.getElementById('slug').value.trim(), document.getElementById('slugId').value.trim()].filter(Boolean))">2some 抓取</button>
   </div>
   <div class="row" style="margin-top:10px">
-    <input id="slAddr" style="flex:1;min-width:260px" placeholder="songlist.cc 地址,如 shio.songlist.cc 或 bot.starlwr.com/songlist?uid=xxx"/>
-    <input id="slId" placeholder="主播 id(可留空,默认取子域名)" style="width:190px"/>
-    <button onclick="run('songlistcc-fetch-to-json.mjs', [document.getElementById('slAddr').value.trim(), document.getElementById('slId').value.trim()].filter(Boolean))">songlist.cc 抓取</button>
+    <input id="slAddr" style="flex:1;min-width:260px" placeholder="songlist.cc 地址,如 shio.songlist.cc 或 bot.starlwr.com/songlist?uid=xxx" oninput="updateFetchHint()"/>
+    <input id="slId" placeholder="主播 id(可留空,默认取子域名)" style="width:190px" oninput="updateFetchHint()"/>
+    <button id="slBtn" onclick="runSonglistcc()">songlist.cc 抓取</button>
+    <label class="muted" style="font-size:12px"><input type="checkbox" id="slKeep" checked style="width:auto" onchange="updateFetchHint()"/> 保留本地站点配置</label>
   </div>
+  <div id="slHint" class="muted" style="font-size:12px;margin-top:6px"></div>
 </div>
 
 <div class="card">
@@ -135,6 +148,9 @@ const PAGE = `<!doctype html>
 <script>
 const logEl = document.getElementById('log')
 let running = false
+let streamerIds = []
+/** 拼 onclick 里的字符串参数(主播 id 允许中文,但引号/反斜杠要转义) */
+function jsq(v) { return "'" + String(v).replace(/\\\\/g, '\\\\\\\\').replace(/'/g, "\\\\'") + "'" }
 function append(line, jobId) {
   if (logEl.firstChild?.classList?.contains('muted')) logEl.textContent = ''
   logEl.textContent += line + '\\n'
@@ -142,6 +158,7 @@ function append(line, jobId) {
 }
 async function refresh() {
   const list = await (await fetch('/api/streamers')).json()
+  streamerIds = list.map((s) => s.id)
   const tb = document.querySelector('#streamers tbody')
   tb.innerHTML = ''
   for (const s of list) {
@@ -152,9 +169,11 @@ async function refresh() {
       '<button onclick="run(\\'json-to-excel.mjs\\', [\\'' + s.id + '\\'])">生成 excel</button>' +
       '<button onclick="exportExcel(\\'' + s.id + '\\')">excel 转 json</button>' +
       '<button onclick="openDir(\\'' + s.id + '\\')">打开目录</button>' +
+      (s.source ? '<button onclick="updateFromSource(' + jsq(s.id) + ')">songlist.cc 更新</button>' : '') +
       '</div></td>'
     tb.appendChild(tr)
   }
+  updateFetchHint()
 }
 function setRunning(v) {
   running = v
@@ -180,11 +199,50 @@ function exportExcel(id) {
   run('excel-to-json.mjs', ['data-local/streamers/' + id + '/' + id + '.xlsx', id])
 }
 async function openDir(id) { await fetch('/api/open-dir', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) }) }
+/** 抓取框:id 可手填,否则按地址子域名推断;已存在则切到「更新」模式(脚本会先备份) */
+function guessSonglistId() {
+  const explicit = document.getElementById('slId').value.trim()
+  if (explicit) return explicit
+  const raw = document.getElementById('slAddr').value.trim()
+  if (!raw) return ''
+  return raw.replace(/^[a-z]+:\\/\\//i, '').split(/[/?#]/)[0].split('.')[0]
+}
+function updateFetchHint() {
+  const id = guessSonglistId()
+  const exists = !!id && streamerIds.includes(id)
+  document.getElementById('slBtn').textContent = exists ? '抓取并更新' : 'songlist.cc 抓取'
+  document.getElementById('slHint').textContent = exists
+    ? '主播「' + id + '」已存在:更新 songs.json 前会自动备份,' +
+      (document.getElementById('slKeep').checked ? '本地站点配置保持不变。' : '远端站点配置会覆盖本地背景图/口令等手工设置。')
+    : ''
+}
+async function runSonglistcc() {
+  const addr = document.getElementById('slAddr').value.trim()
+  const id = document.getElementById('slId').value.trim()
+  if (!addr) return alert('请填写 songlist.cc 地址')
+  const exists = streamerIds.includes(guessSonglistId())
+  if (exists && !confirm('更新「' + guessSonglistId() + '」的本地数据?\\n更新前会自动备份,更新后还需点「发布数据源」上线。')) return
+  const args = [addr]
+  if (id) args.push(id)
+  if (exists) args.push('--update')
+  if (!document.getElementById('slKeep').checked) args.push('--sync-config')
+  await run('songlistcc-fetch-to-json.mjs', args)
+}
+/** 列表里的「songlist.cc 更新」:复用抓取时记录的地址,默认只更新歌曲、保留手工配置 */
+async function updateFromSource(id) {
+  const list = await (await fetch('/api/streamers')).json()
+  const s = list.find((x) => x.id === id)
+  if (!s?.source) return alert('没有记录该主播的 songlist.cc 来源,请在上方输入地址更新')
+  if (!confirm('从 songlist.cc 更新「' + id + '」的歌曲数据?\\n更新前会自动备份,本地站点配置保持不变。')) return
+  const addr = s.source.host + (s.source.uid ? '?uid=' + s.source.uid : '')
+  await run('songlistcc-fetch-to-json.mjs', [addr, id, '--update'])
+}
 const es = new EventSource('/api/events')
 es.onmessage = (e) => {
   const { jobId, line } = JSON.parse(e.data)
   append(line, jobId)
-  if (line.startsWith('✓') || line.startsWith('✗')) setRunning(false)
+  if (line.startsWith('✓')) { setRunning(false); refresh() }
+  else if (line.startsWith('✗')) setRunning(false)
 }
 refresh()
 </script>

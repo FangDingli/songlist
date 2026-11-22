@@ -77,7 +77,7 @@ onUnmounted(() => {
       <input
         type="search"
         :value="keyword"
-        placeholder="搜索歌名、歌手..."
+        placeholder="搜索歌名、歌手、编号..."
         class="w-full h-36px px-10px pl-30px rounded-lg bg-[rgb(var(--bg-base))] text-13px text-text-primary outline-none transition-shadow duration-200 placeholder:text-text-secondary focus:shadow-[0_0_0_2px_rgb(var(--brand)/0.4)]"
         @input="emit('update:keyword', ($event.target as HTMLInputElement).value)"
       />

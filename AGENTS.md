@@ -153,6 +153,12 @@
   入口在侧栏头像卡与移动端顶栏。二维码:`QrModal.vue`(qrcode,H 级纠错,头像居中)
 - 管理台:`npm run studio` → `scripts/studio.mjs`,仅监听 127.0.0.1:5199、不做鉴权,
   可视化跑 excel 转换 / songlist.cc 与 2some 抓取 / 发布数据源 / 构建部署,日志走 SSE
+- songlist.cc 更新:抓取 id 已存在时管理台自动切成「抓取并更新」(脚本默认拒绝覆盖,
+  必须显式 `--update`)。更新前旧文件备份到 `data-local/backups/<id>/<时间戳>/`,
+  默认只刷 `songs.json` + `songsUpdatedAt`、保留本地手工 config(背景图/口令/别名等),
+  勾掉「保留本地站点配置」才传 `--sync-config` 用远端配置覆盖。抓取来源记在
+  `data-local/songlistcc-sources.json`(不发布),列表据此给对应主播显示「songlist.cc 更新」
+  一键按钮;更新后仍要手动点「发布数据源」才会上线
 - 首页「入驻主播」板块限高独立滚动,卡片 `target="_blank" rel="noopener noreferrer"`
   新标签打开;板块随主播数量增长不再把首页撑长
 - `SongCard.vue` 的 genre tag 按 `App.vue` 传入的 `cardWidth` 做宽度预算,只渲染

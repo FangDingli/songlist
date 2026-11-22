@@ -175,8 +175,8 @@ function matchKeyword(song: Song, kw: string): boolean {
   return song.title.toLowerCase().includes(kw) || song.singer.toLowerCase().includes(kw)
 }
 
-const filtered = computed(() => {
-  // 先按 tag 筛选并应用随机序,得到「当前编号」;编号搜索按此编号匹配
+/** 标签筛选 + 随机序后的「当前列表」:卡片编号与数字搜索都以此为准 */
+const ordered = computed(() => {
   const sel = selectedTag.value
   const byTag = songs.value.filter((song) => {
     if (!sel) return true
@@ -185,18 +185,23 @@ const filtered = computed(() => {
     if (sel.kind === 'paid') return isPaid(song)
     return !isPaid(song)
   })
-  const ordered = shuffled.value
+  return shuffled.value
     ? [...byTag].sort((a, b) => (randomRank.value.get(a.id) ?? 0) - (randomRank.value.get(b.id) ?? 0))
     : byTag
+})
 
+/** 当前编号映射:关键词只筛列表、不改编号,否则搜 18 出来显示 01,观众没法确认找的就是 18 号 */
+const numberById = computed(() => new Map(ordered.value.map((song, i) => [song.id, i + 1])))
+
+const filtered = computed(() => {
   const kw = keyword.value.trim().toLowerCase()
-  if (!kw) return ordered
-  // 纯数字(≤4 位):同时匹配「当前列表编号」与歌名/歌手,输入 18 即点 18 号
+  if (!kw) return ordered.value
+  // 纯数字(≤4 位):同时匹配「当前列表编号」与歌名/歌手,输入 18 即定位 18 号
   if (/^\d{1,4}$/.test(kw)) {
     const no = Number(kw)
-    return ordered.filter((song, i) => i + 1 === no || matchKeyword(song, kw))
+    return ordered.value.filter((song, i) => i + 1 === no || matchKeyword(song, kw))
   }
-  return ordered.filter((song) => matchKeyword(song, kw))
+  return ordered.value.filter((song) => matchKeyword(song, kw))
 })
 
 const hasActiveFilters = computed(() => keyword.value.trim() !== '' || selectedTag.value !== null)
@@ -538,7 +543,7 @@ const dataMeta = computed(
               <div v-for="(row, ri) in visibleRows" :key="row[0].id" class="grid gap-16px mb-16px"
                 :style="{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }">
                 <SongCard v-for="(song, ci) in row" :key="song.id"
-                  v-bind="{ song, no: (firstVisible + ri) * cols + ci + 1, highlighted: song.id === highlightId, cardWidth: cardW, tagCounts: genreCounts, style: { '--i': (ri * 2 + ci) % 8 } }"
+                  v-bind="{ song, no: numberById.get(song.id) ?? 0, highlighted: song.id === highlightId, cardWidth: cardW, tagCounts: genreCounts, style: { '--i': (ri * 2 + ci) % 8 } }"
                   @order="orderSong" />
               </div>
             </div>
